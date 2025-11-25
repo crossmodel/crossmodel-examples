@@ -1,0 +1,22 @@
+entity:
+    id: Product
+    name: "Product"
+    attributes:
+      - id: ProductID
+        name: "ProductID"
+        datatype: "Integer"
+      - id: EANCode
+        name: "EANCode"
+        datatype: "Text"
+      - id: Description
+        name: "Description"
+        datatype: "Text"
+      - id: ItemPrice
+        name: "ItemPrice"
+        datatype: "Decimal"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ProductID

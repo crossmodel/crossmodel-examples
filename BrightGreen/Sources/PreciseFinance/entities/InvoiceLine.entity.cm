@@ -1,0 +1,29 @@
+entity:
+    id: INVOICELINE
+    name: "InvoiceLine"
+    attributes:
+      - id: INVOICENO
+        name: "InvoiceNo"
+        datatype: "Integer"
+      - id: INVOICELINENO
+        name: "InvoiceLineNo"
+        datatype: "Integer"
+      - id: LINEDESCRIPTION
+        name: "LineDescription"
+        datatype: "Text"
+      - id: PRICE
+        name: "Price"
+        datatype: "Decimal"
+      - id: VAT
+        name: "VAT"
+        datatype: "Decimal"
+      - id: QUANTITY
+        name: "Quantity"
+        datatype: "Integer"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - INVOICENO
+          - INVOICELINENO

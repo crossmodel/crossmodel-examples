@@ -1,0 +1,22 @@
+entity:
+    id: SalesOrder
+    name: "SalesOrder"
+    attributes:
+      - id: SalesOrderID
+        name: "SalesOrderID"
+        datatype: "Integer"
+      - id: OrderDate
+        name: "OrderDate"
+        datatype: "Date"
+      - id: CustomerID
+        name: "CustomerID"
+        datatype: "Integer"
+      - id: OrderStatus
+        name: "OrderStatus"
+        datatype: "Text"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - SalesOrderID

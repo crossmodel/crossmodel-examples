@@ -1,0 +1,10 @@
+datamodel:
+    id: example-dwh
+    name: "Example DWH"
+    type: logical
+    version: 1.0.0
+    dependencies:
+      - datamodel: JuiceERP
+        version: 1.0.0
+      - datamodel: PreciseFinance
+        version: 1.0.0
