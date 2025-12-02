@@ -1,0 +1,20 @@
+entity:
+    id: Customer
+    name: "Customer"
+    description: "Customers"
+    attributes:
+      - id: CustomerID
+        name: "CustomerID"
+        datatype: "Integer"
+      - id: CustomerName
+        name: "CustomerName"
+        datatype: "Text"
+      - id: DateOfBirth
+        name: "DateOfBirth"
+        datatype: "Date"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - CustomerID

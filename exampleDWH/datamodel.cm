@@ -1,0 +1,11 @@
+datamodel:
+    id: exampleDWH
+    name: "exampleDWH"
+    description: "Example DWH model"
+    type: logical
+    version: 1.0.0
+    dependencies:
+      - datamodel: MySimpleSalesSystem
+        version: 1.0.0
+      - datamodel: OpenPim
+        version: 1.0.0

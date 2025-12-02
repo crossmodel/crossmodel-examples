@@ -1,0 +1,18 @@
+mapping:
+    id: MappingFromSimpleSales
+    sources:
+      - id: CustomerSourceObject
+        entity: MySimpleSalesSystem.Customer
+        join: from
+    target:
+        entity: Customer
+        mappings:
+          - attribute: CustomerID
+            sources:
+              - CustomerSourceObject.CustomerID
+          - attribute: CustomerName
+            sources:
+              - CustomerSourceObject.CustomerName
+          - attribute: DateOfBirth
+            sources:
+              - CustomerSourceObject.DateOfBirth
