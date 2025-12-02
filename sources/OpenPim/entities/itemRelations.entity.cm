@@ -1,0 +1,63 @@
+entity:
+  id: itemRelations
+  name: "Item Relations"
+  description: "Relationships between items"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: itemId
+      name: "Item ID"
+      datatype: "Integer"
+    - id: itemIdentifier
+      name: "Item Identifier"
+      datatype: "Text"
+      length: 250
+    - id: relationId
+      name: "Relation ID"
+      datatype: "Integer"
+    - id: relationIdentifier
+      name: "Relation Identifier"
+      datatype: "Text"
+      length: 250
+    - id: targetId
+      name: "Target ID"
+      datatype: "Integer"
+    - id: targetIdentifier
+      name: "Target Identifier"
+      datatype: "Text"
+      length: 250
+    - id: values
+      name: "Values"
+      datatype: "Text"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+  identifiers:
+    - id: itemRelationsPrimaryKey
+      name: "Item Relations Primary Key"
+      primary: true
+      attributes:
+        - ^id

@@ -1,0 +1,13 @@
+relationship:
+  id: attributes_lovs
+  name: "Attributes to List of Values"
+  description: "Links attributes to their list of values"
+  parent: lovs
+  parentRole: "list of values"
+  parentCardinality: 0..1
+  child: ^attributes
+  childRole: "attribute"
+  childCardinality: 0..N
+  attributes:
+    - parent: lovs.^id
+      child: ^attributes.lov

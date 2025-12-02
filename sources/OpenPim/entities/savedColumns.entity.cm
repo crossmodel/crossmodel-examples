@@ -1,0 +1,52 @@
+entity:
+  id: savedColumns
+  name: "Saved Columns"
+  description: "User-saved column configurations"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: public
+      name: "Public"
+      datatype: "Boolean"
+    - id: columns
+      name: "Columns"
+      datatype: "Text"
+    - id: user
+      name: "User"
+      datatype: "Text"
+      length: 250
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+  identifiers:
+    - id: savedColumnsPrimaryKey
+      name: "Saved Columns Primary Key"
+      primary: true
+      attributes:
+        - ^id

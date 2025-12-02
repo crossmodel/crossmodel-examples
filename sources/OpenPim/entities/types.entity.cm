@@ -1,0 +1,68 @@
+entity:
+  id: types
+  name: "Types"
+  description: "Item type definitions"
+  attributes:
+    - id: path
+      name: "Path"
+      datatype: "Text"
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: link
+      name: "Link"
+      datatype: "Integer"
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: icon
+      name: "Icon"
+      datatype: "Text"
+      length: 50
+    - id: iconColor
+      name: "Icon Color"
+      datatype: "Text"
+      length: 50
+    - id: file
+      name: "File"
+      datatype: "Boolean"
+    - id: mainImage
+      name: "Main Image"
+      datatype: "Integer"
+    - id: images
+      name: "Images"
+      datatype: "Text"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: options
+      name: "Options"
+      datatype: "Text"
+  identifiers:
+    - id: typesPrimaryKey
+      name: "Types Primary Key"
+      primary: true
+      attributes:
+        - ^id

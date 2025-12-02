@@ -1,0 +1,6 @@
+datamodel:
+  id: OpenPim
+  name: "OpenPIM Product Information Management"
+  description: "Logical data model for OpenPIM system"
+  type: logical
+  version: 1.0.0

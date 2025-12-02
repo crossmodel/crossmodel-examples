@@ -1,0 +1,61 @@
+entity:
+  id: roles
+  name: "Roles"
+  description: "User roles and their access permissions"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+      length: 250
+    - id: configAccess
+      name: "Configuration Access"
+      datatype: "Text"
+    - id: relAccess
+      name: "Relationship Access"
+      datatype: "Text"
+    - id: itemAccess
+      name: "Item Access"
+      datatype: "Text"
+    - id: otherAccess
+      name: "Other Access"
+      datatype: "Text"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: channelAccess
+      name: "Channel Access"
+      datatype: "Text"
+    - id: options
+      name: "Options"
+      datatype: "Text"
+  identifiers:
+    - id: rolesPrimaryKey
+      name: "Roles Primary Key"
+      primary: true
+      attributes:
+        - ^id

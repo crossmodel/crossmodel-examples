@@ -1,0 +1,57 @@
+entity:
+  id: templates
+  name: "Templates"
+  description: "System templates for various purposes"
+  attributes:
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: template
+      name: "Template"
+      datatype: "Text"
+    - id: order
+      name: "Order"
+      datatype: "Integer"
+    - id: valid
+      name: "Valid"
+      datatype: "Text"
+    - id: visible
+      name: "Visible"
+      datatype: "Text"
+    - id: options
+      name: "Options"
+      datatype: "Text"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+  identifiers:
+    - id: templatesPrimaryKey
+      name: "Templates Primary Key"
+      primary: true
+      attributes:
+        - ^id

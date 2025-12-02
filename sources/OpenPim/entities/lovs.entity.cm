@@ -1,0 +1,45 @@
+entity:
+  id: lovs
+  name: "List of Values"
+  description: "Predefined lists of values for attributes"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: values
+      name: "Values"
+      datatype: "Text"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+  identifiers:
+    - id: lovsPrimaryKey
+      name: "List of Values Primary Key"
+      primary: true
+      attributes:
+        - ^id

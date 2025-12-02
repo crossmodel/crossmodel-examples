@@ -1,0 +1,54 @@
+entity:
+  id: channelsExec
+  name: "Channel Executions"
+  description: "Execution history and status of channel operations"
+  attributes:
+    - id: channelId
+      name: "Channel ID"
+      datatype: "Integer"
+    - id: status
+      name: "Status"
+      datatype: "Integer"
+    - id: startTime
+      name: "Start Time"
+      datatype: "DateTime"
+    - id: finishTime
+      name: "Finish Time"
+      datatype: "DateTime"
+    - id: storagePath
+      name: "Storage Path"
+      datatype: "Text"
+      length: 255
+    - id: log
+      name: "Log"
+      datatype: "Text"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+  identifiers:
+    - id: channelsExecPrimaryKey
+      name: "Channel Executions Primary Key"
+      primary: true
+      attributes:
+        - ^id

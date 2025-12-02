@@ -1,0 +1,13 @@
+relationship:
+  id: channels_parent
+  name: "Channels Parent Relationship"
+  description: "Self-referencing relationship for channel hierarchy"
+  parent: channels
+  parentRole: "parent channel"
+  parentCardinality: 0..1
+  child: channels
+  childRole: "child channel"
+  childCardinality: 0..N
+  attributes:
+    - parent: channels.^id
+      child: channels.parentId

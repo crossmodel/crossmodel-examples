@@ -1,0 +1,13 @@
+relationship:
+  id: collectionItems_items
+  name: "Collection Items to Items"
+  description: "Links collection items to their items"
+  parent: items
+  parentRole: "item"
+  parentCardinality: 1
+  child: collectionItems
+  childRole: "collection item"
+  childCardinality: 0..N
+  attributes:
+    - parent: items.^id
+      child: collectionItems.itemId

@@ -1,0 +1,38 @@
+entity:
+  id: collectionItems
+  name: "Collection Items"
+  description: "Items within collections"
+  attributes:
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: itemId
+      name: "Item ID"
+      datatype: "Integer"
+    - id: collectionId
+      name: "Collection ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+  identifiers:
+    - id: collectionItemsPrimaryKey
+      name: "Collection Items Primary Key"
+      primary: true
+      attributes:
+        - ^id

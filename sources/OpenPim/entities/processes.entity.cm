@@ -1,0 +1,71 @@
+entity:
+  id: processes
+  name: "Processes"
+  description: "System processes and their execution status"
+  attributes:
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: title
+      name: "Title"
+      datatype: "Text"
+      length: 2500
+    - id: active
+      name: "Active"
+      datatype: "Boolean"
+    - id: status
+      name: "Status"
+      datatype: "Text"
+      length: 250
+    - id: finishTime
+      name: "Finish Time"
+      datatype: "DateTime"
+    - id: storagePath
+      name: "Storage Path"
+      datatype: "Text"
+      length: 255
+    - id: mimeType
+      name: "MIME Type"
+      datatype: "Text"
+      length: 255
+    - id: fileName
+      name: "File Name"
+      datatype: "Text"
+      length: 255
+    - id: log
+      name: "Log"
+      datatype: "Text"
+    - id: runtime
+      name: "Runtime"
+      datatype: "Text"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+  identifiers:
+    - id: processesPrimaryKey
+      name: "Processes Primary Key"
+      primary: true
+      attributes:
+        - ^id

@@ -1,0 +1,24 @@
+entity:
+  id: groupAttribute
+  name: "Group Attribute Association"
+  description: "Association between attribute groups and attributes"
+  attributes:
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: attrGroupId
+      name: "Attribute Group ID"
+      datatype: "Integer"
+    - id: attributeId
+      name: "Attribute ID"
+      datatype: "Integer"
+  identifiers:
+    - id: groupAttributePrimaryKey
+      name: "Group Attribute Association Primary Key"
+      primary: true
+      attributes:
+        - attrGroupId
+        - attributeId

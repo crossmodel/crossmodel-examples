@@ -1,0 +1,13 @@
+relationship:
+  id: groupAttribute_attributes
+  name: "Group Attribute to Attributes"
+  description: "Links group attribute associations to their attributes"
+  parent: ^attributes
+  parentRole: "attribute"
+  parentCardinality: 1
+  child: groupAttribute
+  childRole: "group attribute association"
+  childCardinality: 0..N
+  attributes:
+    - parent: ^attributes.^id
+      child: groupAttribute.attributeId

@@ -1,0 +1,13 @@
+relationship:
+  id: itemRelations_items_target
+  name: "Item Relations to Target Items"
+  description: "Links item relations to their target items"
+  parent: items
+  parentRole: "target item"
+  parentCardinality: 1
+  child: itemRelations
+  childRole: "item relation"
+  childCardinality: 0..N
+  attributes:
+    - parent: items.^id
+      child: itemRelations.targetId

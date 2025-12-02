@@ -1,0 +1,13 @@
+relationship:
+  id: itemRelations_items_source
+  name: "Item Relations to Source Items"
+  description: "Links item relations to their source items"
+  parent: items
+  parentRole: "source item"
+  parentCardinality: 1
+  child: itemRelations
+  childRole: "item relation"
+  childCardinality: 0..N
+  attributes:
+    - parent: items.^id
+      child: itemRelations.itemId

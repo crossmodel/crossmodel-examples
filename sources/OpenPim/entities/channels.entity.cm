@@ -1,0 +1,72 @@
+entity:
+  id: channels
+  name: "Channels"
+  description: "Distribution channels for product information"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: active
+      name: "Active"
+      datatype: "Boolean"
+    - id: ^type
+      name: "Type"
+      datatype: "Integer"
+    - id: valid
+      name: "Valid"
+      datatype: "Text"
+    - id: visible
+      name: "Visible"
+      datatype: "Text"
+    - id: config
+      name: "Configuration"
+      datatype: "Text"
+    - id: ^mappings
+      name: "Mappings"
+      datatype: "Text"
+    - id: runtime
+      name: "Runtime"
+      datatype: "Text"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: order
+      name: "Order"
+      datatype: "Integer"
+    - id: parentId
+      name: "Parent ID"
+      datatype: "Integer"
+    - id: group
+      name: "Group"
+      datatype: "Boolean"
+  identifiers:
+    - id: channelsPrimaryKey
+      name: "Channels Primary Key"
+      primary: true
+      attributes:
+        - ^id

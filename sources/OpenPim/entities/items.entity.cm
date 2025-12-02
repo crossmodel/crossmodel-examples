@@ -1,0 +1,74 @@
+entity:
+  id: items
+  name: "Items"
+  description: "Product items in the system"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: path
+      name: "Path"
+      datatype: "Text"
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: typeId
+      name: "Type ID"
+      datatype: "Integer"
+    - id: typeIdentifier
+      name: "Type Identifier"
+      datatype: "Text"
+      length: 250
+    - id: parentIdentifier
+      name: "Parent Identifier"
+      datatype: "Text"
+      length: 250
+    - id: values
+      name: "Values"
+      datatype: "Text"
+    - id: fileOrigName
+      name: "File Original Name"
+      datatype: "Text"
+      length: 250
+    - id: storagePath
+      name: "Storage Path"
+      datatype: "Text"
+      length: 500
+    - id: mimeType
+      name: "MIME Type"
+      datatype: "Text"
+      length: 250
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: channels
+      name: "Channels"
+      datatype: "Text"
+  identifiers:
+    - id: itemsPrimaryKey
+      name: "Items Primary Key"
+      primary: true
+      attributes:
+        - ^id

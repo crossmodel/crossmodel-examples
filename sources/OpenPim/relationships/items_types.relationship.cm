@@ -1,0 +1,13 @@
+relationship:
+  id: items_types
+  name: "Items to Types"
+  description: "Links items to their types"
+  parent: types
+  parentRole: "type"
+  parentCardinality: 1
+  child: items
+  childRole: "item"
+  childCardinality: 0..N
+  attributes:
+    - parent: types.^id
+      child: items.typeId

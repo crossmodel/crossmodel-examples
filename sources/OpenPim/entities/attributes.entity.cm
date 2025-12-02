@@ -1,0 +1,79 @@
+entity:
+  id: ^attributes
+  name: "Attributes"
+  description: "System attributes for product information management"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: order
+      name: "Order"
+      datatype: "Integer"
+    - id: valid
+      name: "Valid"
+      datatype: "Text"
+    - id: visible
+      name: "Visible"
+      datatype: "Text"
+    - id: relations
+      name: "Relations"
+      datatype: "Text"
+    - id: languageDependent
+      name: "Language Dependent"
+      datatype: "Boolean"
+    - id: ^type
+      name: "Type"
+      datatype: "Integer"
+    - id: pattern
+      name: "Pattern"
+      datatype: "Text"
+      length: 250
+    - id: errorMessage
+      name: "Error Message"
+      datatype: "Text"
+    - id: lov
+      name: "List of Values"
+      datatype: "Integer"
+    - id: richText
+      name: "Rich Text"
+      datatype: "Boolean"
+    - id: multiLine
+      name: "Multi Line"
+      datatype: "Boolean"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: options
+      name: "Options"
+      datatype: "Text"
+  identifiers:
+    - id: attributesPrimaryKey
+      name: "Attributes Primary Key"
+      primary: true
+      attributes:
+        - ^id

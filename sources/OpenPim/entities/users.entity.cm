@@ -1,0 +1,60 @@
+entity:
+  id: users
+  name: "Users"
+  description: "System users and their properties"
+  attributes:
+    - id: login
+      name: "Login"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+      length: 250
+    - id: password
+      name: "Password"
+      datatype: "Text"
+      length: 250
+    - id: email
+      name: "Email"
+      datatype: "Text"
+      length: 250
+    - id: props
+      name: "Properties"
+      datatype: "Text"
+    - id: roles
+      name: "Roles"
+      datatype: "Text"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: options
+      name: "Options"
+      datatype: "Text"
+  identifiers:
+    - id: usersPrimaryKey
+      name: "Users Primary Key"
+      primary: true
+      attributes:
+        - ^id

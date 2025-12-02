@@ -1,0 +1,13 @@
+relationship:
+  id: channelsExec_channels
+  name: "Channel Executions to Channels"
+  description: "Links channel executions to their channels"
+  parent: channels
+  parentRole: "channel"
+  parentCardinality: 1
+  child: channelsExec
+  childRole: "channel execution"
+  childCardinality: 0..N
+  attributes:
+    - parent: channels.^id
+      child: channelsExec.channelId

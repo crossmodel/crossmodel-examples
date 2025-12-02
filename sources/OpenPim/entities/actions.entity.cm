@@ -1,0 +1,52 @@
+entity:
+  id: actions
+  name: "Actions"
+  description: "System actions that can be triggered by events"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: code
+      name: "Code"
+      datatype: "Text"
+      length: 65535
+    - id: triggers
+      name: "Triggers"
+      datatype: "Text"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: order
+      name: "Order"
+      datatype: "Integer"
+  identifiers:
+    - id: actionsPrimaryKey
+      name: "Actions Primary Key"
+      primary: true
+      attributes:
+        - ^id

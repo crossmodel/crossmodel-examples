@@ -1,0 +1,60 @@
+entity:
+  id: relations
+  name: "Relations"
+  description: "Relationship definitions between entities"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: ^sources
+      name: "Sources"
+      datatype: "Text"
+    - id: targets
+      name: "Targets"
+      datatype: "Text"
+    - id: ^child
+      name: "Child"
+      datatype: "Boolean"
+    - id: multi
+      name: "Multi"
+      datatype: "Boolean"
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: order
+      name: "Order"
+      datatype: "Integer"
+    - id: options
+      name: "Options"
+      datatype: "Text"
+  identifiers:
+    - id: relationsPrimaryKey
+      name: "Relations Primary Key"
+      primary: true
+      attributes:
+        - ^id

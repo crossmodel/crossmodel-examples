@@ -1,0 +1,62 @@
+entity:
+  id: savedSearch
+  name: "Saved Searches"
+  description: "User-saved search configurations"
+  attributes:
+    - id: ^identifier
+      name: "Identifier"
+      datatype: "Text"
+      length: 250
+    - id: ^name
+      name: "Name"
+      datatype: "Text"
+    - id: public
+      name: "Public"
+      datatype: "Boolean"
+    - id: extended
+      name: "Extended"
+      datatype: "Boolean"
+    - id: filters
+      name: "Filters"
+      datatype: "Text"
+    - id: whereClause
+      name: "Where Clause"
+      datatype: "Text"
+    - id: user
+      name: "User"
+      datatype: "Text"
+      length: 250
+    - id: ^id
+      name: "ID"
+      datatype: "Integer"
+    - id: tenantId
+      name: "Tenant ID"
+      datatype: "Text"
+      length: 50
+    - id: createdBy
+      name: "Created By"
+      datatype: "Text"
+      length: 250
+    - id: updatedBy
+      name: "Updated By"
+      datatype: "Text"
+      length: 250
+    - id: createdAt
+      name: "Created At"
+      datatype: "DateTime"
+    - id: updatedAt
+      name: "Updated At"
+      datatype: "DateTime"
+    - id: deletedAt
+      name: "Deleted At"
+      datatype: "DateTime"
+    - id: ^entity
+      name: "Entity"
+      datatype: "Text"
+      length: 100
+  identifiers:
+    - id: savedSearchPrimaryKey
+      name: "Saved Searches Primary Key"
+      primary: true
+      attributes:
+        - ^id
