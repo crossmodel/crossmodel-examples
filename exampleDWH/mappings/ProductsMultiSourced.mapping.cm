@@ -1,0 +1,28 @@
+mapping:
+    id: ProductsMultiSourced
+    sources:
+      - id: ProductSourceObject
+        entity: MySimpleSalesSystem.Product
+        join: from
+      - id: itemsSourceObject
+        entity: OpenPim.items
+        join: left-join
+        dependencies:
+          - ProductSourceObject
+        conditions:
+          - ProductSourceObject.ProductID = itemsSourceObject.^id
+    target:
+        entity: Product
+        mappings:
+          - attribute: ProductID
+            sources:
+              - ProductSourceObject.ProductID
+          - attribute: ProductName
+            sources:
+              - ProductSourceObject.Name
+          - attribute: ProductType
+            sources:
+              - itemsSourceObject.typeIdentifier
+          - attribute: ProductGroup
+            sources:
+              - itemsSourceObject.parentIdentifier

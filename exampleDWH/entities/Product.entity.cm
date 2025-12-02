@@ -1,0 +1,24 @@
+entity:
+    id: Product
+    name: "Product"
+    description: "Products"
+    attributes:
+      - id: ProductID
+        name: "ProductID"
+        datatype: "Integer"
+      - id: ProductName
+        name: "ProductName"
+        datatype: "Text"
+      - id: ProductType
+        name: "ProductType"
+        description: "The product type from the PIM"
+        datatype: "Text"
+      - id: ProductGroup
+        name: "ProductGroup"
+        datatype: "Text"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ProductID
