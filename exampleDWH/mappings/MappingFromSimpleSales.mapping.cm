@@ -16,3 +16,12 @@ mapping:
           - attribute: DateOfBirth
             sources:
               - CustomerSourceObject.DateOfBirth
+          - attribute: YearOfBirth
+            sources:
+              - CustomerSourceObject.DateOfBirth
+            expression: "YEAR({{CustomerSourceObject.DateOfBirth}}"
+          - attribute: CustomerIdentifier
+            sources:
+              - CustomerSourceObject.CustomerID
+              - CustomerSourceObject.CustomerName
+            expression: "CONCAT_WS({{CustomerSourceObject.CustomerID}},{{CustomerSourceObject.CustomerName}})"

@@ -6,9 +6,15 @@ entity:
       - id: CustomerID
         name: "CustomerID"
         datatype: "Integer"
+      - id: CustomerIdentifier
+        name: "CustomerIdentifier"
+        datatype: "Text"
       - id: CustomerName
         name: "CustomerName"
         datatype: "Text"
+      - id: YearOfBirth
+        name: "YearOfBirth"
+        datatype: "Integer"
       - id: DateOfBirth
         name: "DateOfBirth"
         datatype: "Date"
