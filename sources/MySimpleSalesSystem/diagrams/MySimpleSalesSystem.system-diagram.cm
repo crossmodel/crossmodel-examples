@@ -1,0 +1,40 @@
+systemDiagram:
+    id: MySimpleSalesSystem
+    nodes:
+      - id: ProductNode
+        entity: Product
+        x: 407
+        y: 451
+        width: 141.92782592773438
+        height: 96
+      - id: SalesOrderLineNode
+        entity: SalesOrderLine
+        x: 748
+        y: 451
+        width: 159.5105743408203
+        height: 136
+      - id: SalesOrderNode
+        entity: SalesOrder
+        x: 726
+        y: 154
+        width: 147.7887420654297
+        height: 96
+      - id: CustomerNode
+        entity: Customer
+        x: 396
+        y: 154
+        width: 141.92782592773438
+        height: 116
+    edges:
+      - id: Customer_to_SalesOrderEdge
+        relationship: MySimpleSalesSystem.Customer_to_SalesOrder
+        sourceNode: CustomerNode
+        targetNode: SalesOrderNode
+      - id: SalesOrder_to_SalesOrderLineEdge
+        relationship: MySimpleSalesSystem.SalesOrder_to_SalesOrderLine
+        sourceNode: SalesOrderNode
+        targetNode: SalesOrderLineNode
+      - id: Product_to_SalesOrderLineEdge
+        relationship: MySimpleSalesSystem.Product_to_SalesOrderLine
+        sourceNode: ProductNode
+        targetNode: SalesOrderLineNode

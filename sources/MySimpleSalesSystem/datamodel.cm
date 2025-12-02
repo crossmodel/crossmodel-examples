@@ -1,0 +1,6 @@
+datamodel:
+    id: MySimpleSalesSystem
+    name: "MySimpleSalesSystem"
+    description: "The internally built sales system from BrightGreen"
+    type: logical
+    version: 1.0.0

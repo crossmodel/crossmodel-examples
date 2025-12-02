@@ -1,0 +1,27 @@
+entity:
+    id: Customer
+    name: "Customer"
+    description: "Customers of BrightGreen"
+    attributes:
+      - id: CustomerID
+        name: "ID"
+        description: "ID is the primary identifier of the entity"
+        datatype: "Integer"
+      - id: CustomerName
+        name: "CustomerName"
+        description: "The name of the customer"
+        datatype: "Text"
+      - id: DateOfBirth
+        name: "DateOfBirth"
+        description: "Date of birth of customer"
+        datatype: "Date"
+      - id: Email
+        name: "Email"
+        description: "Email address of customer"
+        datatype: "Text"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - CustomerID
