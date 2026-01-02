@@ -2,7 +2,7 @@ relationship:
    id: Product_SalesOrderLine
    name: "Product_SalesOrderLine"
    parent: Product   
-   parentCardinality: 1
+   parentCardinality: 0..1
    child: SalesOrderLine   
    childCardinality: 0..N
    attributes:
