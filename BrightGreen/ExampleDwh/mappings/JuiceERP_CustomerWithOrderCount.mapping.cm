@@ -20,4 +20,6 @@ mapping:
           - attribute: OrderCount
             sources:
               - SalesOrder.SalesOrderID
-            expression: "COUNT({{SalesOrder.SalesOrderID}})"
+            expressions:
+             - language: "SQL"
+               expression : "COUNT({{SalesOrder.SalesOrderID}})"

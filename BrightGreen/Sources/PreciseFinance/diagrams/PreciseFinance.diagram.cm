@@ -1,5 +1,5 @@
 systemDiagram:
-    id: PRECISEFINANCE
+    id: PreciseFinance
     nodes:
       - id: DEBTOR
         entity: DEBTOR
