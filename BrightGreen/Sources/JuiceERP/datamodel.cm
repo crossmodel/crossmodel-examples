@@ -1,7 +1,6 @@
 datamodel:
     id: JuiceERP
     name: "JuiceERP"
-    description: "test"
     type: logical
     version: 1.0.0
     crossmodel:
