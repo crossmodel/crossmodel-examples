@@ -1,0 +1,2 @@
+CustomerID,FirstName,LastName,DateOfBirth,EmailAddress
+1,Thomas,Anderson,01-01-1900,test@dbt.com

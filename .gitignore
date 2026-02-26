@@ -1,0 +1,4 @@
+dbt/logs/*
+dbt/BrightGreen/logs/*
+dbt/BrightGreen/target/*
+dbt/BrightGreen/dbt_internal_packages/*
