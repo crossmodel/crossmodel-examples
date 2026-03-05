@@ -18,7 +18,7 @@ systemDiagram:
         x: 319
         y: 11
         width: 175
-        height: 153.66666889190674
+        height: 156
     edges:
       - id: FK_INVOICE_INVOICE_D_DEBTOR
         relationship: FK_INVOICE_INVOICE_D_DEBTOR
