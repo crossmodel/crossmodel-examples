@@ -21,3 +21,13 @@ models:
       +materialized: view
     marts:
       +materialized: table
+
+seeds:
+  brightgreen:
+    raw_customer:
+      +column_types: 
+        CustomerID: integer
+        FirstName: string
+        LastName: string
+        DateOfBirth: date
+        EmailAddress: string
