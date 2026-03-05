@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS {{entity.id}}
+(
+    -- Attributes of {{entity.id}}
+    {%- for attribute in entity.attributes %}
+    {% if not loop.first %},{% endif -%}
+    {%- include "./attributes/SqlColumnDefinition.njk" %}
+    {%- endfor %}
+    {%- for identifier in entity.identifiers %}
+    {%- if identifier.primary %}
+    ,CONSTRAINT PK_{{entity.id}} PRIMARY KEY (
+        {%- for attr in identifier.attributes %}
+        {{attr.id}}{% if not loop.last %},{% endif %}
+        {%- endfor %}
+    )
+    {%- endif %}
+    {%- endfor %}
+);
