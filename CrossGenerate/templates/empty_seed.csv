@@ -1,0 +1,1 @@
+{% for attr in entity.attributes -%}{{ attr.id }}{%- if not loop.last %},{% endif %}{% endfor -%}

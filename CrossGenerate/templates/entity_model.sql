@@ -1,7 +1,7 @@
 with {{ entity.name}} as (select
     {% for attr in entity.attributes -%}
-        {{ attr.name }} {%- if not loop.last %}, {% endif %}
+        {{ attr.id }} {%- if not loop.last %}, {% endif %}
     {% endfor -%}
-from {% raw %}{{{% endraw %} ref('raw_{{ entity.name}}') }}
+from {% raw %}{{{% endraw %} ref('raw_{{entity.name}}') }}
 )
 select * from {{ entity.name }}
