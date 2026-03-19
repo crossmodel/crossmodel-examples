@@ -17,17 +17,9 @@ clean-targets:
 
 models:
   brightgreen:
-    staging:
+    source:
       +materialized: view
-    marts:
+    mapping:
+      +materialized: view
+    dwh:
       +materialized: table
-
-seeds:
-  brightgreen:
-    raw_customer:
-      +column_types: 
-        CustomerID: integer
-        FirstName: string
-        LastName: string
-        DateOfBirth: date
-        EmailAddress: string
