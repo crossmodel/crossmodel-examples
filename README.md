@@ -8,11 +8,15 @@ DBT is configured to use DuckDB to load the data locally, based on the [DBT Fusi
 * DuckDB
 
 # Generation
-You can use the entity model template to generate the DBT model files using CrossGenerate.
+You can use the entity model template to generate the DBT model files using CrossGenerate. Source model files should go to the BrightGreen/models/dwh folder. The DWH models are not needed here, and are generated separately.
 <img width="1980" height="522" alt="image" src="https://github.com/user-attachments/assets/5035f6a5-65a9-4254-b4fc-01d6988a7ede" />
 
-You can also generate empty csv-files to be used as seeds for DBT. There is a small example csv in the 'seeds example' folder.
+You can also generate empty csv-files to be used as seeds for DBT. There is a small example csv in the 'seeds example' folder, which can be used to load data in the DuckDB database.
 <img width="1993" height="514" alt="image" src="https://github.com/user-attachments/assets/20d86185-385c-4627-8b2c-a73c7aed82b1" />
+
+Generate the mappings, and separately the DWH entities which depend on these mappings.
+<img width="1545" height="517" alt="image" src="https://github.com/user-attachments/assets/783f69bf-99cf-4bf4-98d5-33e2d610da85" />
+<img width="1555" height="523" alt="image" src="https://github.com/user-attachments/assets/7ed5900a-2905-495b-856d-e54827ee045e" />
 
 # Usage
 * Navigate to the DBT directory (~/crossmodel-examples/dbt/BrightGreen)
