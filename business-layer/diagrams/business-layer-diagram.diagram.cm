@@ -4,33 +4,48 @@ systemDiagram:
       - id: CustomerNode
         entity: Customer
         x: -30
-        y: 20
+        y: 60
         width: 194.6760711669922
         height: 196
+        backgroundColor: "#E3F2FD"
+        borderColor: "#1E88E5"
+        fontColor: "#1565C0"
       - id: AddressNode
         entity: Address
-        x: 320
-        y: 50
+        x: 400
+        y: 100
         width: 153.649658203125
         height: 176
+        backgroundColor: "#E3F2FD"
+        borderColor: "#1E88E5"
+        fontColor: "#1565C0"
       - id: OrderNode
         entity: Order
         x: -40
         y: 350
         width: 159.5105743408203
         height: 196
+        backgroundColor: "#E3F2FD"
+        borderColor: "#1E88E5"
+        fontColor: "#1565C0"
       - id: OrderLineNode
         entity: OrderLine
-        x: 250
-        y: 310
+        x: 240
+        y: 400
         width: 165.37149047851562
         height: 156
+        backgroundColor: "#E3F2FD"
+        borderColor: "#1E88E5"
+        fontColor: "#1565C0"
       - id: ProductNode
         entity: Product
-        x: 590
-        y: 340
+        x: 530
+        y: 400
         width: 147.7887420654297
         height: 136
+        backgroundColor: "#E3F2FD"
+        borderColor: "#1E88E5"
+        fontColor: "#1565C0"
     edges:
       - id: CustomerAddressEdge
         relationship: CustomerAddress

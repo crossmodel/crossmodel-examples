@@ -4,13 +4,13 @@ systemDiagram:
       - id: CrmCustNode
         entity: crm_cust
         x: 80
-        y: -20
+        y: 10
         width: 130.20599365234375
         height: 156
       - id: CrmCustAddrNode
         entity: crm_cust_addr
-        x: 300
-        y: -170
+        x: 320
+        y: -50
         width: 131.20599365234375
         height: 176
       - id: CrmCustCntctNode
@@ -21,8 +21,8 @@ systemDiagram:
         height: 136
       - id: CrmLoyaltyMbrNode
         entity: crm_loyalty_mbr
-        x: 60
-        y: 250
+        x: -90
+        y: 240
         width: 147.7887420654297
         height: 136
     edges:

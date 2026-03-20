@@ -7,24 +7,36 @@ systemDiagram:
         y: -10
         width: 141.92782592773438
         height: 156
+        backgroundColor: "#E8F5E9"
+        borderColor: "#4CAF50"
+        fontColor: "#2E7D32"
       - id: SoLineItemNode
         entity: so_line_item
-        x: 300
-        y: 0
-        width: 50
-        height: 50
+        x: 370
+        y: -10
+        width: 136.06690979003906
+        height: 156
+        backgroundColor: "#E8F5E9"
+        borderColor: "#4CAF50"
+        fontColor: "#2E7D32"
       - id: InvItemMasterNode
         entity: inv_item_master
         x: 300
         y: 250
         width: 50
         height: 50
+        backgroundColor: "#E8F5E9"
+        borderColor: "#4CAF50"
+        fontColor: "#2E7D32"
       - id: ApPaymentNode
         entity: ap_payment
         x: 0
         y: 250
         width: 50
         height: 50
+        backgroundColor: "#E8F5E9"
+        borderColor: "#4CAF50"
+        fontColor: "#2E7D32"
     edges:
       - id: SoHeaderLineEdge
         relationship: so_header_line_fk
