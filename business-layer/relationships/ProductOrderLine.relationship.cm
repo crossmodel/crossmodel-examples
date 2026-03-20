@@ -1,0 +1,13 @@
+relationship:
+  id: ProductOrderLine
+  name: "Product Order Line"
+  description: "Product referenced in order line items"
+  parent: Product
+  parentRole: "product"
+  parentCardinality: 1..1
+  child: OrderLine
+  childRole: "order lines"
+  childCardinality: 0..N
+  attributes:
+  - parent: Product.ProductId
+    child: OrderLine.ProductId

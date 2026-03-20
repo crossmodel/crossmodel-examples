@@ -1,0 +1,43 @@
+entity:
+  id: OrderLine
+  name: "Order Line"
+  description: "Integrated order line item combining ERP sales order lines with product details"
+  attributes:
+  - id: OrderLineId
+    name: "Order Line Id"
+    description: "Surrogate key for the order line"
+    datatype: "Integer"
+    mandatory: true
+  - id: OrderId
+    name: "Order Id"
+    description: "Reference to the parent order"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductId
+    name: "Product Id"
+    description: "Reference to the product"
+    datatype: "Integer"
+    mandatory: true
+  - id: Quantity
+    name: "Quantity"
+    description: "Quantity ordered"
+    datatype: "Integer"
+    mandatory: true
+  - id: UnitPrice
+    name: "Unit Price"
+    description: "Price per unit at time of order"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+  - id: LineTotal
+    name: "Line Total"
+    description: "Total amount for this line item"
+    datatype: "Decimal"
+    precision: 12
+    scale: 2
+  identifiers:
+  - id: OrderLinePK
+    name: "Order Line PK"
+    primary: true
+    attributes:
+    - OrderLineId

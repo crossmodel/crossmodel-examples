@@ -1,0 +1,46 @@
+entity:
+  id: crm_cust_addr
+  name: "CRM_CUST_ADDR"
+  description: "Customer address records"
+  attributes:
+  - id: addr_id
+    name: "ADDR_ID"
+    description: "Address surrogate key"
+    datatype: "Integer"
+    mandatory: true
+  - id: cust_id
+    name: "CUST_ID"
+    description: "FK to CRM_CUST"
+    datatype: "Integer"
+    mandatory: true
+  - id: addr_typ
+    name: "ADDR_TYP"
+    description: "Address type code (B=Billing, S=Shipping)"
+    datatype: "Text"
+    length: 10
+  - id: street1
+    name: "STREET1"
+    description: "Street line 1"
+    datatype: "Text"
+    length: 200
+  - id: city_nm
+    name: "CITY_NM"
+    description: "City"
+    datatype: "Text"
+    length: 80
+  - id: zip_cd
+    name: "ZIP_CD"
+    description: "Postal / ZIP code"
+    datatype: "Text"
+    length: 15
+  - id: ctry_cd
+    name: "CTRY_CD"
+    description: "ISO country code"
+    datatype: "Text"
+    length: 3
+  identifiers:
+  - id: pk_crm_cust_addr
+    name: "PK_CRM_CUST_ADDR"
+    primary: true
+    attributes:
+    - addr_id

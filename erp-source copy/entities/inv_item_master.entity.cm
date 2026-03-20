@@ -1,0 +1,41 @@
+entity:
+  id: inv_item_master
+  name: "INV_ITEM_MASTER"
+  description: "Inventory item master table"
+  attributes:
+  - id: item_id
+    name: "ITEM_ID"
+    description: "Item surrogate key"
+    datatype: "Integer"
+    mandatory: true
+  - id: item_desc
+    name: "ITEM_DESC"
+    description: "Item description / product name"
+    datatype: "Text"
+    length: 200
+  - id: cat_cd
+    name: "CAT_CD"
+    description: "Category code"
+    datatype: "Text"
+    length: 30
+  - id: unit_prc
+    name: "UNIT_PRC"
+    description: "Standard unit price"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+  - id: sku_cd
+    name: "SKU_CD"
+    description: "Stock keeping unit"
+    datatype: "Text"
+    length: 50
+  - id: qty_on_hand
+    name: "QTY_ON_HAND"
+    description: "Current stock quantity"
+    datatype: "Integer"
+  identifiers:
+  - id: pk_inv_item_master
+    name: "PK_INV_ITEM_MASTER"
+    primary: true
+    attributes:
+    - item_id

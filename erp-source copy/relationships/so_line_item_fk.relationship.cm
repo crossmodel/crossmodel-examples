@@ -1,0 +1,13 @@
+relationship:
+  id: so_line_item_fk
+  name: "FK_LINE_ITEM"
+  description: "Line item to inventory item"
+  parent: inv_item_master
+  parentRole: "product"
+  parentCardinality: 1..1
+  child: so_line_item
+  childRole: "order lines"
+  childCardinality: 0..N
+  attributes:
+  - parent: inv_item_master.item_id
+    child: so_line_item.item_id

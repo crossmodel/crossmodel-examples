@@ -1,0 +1,36 @@
+entity:
+  id: crm_cust_cntct
+  name: "CRM_CUST_CNTCT"
+  description: "Customer contact channel records"
+  attributes:
+  - id: cntct_id
+    name: "CNTCT_ID"
+    description: "Contact record key"
+    datatype: "Integer"
+    mandatory: true
+  - id: cust_id
+    name: "CUST_ID"
+    description: "FK to CRM_CUST"
+    datatype: "Integer"
+    mandatory: true
+  - id: cntct_typ
+    name: "CNTCT_TYP"
+    description: "Channel type (PH=Phone, EM=Email, SC=Social)"
+    datatype: "Text"
+    length: 10
+  - id: cntct_val
+    name: "CNTCT_VAL"
+    description: "Contact value (number, address, handle)"
+    datatype: "Text"
+    length: 255
+  - id: is_prim_flg
+    name: "IS_PRIM_FLG"
+    description: "Primary contact flag (Y/N)"
+    datatype: "Text"
+    length: 1
+  identifiers:
+  - id: pk_crm_cust_cntct
+    name: "PK_CRM_CUST_CNTCT"
+    primary: true
+    attributes:
+    - cntct_id

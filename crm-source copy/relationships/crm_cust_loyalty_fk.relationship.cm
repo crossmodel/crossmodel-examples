@@ -1,0 +1,13 @@
+relationship:
+  id: crm_cust_loyalty_fk
+  name: "FK_CUST_LOYALTY"
+  description: "Customer to loyalty membership"
+  parent: crm_cust
+  parentRole: "customer"
+  parentCardinality: 1..1
+  child: crm_loyalty_mbr
+  childRole: "loyalty membership"
+  childCardinality: 0..1
+  attributes:
+  - parent: crm_cust.cust_id
+    child: crm_loyalty_mbr.cust_id

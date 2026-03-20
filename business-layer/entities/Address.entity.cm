@@ -1,0 +1,46 @@
+entity:
+  id: Address
+  name: "Address"
+  description: "Unified address entity for customer billing and shipping addresses"
+  attributes:
+  - id: AddressId
+    name: "Address Id"
+    description: "Surrogate key for the address"
+    datatype: "Integer"
+    mandatory: true
+  - id: CustomerId
+    name: "Customer Id"
+    description: "Reference to the customer"
+    datatype: "Integer"
+    mandatory: true
+  - id: AddressType
+    name: "Address Type"
+    description: "Type of address (Billing, Shipping)"
+    datatype: "Text"
+    length: 50
+  - id: Street
+    name: "Street"
+    description: "Street line"
+    datatype: "Text"
+    length: 200
+  - id: City
+    name: "City"
+    description: "City name"
+    datatype: "Text"
+    length: 100
+  - id: PostalCode
+    name: "Postal Code"
+    description: "Postal or ZIP code"
+    datatype: "Text"
+    length: 20
+  - id: Country
+    name: "Country"
+    description: "Country code"
+    datatype: "Text"
+    length: 3
+  identifiers:
+  - id: AddressPK
+    name: "Address PK"
+    primary: true
+    attributes:
+    - AddressId

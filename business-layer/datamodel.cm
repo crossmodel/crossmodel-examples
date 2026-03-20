@@ -1,0 +1,11 @@
+datamodel:
+  id: business-layer
+  name: "Business Layer"
+  description: "Integrated business domain model for Online Retail / E-Commerce combining CRM and ERP source systems"
+  type: logical
+  version: 1.0.0
+  dependencies:
+  - datamodel: crm-source
+    version: 1.0.0
+  - datamodel: erp-source
+    version: 1.0.0

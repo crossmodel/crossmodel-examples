@@ -1,0 +1,51 @@
+entity:
+  id: Order
+  name: "Order"
+  description: "Integrated order entity combining ERP sales order and payment information"
+  attributes:
+  - id: OrderId
+    name: "Order Id"
+    description: "Surrogate key for the order"
+    datatype: "Integer"
+    mandatory: true
+  - id: CustomerId
+    name: "Customer Id"
+    description: "Reference to the customer who placed the order"
+    datatype: "Integer"
+    mandatory: true
+  - id: OrderDate
+    name: "Order Date"
+    description: "Date and time the order was placed"
+    datatype: "DateTime"
+  - id: OrderStatus
+    name: "Order Status"
+    description: "Current status of the order"
+    datatype: "Text"
+    length: 50
+  - id: TotalAmount
+    name: "Total Amount"
+    description: "Total monetary amount of the order"
+    datatype: "Decimal"
+    precision: 12
+    scale: 2
+  - id: Currency
+    name: "Currency"
+    description: "Currency code"
+    datatype: "Text"
+    length: 3
+  - id: PaymentMethod
+    name: "Payment Method"
+    description: "Method of payment used"
+    datatype: "Text"
+    length: 50
+  - id: PaymentStatus
+    name: "Payment Status"
+    description: "Status of the payment"
+    datatype: "Text"
+    length: 50
+  identifiers:
+  - id: OrderPK
+    name: "Order PK"
+    primary: true
+    attributes:
+    - OrderId

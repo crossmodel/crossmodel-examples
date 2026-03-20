@@ -1,0 +1,50 @@
+systemDiagram:
+    id: business-layer-diagram
+    nodes:
+      - id: CustomerNode
+        entity: Customer
+        x: -30
+        y: 20
+        width: 194.6760711669922
+        height: 196
+      - id: AddressNode
+        entity: Address
+        x: 320
+        y: 50
+        width: 153.649658203125
+        height: 176
+      - id: OrderNode
+        entity: Order
+        x: -40
+        y: 350
+        width: 159.5105743408203
+        height: 196
+      - id: OrderLineNode
+        entity: OrderLine
+        x: 250
+        y: 310
+        width: 165.37149047851562
+        height: 156
+      - id: ProductNode
+        entity: Product
+        x: 590
+        y: 340
+        width: 147.7887420654297
+        height: 136
+    edges:
+      - id: CustomerAddressEdge
+        relationship: CustomerAddress
+        sourceNode: CustomerNode
+        targetNode: AddressNode
+      - id: CustomerOrderEdge
+        relationship: CustomerOrder
+        sourceNode: CustomerNode
+        targetNode: OrderNode
+      - id: OrderOrderLineEdge
+        relationship: OrderOrderLine
+        sourceNode: OrderNode
+        targetNode: OrderLineNode
+      - id: ProductOrderLineEdge
+        relationship: ProductOrderLine
+        sourceNode: ProductNode
+        targetNode: OrderLineNode

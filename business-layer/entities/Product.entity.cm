@@ -1,0 +1,37 @@
+entity:
+  id: Product
+  name: "Product"
+  description: "Unified product entity from the ERP product catalog"
+  attributes:
+  - id: ProductId
+    name: "Product Id"
+    description: "Surrogate key for the product"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductName
+    name: "Product Name"
+    description: "Name of the product"
+    datatype: "Text"
+    length: 200
+  - id: Category
+    name: "Category"
+    description: "Product category"
+    datatype: "Text"
+    length: 100
+  - id: UnitPrice
+    name: "Unit Price"
+    description: "Current standard unit price"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+  - id: SKU
+    name: "SKU"
+    description: "Stock Keeping Unit code"
+    datatype: "Text"
+    length: 50
+  identifiers:
+  - id: ProductPK
+    name: "Product PK"
+    primary: true
+    attributes:
+    - ProductId

@@ -1,0 +1,13 @@
+relationship:
+  id: so_header_payment_fk
+  name: "FK_SO_PMT"
+  description: "Sales order to payment transactions"
+  parent: so_header
+  parentRole: "order"
+  parentCardinality: 1..1
+  child: ap_payment
+  childRole: "payments"
+  childCardinality: 0..N
+  attributes:
+  - parent: so_header.so_id
+    child: ap_payment.so_id

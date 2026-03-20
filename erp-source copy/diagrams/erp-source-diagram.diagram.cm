@@ -1,0 +1,40 @@
+systemDiagram:
+    id: erp-source-diagram
+    nodes:
+      - id: SoHeaderNode
+        entity: so_header
+        x: 70
+        y: -10
+        width: 141.92782592773438
+        height: 156
+      - id: SoLineItemNode
+        entity: so_line_item
+        x: 300
+        y: 0
+        width: 50
+        height: 50
+      - id: InvItemMasterNode
+        entity: inv_item_master
+        x: 300
+        y: 250
+        width: 50
+        height: 50
+      - id: ApPaymentNode
+        entity: ap_payment
+        x: 0
+        y: 250
+        width: 50
+        height: 50
+    edges:
+      - id: SoHeaderLineEdge
+        relationship: so_header_line_fk
+        sourceNode: SoHeaderNode
+        targetNode: SoLineItemNode
+      - id: SoLineItemEdge
+        relationship: so_line_item_fk
+        sourceNode: InvItemMasterNode
+        targetNode: SoLineItemNode
+      - id: SoHeaderPaymentEdge
+        relationship: so_header_payment_fk
+        sourceNode: SoHeaderNode
+        targetNode: ApPaymentNode

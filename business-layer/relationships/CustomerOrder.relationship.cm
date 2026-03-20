@@ -1,0 +1,13 @@
+relationship:
+  id: CustomerOrder
+  name: "Customer Order"
+  description: "Customer to their orders"
+  parent: Customer
+  parentRole: "customer"
+  parentCardinality: 1..1
+  child: Order
+  childRole: "orders"
+  childCardinality: 0..N
+  attributes:
+  - parent: Customer.CustomerId
+    child: Order.CustomerId

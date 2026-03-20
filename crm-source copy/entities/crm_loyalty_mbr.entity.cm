@@ -1,0 +1,34 @@
+entity:
+  id: crm_loyalty_mbr
+  name: "CRM_LOYALTY_MBR"
+  description: "Loyalty programme membership"
+  attributes:
+  - id: loyalty_id
+    name: "LOYALTY_ID"
+    description: "Membership surrogate key"
+    datatype: "Integer"
+    mandatory: true
+  - id: cust_id
+    name: "CUST_ID"
+    description: "FK to CRM_CUST"
+    datatype: "Integer"
+    mandatory: true
+  - id: tier_cd
+    name: "TIER_CD"
+    description: "Tier code (BRZ, SLV, GLD, PLT)"
+    datatype: "Text"
+    length: 5
+  - id: pts_bal
+    name: "PTS_BAL"
+    description: "Points balance"
+    datatype: "Integer"
+  - id: enroll_dt
+    name: "ENROLL_DT"
+    description: "Enrolment date"
+    datatype: "Date"
+  identifiers:
+  - id: pk_crm_loyalty_mbr
+    name: "PK_CRM_LOYALTY_MBR"
+    primary: true
+    attributes:
+    - loyalty_id

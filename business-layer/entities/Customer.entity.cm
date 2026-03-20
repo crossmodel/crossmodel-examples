@@ -1,0 +1,48 @@
+entity:
+  id: Customer
+  name: "Customer"
+  description: "Unified customer profile integrating CRM customer data with ERP order history"
+  attributes:
+  - id: CustomerId
+    name: "Customer Id"
+    description: "Surrogate key for the integrated customer"
+    datatype: "Integer"
+    mandatory: true
+  - id: FirstName
+    name: "First Name"
+    description: "Customer first name"
+    datatype: "Text"
+    length: 100
+  - id: LastName
+    name: "Last Name"
+    description: "Customer last name"
+    datatype: "Text"
+    length: 100
+  - id: Email
+    name: "Email"
+    description: "Primary email address"
+    datatype: "Text"
+    length: 255
+  - id: DateOfBirth
+    name: "Date Of Birth"
+    description: "Customer date of birth"
+    datatype: "Date"
+  - id: RegistrationDate
+    name: "Registration Date"
+    description: "Date the customer first registered"
+    datatype: "DateTime"
+  - id: LoyaltyTier
+    name: "Loyalty Tier"
+    description: "Current loyalty program tier"
+    datatype: "Text"
+    length: 50
+  - id: LoyaltyPoints
+    name: "Loyalty Points"
+    description: "Current loyalty points balance"
+    datatype: "Integer"
+  identifiers:
+  - id: CustomerPK
+    name: "Customer PK"
+    primary: true
+    attributes:
+    - CustomerId
