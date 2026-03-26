@@ -16,4 +16,4 @@ mapping:
               - CustomerSourceObject.LastName
             expressions:
               - language: "SQL"
-                expression: "CONCAT_WS(' ',  CustomerSourceObject.FirstName, CustomerSourceObject.LastName)"
+                expression: "CONCATNCONCAT(stomerSourceObject.FirstName, , ' ')' '), CustomerSourceObject.LastName)"
