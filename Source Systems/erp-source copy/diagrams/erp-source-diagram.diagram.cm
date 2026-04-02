@@ -9,7 +9,6 @@ systemDiagram:
         height: 153.66666889190674
         backgroundColor: "#E8F5E9"
         borderColor: "#4CAF50"
-        fontColor: "#2E7D32"
       - id: OrderLineNode
         entity: OrderLine
         x: 110
@@ -18,7 +17,6 @@ systemDiagram:
         height: 153.66666889190674
         backgroundColor: "#E8F5E9"
         borderColor: "#4CAF50"
-        fontColor: "#2E7D32"
       - id: ProductNode
         entity: Product
         x: 330
@@ -27,7 +25,6 @@ systemDiagram:
         height: 134.00000190734863
         backgroundColor: "#E8F5E9"
         borderColor: "#4CAF50"
-        fontColor: "#2E7D32"
       - id: InvoiceNode
         entity: Invoice
         x: -110
@@ -36,7 +33,6 @@ systemDiagram:
         height: 153.66666889190674
         backgroundColor: "#E8F5E9"
         borderColor: "#4CAF50"
-        fontColor: "#2E7D32"
     edges:
       - id: SalesOrderOrderLineEdge
         relationship: SalesOrderOrderLine
