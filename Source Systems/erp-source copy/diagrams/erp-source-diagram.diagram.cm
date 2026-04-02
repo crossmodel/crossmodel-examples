@@ -3,8 +3,8 @@ systemDiagram:
     nodes:
       - id: SalesOrderNode
         entity: SalesOrder
-        x: 12
-        y: 196.00000190734863
+        x: -120
+        y: -50
         width: 177.15625524520874
         height: 153.66666889190674
         backgroundColor: "#E8F5E9"
@@ -12,8 +12,8 @@ systemDiagram:
         fontColor: "#2E7D32"
       - id: OrderLineNode
         entity: OrderLine
-        x: 239.15625524520874
-        y: 68.75555636088053
+        x: 110
+        y: -50
         width: 171.15625524520874
         height: 153.66666889190674
         backgroundColor: "#E8F5E9"
@@ -21,8 +21,8 @@ systemDiagram:
         fontColor: "#2E7D32"
       - id: ProductNode
         entity: Product
-        x: 41.458335876464844
-        y: 12
+        x: 330
+        y: -40
         width: 147.6979193687439
         height: 134.00000190734863
         backgroundColor: "#E8F5E9"
@@ -30,8 +30,8 @@ systemDiagram:
         fontColor: "#2E7D32"
       - id: InvoiceNode
         entity: Invoice
-        x: 239.15625524520874
-        y: 287.4682572001503
+        x: -110
+        y: 180
         width: 171.15625524520874
         height: 153.66666889190674
         backgroundColor: "#E8F5E9"
