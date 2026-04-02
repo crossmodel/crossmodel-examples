@@ -1,0 +1,41 @@
+entity:
+  id: SalesOrder
+  name: "Sales Order"
+  description: "A sales order placed by a customer"
+  attributes:
+  - id: SalesOrderId
+    name: "Sales Order Id"
+    description: "Unique sales order identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: CustomerNumber
+    name: "Customer Number"
+    description: "Customer reference (external key to CRM)"
+    datatype: "Integer"
+    mandatory: true
+  - id: OrderDate
+    name: "Order Date"
+    description: "Date the order was placed"
+    datatype: "DateTime"
+  - id: Status
+    name: "Status"
+    description: "Order status (Pending, Confirmed, Shipped, Delivered, Cancelled)"
+    datatype: "Text"
+    length: 20
+  - id: TotalAmount
+    name: "Total Amount"
+    description: "Total order amount"
+    datatype: "Decimal"
+    precision: 12
+    scale: 2
+  - id: Currency
+    name: "Currency"
+    description: "Currency code (ISO 4217)"
+    datatype: "Text"
+    length: 3
+  identifiers:
+  - id: SalesOrderPK
+    name: "Sales Order PK"
+    primary: true
+    attributes:
+    - SalesOrderId

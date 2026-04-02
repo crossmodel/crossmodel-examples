@@ -1,0 +1,37 @@
+entity:
+  id: Product
+  name: "Product"
+  description: "A product or service available for sale"
+  attributes:
+  - id: ProductId
+    name: "Product Id"
+    description: "Unique product identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductName
+    name: "Product Name"
+    description: "Name of the product"
+    datatype: "Text"
+    length: 200
+  - id: Category
+    name: "Category"
+    description: "Product category"
+    datatype: "Text"
+    length: 50
+  - id: UnitPrice
+    name: "Unit Price"
+    description: "Standard list price"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+  - id: SKU
+    name: "SKU"
+    description: "Stock keeping unit code"
+    datatype: "Text"
+    length: 50
+  identifiers:
+  - id: ProductPK
+    name: "Product PK"
+    primary: true
+    attributes:
+    - ProductId

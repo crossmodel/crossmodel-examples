@@ -1,0 +1,13 @@
+relationship:
+  id: SalesPersonOpportunity
+  name: "Sales Person Opportunity"
+  description: "Sales person to the deals they own"
+  parent: SalesPerson
+  parentRole: "sales person"
+  parentCardinality: 1..1
+  child: Opportunity
+  childRole: "opportunities"
+  childCardinality: 0..N
+  attributes:
+  - parent: SalesPerson.SalesPersonId
+    child: Opportunity.SalesPersonId

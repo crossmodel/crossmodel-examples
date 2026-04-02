@@ -1,6 +1,0 @@
-datamodel:
-  id: crm-source
-  name: "CRM Source System"
-  description: "Source system model for the CRM platform covering customer data in the Online Retail domain"
-  type: logical
-  version: 1.0.0

@@ -1,6 +1,0 @@
-datamodel:
-  id: erp-source
-  name: "ERP Source System"
-  description: "Source system model for the ERP platform covering sales orders, products and payments in the Online Retail domain"
-  type: logical
-  version: 1.0.0

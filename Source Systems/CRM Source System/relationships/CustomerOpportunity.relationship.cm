@@ -1,0 +1,13 @@
+relationship:
+  id: CustomerOpportunity
+  name: "Customer Opportunity"
+  description: "Customer to their sales opportunities"
+  parent: Customer
+  parentRole: "customer"
+  parentCardinality: 1..1
+  child: Opportunity
+  childRole: "opportunities"
+  childCardinality: 0..N
+  attributes:
+  - parent: Customer.CustomerId
+    child: Opportunity.CustomerId

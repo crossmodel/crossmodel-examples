@@ -1,0 +1,40 @@
+entity:
+  id: SalesPerson
+  name: "Sales Person"
+  description: "A sales representative managing customer relationships and deals"
+  attributes:
+  - id: SalesPersonId
+    name: "Sales Person Id"
+    description: "Unique sales person identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: FirstName
+    name: "First Name"
+    description: "First name"
+    datatype: "Text"
+    length: 80
+  - id: LastName
+    name: "Last Name"
+    description: "Last name"
+    datatype: "Text"
+    length: 80
+  - id: Email
+    name: "Email"
+    description: "Work email address"
+    datatype: "Text"
+    length: 240
+  - id: Region
+    name: "Region"
+    description: "Sales territory or region (EMEA, NA, APAC, LATAM)"
+    datatype: "Text"
+    length: 30
+  - id: HireDate
+    name: "Hire Date"
+    description: "Date the sales person joined the company"
+    datatype: "Date"
+  identifiers:
+  - id: SalesPersonPK
+    name: "Sales Person PK"
+    primary: true
+    attributes:
+    - SalesPersonId

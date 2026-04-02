@@ -1,0 +1,50 @@
+entity:
+  id: Opportunity
+  name: "Opportunity"
+  description: "A potential sales deal for licenses or consultancy services"
+  attributes:
+  - id: OpportunityId
+    name: "Opportunity Id"
+    description: "Unique opportunity identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: CustomerId
+    name: "Customer Id"
+    description: "FK to Customer"
+    datatype: "Integer"
+    mandatory: true
+  - id: SalesPersonId
+    name: "Sales Person Id"
+    description: "FK to the SalesPerson owning this deal"
+    datatype: "Integer"
+    mandatory: true
+  - id: OpportunityName
+    name: "Opportunity Name"
+    description: "Short description of the deal"
+    datatype: "Text"
+    length: 200
+  - id: Stage
+    name: "Stage"
+    description: "Pipeline stage (Prospecting, Qualification, Proposal, Negotiation, Closed Won, Closed Lost)"
+    datatype: "Text"
+    length: 30
+  - id: Amount
+    name: "Amount"
+    description: "Estimated deal value"
+    datatype: "Decimal"
+    precision: 12
+    scale: 2
+  - id: CloseDate
+    name: "Close Date"
+    description: "Expected or actual close date"
+    datatype: "Date"
+  - id: CreatedDate
+    name: "Created Date"
+    description: "Date the opportunity was created"
+    datatype: "DateTime"
+  identifiers:
+  - id: OpportunityPK
+    name: "Opportunity PK"
+    primary: true
+    attributes:
+    - OpportunityId

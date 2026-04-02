@@ -1,0 +1,6 @@
+datamodel:
+  id: crm-source
+  name: "CRM Source System"
+  description: "CRM platform for managing customers, sales pipeline and sales team"
+  type: logical
+  version: 1.0.0

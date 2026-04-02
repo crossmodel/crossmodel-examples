@@ -1,0 +1,33 @@
+systemDiagram:
+    id: crm-source-diagram
+    nodes:
+      - id: CustomerNode
+        entity: Customer
+        x: 23.721832275390625
+        y: 218
+        width: 165.37149047851562
+        height: 176
+        fontColor: "#1A1A1A"
+      - id: OpportunityNode
+        entity: Opportunity
+        x: 239.09332275390625
+        y: 79.6842105263158
+        width: 177.09332275390625
+        height: 196
+        fontColor: "#1A1A1A"
+      - id: SalesPersonNode
+        entity: SalesPerson
+        x: 12
+        y: 12
+        width: 177.09332275390625
+        height: 156
+        fontColor: "#1A1A1A"
+    edges:
+      - id: CustomerOpportunityEdge
+        relationship: CustomerOpportunity
+        sourceNode: CustomerNode
+        targetNode: OpportunityNode
+      - id: SalesPersonOpportunityEdge
+        relationship: SalesPersonOpportunity
+        sourceNode: SalesPersonNode
+        targetNode: OpportunityNode

@@ -1,0 +1,45 @@
+entity:
+  id: Customer
+  name: "Customer"
+  description: "A customer account in the CRM"
+  attributes:
+  - id: CustomerId
+    name: "Customer Id"
+    description: "Unique customer identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: CompanyName
+    name: "Company Name"
+    description: "Company or organization name"
+    datatype: "Text"
+    length: 200
+  - id: ContactName
+    name: "Contact Name"
+    description: "Primary contact person"
+    datatype: "Text"
+    length: 120
+  - id: Email
+    name: "Email"
+    description: "Primary email address"
+    datatype: "Text"
+    length: 240
+  - id: Phone
+    name: "Phone"
+    description: "Primary phone number"
+    datatype: "Text"
+    length: 20
+  - id: Industry
+    name: "Industry"
+    description: "Industry vertical (Finance, Healthcare, Retail, Tech, etc.)"
+    datatype: "Text"
+    length: 50
+  - id: CreatedDate
+    name: "Created Date"
+    description: "Date the customer was created in the CRM"
+    datatype: "DateTime"
+  identifiers:
+  - id: CustomerPK
+    name: "Customer PK"
+    primary: true
+    attributes:
+    - CustomerId

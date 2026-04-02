@@ -1,0 +1,41 @@
+entity:
+  id: Invoice
+  name: "Invoice"
+  description: "A billing document issued for a sales order"
+  attributes:
+  - id: InvoiceId
+    name: "Invoice Id"
+    description: "Unique invoice identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: SalesOrderId
+    name: "Sales Order Id"
+    description: "FK to Sales Order"
+    datatype: "Integer"
+    mandatory: true
+  - id: InvoiceDate
+    name: "Invoice Date"
+    description: "Date the invoice was issued"
+    datatype: "Date"
+    mandatory: true
+  - id: DueDate
+    name: "Due Date"
+    description: "Payment due date"
+    datatype: "Date"
+  - id: TotalAmount
+    name: "Total Amount"
+    description: "Total invoice amount"
+    datatype: "Decimal"
+    precision: 12
+    scale: 2
+  - id: Status
+    name: "Status"
+    description: "Invoice status (Draft, Sent, Paid, Overdue, Cancelled)"
+    datatype: "Text"
+    length: 20
+  identifiers:
+  - id: InvoicePK
+    name: "Invoice PK"
+    primary: true
+    attributes:
+    - InvoiceId

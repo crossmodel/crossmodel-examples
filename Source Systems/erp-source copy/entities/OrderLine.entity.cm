@@ -1,0 +1,43 @@
+entity:
+  id: OrderLine
+  name: "Order Line"
+  description: "An individual line item on a sales order"
+  attributes:
+  - id: OrderLineId
+    name: "Order Line Id"
+    description: "Unique line item identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: SalesOrderId
+    name: "Sales Order Id"
+    description: "FK to Sales Order"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductId
+    name: "Product Id"
+    description: "FK to Product"
+    datatype: "Integer"
+    mandatory: true
+  - id: Quantity
+    name: "Quantity"
+    description: "Quantity ordered"
+    datatype: "Integer"
+    mandatory: true
+  - id: UnitPrice
+    name: "Unit Price"
+    description: "Price per unit at time of sale"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+  - id: LineTotal
+    name: "Line Total"
+    description: "Total amount for this line"
+    datatype: "Decimal"
+    precision: 12
+    scale: 2
+  identifiers:
+  - id: OrderLinePK
+    name: "Order Line PK"
+    primary: true
+    attributes:
+    - OrderLineId
