@@ -1,0 +1,14 @@
+datamodel:
+  id: revenue-business
+  name: "Revenue Business Layer"
+  description: "Business layer providing visibility into revenue per customer, including the managing sales person and invoice status"
+  type: logical
+  version: 1.0.0
+  crossmodel:
+    edition: team
+    version: 0
+  dependencies:
+  - datamodel: crm-source
+    version: 1.0.0
+  - datamodel: erp-source
+    version: 1.0.0

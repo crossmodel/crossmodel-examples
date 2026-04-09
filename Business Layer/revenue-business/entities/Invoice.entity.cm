@@ -1,0 +1,50 @@
+entity:
+  id: Invoice
+  name: "Invoice"
+  description: "A billing document issued to a customer, capturing amount and payment status"
+  attributes:
+  - id: InvoiceId
+    name: "Invoice Id"
+    description: "Unique invoice identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: CustomerId
+    name: "Customer Id"
+    description: "FK to the Customer this invoice belongs to"
+    datatype: "Integer"
+    mandatory: true
+  - id: SalesPersonId
+    name: "Sales Person Id"
+    description: "FK to the Sales Person associated with this invoice"
+    datatype: "Integer"
+  - id: InvoiceDate
+    name: "Invoice Date"
+    description: "Date the invoice was issued"
+    datatype: "Date"
+    mandatory: true
+  - id: DueDate
+    name: "Due Date"
+    description: "Payment due date"
+    datatype: "Date"
+  - id: TotalAmount
+    name: "Total Amount"
+    description: "Total invoice amount"
+    datatype: "Decimal"
+    precision: 12
+    scale: 2
+  - id: Currency
+    name: "Currency"
+    description: "Currency code (ISO 4217)"
+    datatype: "Text"
+    length: 3
+  - id: Status
+    name: "Status"
+    description: "Invoice payment status (Draft, Sent, Paid, Overdue, Cancelled)"
+    datatype: "Text"
+    length: 20
+  identifiers:
+  - id: InvoicePK
+    name: "Invoice PK"
+    primary: true
+    attributes:
+    - InvoiceId

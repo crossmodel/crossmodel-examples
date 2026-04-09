@@ -1,0 +1,40 @@
+entity:
+  id: Customer
+  name: "Customer"
+  description: "A customer account with their key identifiers and contact details"
+  attributes:
+  - id: CustomerId
+    name: "Customer Id"
+    description: "Unique customer identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: CompanyName
+    name: "Company Name"
+    description: "Company or organisation name"
+    datatype: "Text"
+    length: 200
+  - id: ContactName
+    name: "Contact Name"
+    description: "Primary contact person"
+    datatype: "Text"
+    length: 120
+  - id: Email
+    name: "Email"
+    description: "Primary email address"
+    datatype: "Text"
+    length: 240
+  - id: Industry
+    name: "Industry"
+    description: "Industry vertical"
+    datatype: "Text"
+    length: 50
+  - id: SalesPersonId
+    name: "Sales Person Id"
+    description: "FK to the Sales Person managing this customer"
+    datatype: "Integer"
+  identifiers:
+  - id: CustomerPK
+    name: "Customer PK"
+    primary: true
+    attributes:
+    - CustomerId

@@ -1,0 +1,34 @@
+mapping:
+  id: Customer_mapping
+  sources:
+  - id: CRM_Customer_Source
+    entity: crm-source.Customer
+    join: from
+  - id: CRM_Opportunity_Source
+    entity: crm-source.Opportunity
+    join: left-join
+    dependencies:
+    - CRM_Customer_Source
+    conditions:
+    - CRM_Customer_Source.CustomerId = CRM_Opportunity_Source.CustomerId
+  target:
+    entity: Customer
+    mappings:
+    - attribute: CustomerId
+      sources:
+      - CRM_Customer_Source.CustomerId
+    - attribute: CompanyName
+      sources:
+      - CRM_Customer_Source.CompanyName
+    - attribute: ContactName
+      sources:
+      - CRM_Customer_Source.ContactName
+    - attribute: Email
+      sources:
+      - CRM_Customer_Source.Email
+    - attribute: Industry
+      sources:
+      - CRM_Customer_Source.Industry
+    - attribute: SalesPersonId
+      sources:
+      - CRM_Opportunity_Source.SalesPersonId

@@ -1,6 +1,9 @@
 datamodel:
-  id: erp-source
-  name: "ERP Source System"
-  description: "ERP platform covering sales orders, products and invoicing"
-  type: logical
-  version: 1.0.0
+    id: erp-source
+    name: "ERP Source System"
+    description: "ERP platform covering sales orders, products and invoicing"
+    type: logical
+    version: 1.0.0
+    crossmodel:
+        edition: team
+        version: 0

@@ -1,0 +1,31 @@
+entity:
+  id: SalesPerson
+  name: "Sales Person"
+  description: "A sales representative responsible for managing customer accounts and driving revenue"
+  attributes:
+  - id: SalesPersonId
+    name: "Sales Person Id"
+    description: "Unique sales person identifier"
+    datatype: "Integer"
+    mandatory: true
+  - id: FullName
+    name: "Full Name"
+    description: "Full name of the sales person"
+    datatype: "Text"
+    length: 160
+  - id: Email
+    name: "Email"
+    description: "Work email address"
+    datatype: "Text"
+    length: 240
+  - id: Region
+    name: "Region"
+    description: "Sales territory or region"
+    datatype: "Text"
+    length: 30
+  identifiers:
+  - id: SalesPersonPK
+    name: "Sales Person PK"
+    primary: true
+    attributes:
+    - SalesPersonId

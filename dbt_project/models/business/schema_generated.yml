@@ -1,0 +1,35 @@
+#
+  ╔══════════════════════════════════════════════════════════════════════════╗
+  ║  CrossGenerate Nunjucks template — dbt schema.yml                       ║
+  ║                                                                          ║
+  ║  Generates a SINGLE schema.yml covering all business-layer models.       ║
+  ║  Crossgenerate output filename: schema.yml  (single-file output)         ║
+  ╚══════════════════════════════════════════════════════════════════════════╝
+
+  CrossModel variable reference
+  ──────────────────────────────
+  mappings[]                        all mapping files in the business data model
+  mapping.target.entity             the business-layer target entity
+    entity.id                       entity identifier  (= dbt model name)
+    entity.name                     human-readable name
+    entity.description              entity description
+    entity.datamodel.id             data model id of the target entity
+    entity.attributes[]             list of attributes
+      attribute.id                  attribute identifier  (= dbt column name)
+      attribute.description         column description
+      attribute.mandatory           true → emit "not_null" test
+    entity.identifiers[]            list of identifiers
+      identifier.primary            true → its attributes get a "unique" test
+      identifier.attributes[]       list of attribute id strings
+  mapping.sources[]                 source objects (same structure as in model.sql.njk)
+    source.entity.datamodel.id      data model id of the source entity
+
+  Column test rules
+  ──────────────────
+  • not_null  → attribute.mandatory == true
+  • unique    → attribute.id is listed in a primary identifier
+#
+version: 2
+
+models:
+

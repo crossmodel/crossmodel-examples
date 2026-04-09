@@ -1,0 +1,25 @@
+mapping:
+  id: SalesPerson_mapping
+  sources:
+  - id: CRM_SalesPerson_Source
+    entity: crm-source.SalesPerson
+    join: from
+  target:
+    entity: SalesPerson
+    mappings:
+    - attribute: SalesPersonId
+      sources:
+      - CRM_SalesPerson_Source.SalesPersonId
+    - attribute: FullName
+      sources:
+      - CRM_SalesPerson_Source.FirstName
+      - CRM_SalesPerson_Source.LastName
+      expressions:
+      - language: "SQL"
+        expression: "CONCAT({{CRM_SalesPerson_Source.FirstName}}, ' ', {{CRM_SalesPerson_Source.LastName}})"
+    - attribute: Email
+      sources:
+      - CRM_SalesPerson_Source.Email
+    - attribute: Region
+      sources:
+      - CRM_SalesPerson_Source.Region

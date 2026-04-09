@@ -1,0 +1,13 @@
+relationship:
+  id: CustomerInvoice
+  name: "Customer Invoice"
+  description: "Links a customer to all their invoices"
+  parent: Customer
+  parentRole: "invoiced customer"
+  parentCardinality: 1..1
+  child: Invoice
+  childRole: "invoices"
+  childCardinality: 0..N
+  attributes:
+  - parent: Customer.CustomerId
+    child: Invoice.CustomerId

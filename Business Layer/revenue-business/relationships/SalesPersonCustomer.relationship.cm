@@ -1,0 +1,13 @@
+relationship:
+  id: SalesPersonCustomer
+  name: "Sales Person Customer"
+  description: "Links a sales person to the customers they manage"
+  parent: SalesPerson
+  parentRole: "managing sales person"
+  parentCardinality: 1..1
+  child: Customer
+  childRole: "managed customers"
+  childCardinality: 0..N
+  attributes:
+  - parent: SalesPerson.SalesPersonId
+    child: Customer.SalesPersonId

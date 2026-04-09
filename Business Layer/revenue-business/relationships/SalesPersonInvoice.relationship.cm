@@ -1,0 +1,13 @@
+relationship:
+  id: SalesPersonInvoice
+  name: "Sales Person Invoice"
+  description: "Links a sales person to the invoices associated with their customers"
+  parent: SalesPerson
+  parentRole: "responsible sales person"
+  parentCardinality: 1..1
+  child: Invoice
+  childRole: "invoices"
+  childCardinality: 0..N
+  attributes:
+  - parent: SalesPerson.SalesPersonId
+    child: Invoice.SalesPersonId

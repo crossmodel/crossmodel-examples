@@ -1,0 +1,48 @@
+systemDiagram:
+    id: revenue-business-diagram
+    nodes:
+      - id: SalesPersonNode
+        entity: SalesPerson
+        x: -10
+        y: 260
+        width: 200
+        height: 150
+      - id: CustomerNode
+        entity: Customer
+        x: 330
+        y: 30
+        width: 200
+        height: 153.66666889190674
+      - id: InvoiceNode
+        entity: Invoice
+        x: 10
+        y: 10
+        width: 200
+        height: 193.00000286102295
+      - id: RevenuePerCustomerNode
+        entity: RevenuePerCustomer
+        x: 470
+        y: 240
+        width: 200
+        height: 252.00000381469727
+    edges:
+      - id: SalesPersonCustomerEdge
+        relationship: SalesPersonCustomer
+        sourceNode: SalesPersonNode
+        targetNode: CustomerNode
+      - id: CustomerInvoiceEdge
+        relationship: CustomerInvoice
+        sourceNode: CustomerNode
+        targetNode: InvoiceNode
+      - id: SalesPersonInvoiceEdge
+        relationship: SalesPersonInvoice
+        sourceNode: SalesPersonNode
+        targetNode: InvoiceNode
+      - id: CustomerRevenuePerCustomerEdge
+        relationship: CustomerRevenuePerCustomer
+        sourceNode: CustomerNode
+        targetNode: RevenuePerCustomerNode
+      - id: SalesPersonRevenuePerCustomerEdge
+        relationship: SalesPersonRevenuePerCustomer
+        sourceNode: SalesPersonNode
+        targetNode: RevenuePerCustomerNode

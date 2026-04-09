@@ -1,0 +1,47 @@
+mapping:
+  id: Invoice_mapping
+  sources:
+  - id: ERP_Invoice_Source
+    entity: erp-source.Invoice
+    join: from
+  - id: ERP_SalesOrder_Source
+    entity: erp-source.SalesOrder
+    join: inner-join
+    dependencies:
+    - ERP_Invoice_Source
+    conditions:
+    - ERP_Invoice_Source.SalesOrderId = ERP_SalesOrder_Source.SalesOrderId
+  - id: CRM_Opportunity_Source
+    entity: crm-source.Opportunity
+    join: left-join
+    dependencies:
+    - ERP_SalesOrder_Source
+    conditions:
+    - ERP_SalesOrder_Source.CustomerNumber = CRM_Opportunity_Source.CustomerId
+  target:
+    entity: Invoice
+    mappings:
+    - attribute: InvoiceId
+      sources:
+      - ERP_Invoice_Source.InvoiceId
+    - attribute: CustomerId
+      sources:
+      - ERP_SalesOrder_Source.CustomerNumber
+    - attribute: SalesPersonId
+      sources:
+      - CRM_Opportunity_Source.SalesPersonId
+    - attribute: InvoiceDate
+      sources:
+      - ERP_Invoice_Source.InvoiceDate
+    - attribute: DueDate
+      sources:
+      - ERP_Invoice_Source.DueDate
+    - attribute: TotalAmount
+      sources:
+      - ERP_Invoice_Source.TotalAmount
+    - attribute: Currency
+      sources:
+      - ERP_SalesOrder_Source.Currency
+    - attribute: Status
+      sources:
+      - ERP_Invoice_Source.Status
