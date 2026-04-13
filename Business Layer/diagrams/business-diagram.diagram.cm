@@ -1,0 +1,34 @@
+systemDiagram:
+    id: business-diagram
+    nodes:
+      - id: SalesPersonNode
+        entity: SalesPerson
+        x: -20
+        y: 240
+        width: 200
+        height: 150
+      - id: CustomerNode
+        entity: Customer
+        x: 370
+        y: 30
+        width: 200
+        height: 155.23072338104248
+      - id: InvoiceNode
+        entity: Invoice
+        x: -10
+        y: -110
+        width: 200
+        height: 195.01093006134033
+    edges:
+      - id: SalesPersonCustomerEdge_SalesPersonNode_CustomerNode
+        relationship: business-layer.SalesPersonCustomer
+        sourceNode: SalesPersonNode
+        targetNode: CustomerNode
+      - id: SalesPersonInvoiceEdge_SalesPersonNode_InvoiceNode
+        relationship: business-layer.SalesPersonInvoice
+        sourceNode: SalesPersonNode
+        targetNode: InvoiceNode
+      - id: CustomerInvoiceEdge_CustomerNode_InvoiceNode
+        relationship: business-layer.CustomerInvoice
+        sourceNode: CustomerNode
+        targetNode: InvoiceNode
