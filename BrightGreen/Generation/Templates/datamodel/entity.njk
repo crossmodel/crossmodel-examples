@@ -1,0 +1,43 @@
+{#
+  entity.njk
+  ==========
+  Renders a single entity section with attributes table and identifiers.
+
+  Context: `entity` variable from {% for entity in datamodel.entities %}
+
+  Available properties:
+    id, name, description   – Identity
+    attributes[]            – Array of LogicalEntityAttribute
+      .id, .name            – Attribute identity
+      .datatype             – e.g. "Integer", "Text", "Decimal"
+      .length               – Text length constraint
+      .precision, .scale    – Decimal precision
+      .mandatory            – Boolean, required field
+      .description          – Free-text description
+      ._isPrimaryIdentifier – Computed: true if part of primary key
+    identifiers[]           – Array of LogicalIdentifier
+      .primary              – Boolean
+      .attributes[]         – Attributes in this identifier
+    inherits[]              – Parent entities (inheritance)
+#}
+<h2 id="{{ entity.id }}">{{ entity.name }}</h2>
+
+{% if entity.description %}
+> {{ entity.description }}
+
+{% endif %}
+{% for parent in entity.inherits %}{% if loop.first %}> **Inherits from:** {% endif %}[{{ parent.name }}](#{{ parent.id }}){% if not loop.last %}, {% endif %}{% if loop.last %}
+
+{% endif %}{% endfor %}
+| | Attribute | Datatype | PK | Mandatory | Description |
+|--:|:----------|:---------|:--:|:---------:|:------------|
+{%- for attr in entity.attributes %}
+| {{ loop.index0 }} | {% if attr._isPrimaryIdentifier %}**{{ attr.name }}**{% else %}{{ attr.name }}{% endif %} | `{{ attr.datatype }}`{% if attr.length %}({{ attr.length }}){% endif %}{% if attr.precision %}({{ attr.precision }}{% if attr.scale %},{{ attr.scale }}{% endif %}){% endif %} | {% if attr._isPrimaryIdentifier %}🔑{% endif %} | {% if attr.mandatory %}✔{% endif %} | {% if attr.description %}*{{ attr.description }}*{% endif %} |
+{%- endfor %}
+
+{% for identifier in entity.identifiers %}{% if identifier.primary %}
+> 🔑 **Primary Key** — {% for attr in identifier.attributes %}**{{ attr.name }}**{% if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}{% endfor %}
+
+---
+

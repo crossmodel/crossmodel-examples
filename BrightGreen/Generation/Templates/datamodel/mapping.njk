@@ -1,0 +1,48 @@
+{#
+  mapping.njk
+  ===========
+  Renders a single mapping section: source entities, target, and
+  the attribute-level mapping between them.
+
+  Context: `mapping` variable from {% for mapping in datamodel.mappings %}
+
+  Available properties:
+    id                        – Mapping identifier
+    sources[]                 – Source objects
+      .id                     – Source alias used in conditions/expressions
+      .entity                 – Reference to source LogicalEntity (resolved)
+      .entity._globalId       – Fully qualified: "DataModel.Entity"
+      .join                   – "from", "inner-join", "left-join", etc.
+      .conditions[]           – Join conditions (BinaryExpression)
+    target                    – Target object
+      .entity                 – Reference to target LogicalEntity (resolved)
+      .mappings[]             – Attribute mappings
+        .attribute.value      – Target attribute (resolved)
+        .sources[].value      – Source attribute(s) (resolved)
+        .expressions[]        – Computed expressions (.language, .expression)
+#}
+<h2 id="mapping-{{ mapping.id }}">Mapping: {{ mapping.id }}</h2>
+
+### Sources
+
+| Alias | Entity | Join | Conditions |
+|:------|:-------|:-----|:-----------|
+{%- for src in mapping.sources %}
+| **{{ src.id }}** | `{% if src.entity %}{{ src.entity._globalId }}{% endif %}` | {% if src.join %}`{{ src.join }}`{% endif %} | {% for cond in src.conditions %}{{ cond.expression.left.value.id }} {{ cond.expression.op }} {{ cond.expression.right.value.id }}{% if not loop.last %}, {% endif %}{% endfor %} |
+{%- endfor %}
+
+{% if mapping.target %}
+### Target → [{% if mapping.target.entity %}{{ mapping.target.entity.name }}{% endif %}](#{% if mapping.target.entity %}{{ mapping.target.entity.id }}{% endif %})
+
+{%- for am in mapping.target.mappings %}
+{%- if loop.first %}
+
+| Target Attribute | Source(s) | Expression |
+|:-----------------|:----------|:-----------|
+{%- endif %}
+| {% if am.attribute %}**{{ am.attribute.value.name }}**{% endif %} | {% for src in am.sources %}{{ src.value.id }}{% if not loop.last %}, {% endif %}{% endfor %} | {% for expr in am.expressions %}`{{ expr.expression }}` *({{ expr.language }})*{% if not loop.last %} {% endif %}{% endfor %} |
+{%- endfor %}
+{% endif %}
+
+---
+

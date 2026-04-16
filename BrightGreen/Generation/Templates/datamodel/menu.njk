@@ -1,0 +1,37 @@
+{#
+  menu.njk
+  ========
+  Navigation menu listing all sections as bullet lists.
+  Only shows a category if the datamodel has items of that type.
+
+  Context: root model object (contains `datamodel`)
+
+  Links use custom anchor IDs set via <h2 id=""> in each partial.
+#}
+## Table of Contents
+
+{% for entity in datamodel.entities %}
+{% if loop.first %}
+**Entities**
+
+{% endif %}
+- [`{{ entity.name }}`](#{{ entity.id }})
+{% endfor %}
+
+{% for rel in datamodel.relationships %}
+{% if loop.first %}
+
+**Relationships**
+
+{% endif %}
+- [`{{ rel.name }}`](#{{ rel.id }}) — {{ rel.parent.name }} → {{ rel.child.name }}
+{% endfor %}
+
+{% for mapping in datamodel.mappings %}
+{% if loop.first %}
+
+**Mappings**
+
+{% endif %}
+- [`{{ mapping.id }}`](#mapping-{{ mapping.id }})
+{% endfor %}
