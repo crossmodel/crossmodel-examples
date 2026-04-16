@@ -1,21 +1,28 @@
 entity:
     id: Customer
     name: "Customer"
+    description: "Represents a customer registered in the JuiceERP system"
     attributes:
       - id: CustomerID
         name: "CustomerID"
+        description: "Unique identifier for the customer"
         datatype: "Integer"
+        mandatory: true
       - id: FirstName
         name: "FirstName"
+        description: "First name of the customer"
         datatype: "Text"
       - id: LastName
         name: "LastName"
+        description: "Last name of the customer"
         datatype: "Text"
       - id: DateOfBirth
         name: "DateOfBirth"
+        description: "Date of birth of the customer"
         datatype: "Date"
       - id: EmailAddress
         name: "EmailAddress"
+        description: "Email address of the customer"
         datatype: "Text"
     identifiers:
       - id: Primary_Identifier

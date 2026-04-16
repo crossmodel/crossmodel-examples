@@ -1,21 +1,27 @@
 entity:
     id: INVOICE
     name: "Invoice"
+    description: "Represents an invoice issued to a debtor in the PreciseFinance system"
     attributes:
       - id: INVOICENO
         name: "InvoiceNo"
+        description: "Unique invoice number"
         datatype: "Integer"
       - id: DEBTORID
         name: "DebtorID"
+        description: "Reference to the debtor this invoice is issued to"
         datatype: "Integer"
       - id: INVOICEDATE
         name: "InvoiceDate"
+        description: "Date when the invoice was issued"
         datatype: "Date"
       - id: INVOICESTATUS
         name: "InvoiceStatus"
+        description: "Current status of the invoice"
         datatype: "Text"
       - id: JUICEERPSALESORDERID
         name: "JuiceERP_SalesOrderID"
+        description: "Cross-reference to the corresponding sales order in JuiceERP"
         datatype: "Integer"
     identifiers:
       - id: Primary_Identifier

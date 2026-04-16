@@ -3,7 +3,13 @@ systemDiagram:
     nodes:
       - id: CustomerWithOrderCountNode
         entity: CustomerWithOrderCount
-        x: 286
-        y: 110
-        width: 10
-        height: 10
+        x: 110
+        y: 90
+        width: 160.02084350585938
+        height: 75.00000095367432
+      - id: OrderWithCustomerDataNode
+        entity: OrderWithCustomerData
+        x: 330
+        y: 90
+        width: 159.56250524520874
+        height: 94.66666793823242

@@ -1,0 +1,29 @@
+mapping:
+    id: OrderWithCustomerDataMapping
+    sources:
+      - id: SalesOrder
+        entity: JuiceERP.SalesOrder
+        join: from
+      - id: Customer
+        entity: JuiceERP.Customer
+        join: left-join
+        dependencies:
+          - SalesOrder
+        conditions:
+          - Customer.CustomerID = SalesOrder.CustomerID
+    target:
+        entity: OrderWithCustomerData
+        mappings:
+          - attribute: SalesOrderID
+            sources:
+              - SalesOrder.SalesOrderID
+          - attribute: Orderdate
+            sources:
+              - SalesOrder.OrderDate
+          - attribute: CustomerName
+            sources:
+              - Customer.FirstName
+              - Customer.LastName
+            expressions:
+              - language: "SQL"
+                expression: "CONCAT_WS(' ', Customer.FirstName, Customer.LastName)"

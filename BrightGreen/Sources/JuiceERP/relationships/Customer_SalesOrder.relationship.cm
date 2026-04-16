@@ -1,7 +1,8 @@
 relationship:
    id: Customer_SalesOrder
    name: "Customer_SalesOrder"
-   parent: Customer   
+   description: "Links a customer to their sales orders, indicating which customer placed each order"
+   parent: Customer
    parentCardinality: 0..1
    child: SalesOrder   
    childCardinality: 0..N
