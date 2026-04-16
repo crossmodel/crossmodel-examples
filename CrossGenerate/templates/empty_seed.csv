@@ -1,1 +1,3 @@
+{#- Generates a CSV header row containing the comma-separated attribute IDs of the entity. 
+Used to produce empty dbt seed files that match the entity's schema, which can be referenced as source in the dbt source tables. -#}
 {% for attr in entity.attributes -%}{{ attr.id }}{%- if not loop.last %},{% endif %}{% endfor -%}

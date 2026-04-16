@@ -1,4 +1,3 @@
-dbt/logs/*
 dbt/jaffle_shop/*
 dbt/BrightGreen/logs/*
 dbt/BrightGreen/target/*

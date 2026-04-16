@@ -69,23 +69,15 @@ Open the project in the CrossModel environment. Browse the `.cm` files under `Br
 
 ### 2. Generate dbt Models
 
-Use the CrossGenerate feature in CrossModel to generate dbt SQL files from the templates. There are four generation steps:
+Use the CrossGenerate feature in CrossModel to generate dbt SQL files from the templates. Nunjucks is used as the template engine. There are four generation steps:
 
-**Source models** -- Generate one SQL model per source entity. These create views that select from the raw CSV seeds.The source views are written to the dbt folder `dbt/BrightGreen/models/source/`.
+**Source models** -- Generate one SQL model per source entity. As template select the source_entity_model.sql from the CrossGenerate/templates folder. These create views that select from the raw CSV seeds.The source views are written to the dbt folder `dbt/BrightGreen/models/source/{{entity_name}}.sql`.
 
-<img width="1558" height="521" alt="Generate source models" src="https://github.com/user-attachments/assets/0262fac6-87c0-421c-aca6-40a0a25a76d5" />
+**Seed files** -- Generate empty CSV files with the correct column headers for each source entity. Select empty_seed.csv as template. They are written to `dbt/BrightGreen/seeds/raw_{{entity.name}}.csv`
 
-**Seed files** -- Generate empty CSV files with the correct column headers for each source entity.  They are written to `dbt/BrightGreen/seeds/`
+**Mapping models** -- Generate the transformation logic that maps source data to DWH entities (joins, expressions, aggregations). The mappings are written to the dbt folder `dbt/BrightGreen/models/mapping/mapping_{{mapping.target.entity.id}}.sql`.
 
-<img width="1554" height="518" alt="Generate seed files" src="https://github.com/user-attachments/assets/cb4af623-d167-4ec2-8aea-f4879ac88075" />
-
-**Mapping models** -- Generate the transformation logic that maps source data to DWH entities (joins, expressions, aggregations). The mappings are written to the dbt folder `dbt/BrightGreen/models/mapping/`.
-
-<img width="1545" height="517" alt="Generate mapping models" src="https://github.com/user-attachments/assets/783f69bf-99cf-4bf4-98d5-33e2d610da85" />
-
-**DWH models** -- Generate the final DWH layer models that reference the mappings. The files are written to `dbt/BrightGreen/models/dwh/`.
-
-<img width="1551" height="521" alt="Generate DWH models" src="https://github.com/user-attachments/assets/b2938a97-3934-481e-830b-19b400d6bd1c" />
+**DWH models** -- Generate the final DWH layer models that reference the mappings. Select the entity_mapping.sql as template. The files are written to `dbt/BrightGreen/models/dwh/{{entity.id}}.sql`.
 
 ### 3. Commit and Push
 
@@ -108,16 +100,10 @@ cd dbt/BrightGreen
 
 # Load the CSV seed data into DuckDB
 dbt seed
-```
 
-<img width="869" height="333" alt="dbt seed output" src="https://github.com/user-attachments/assets/0a1f580c-c335-4bf2-ae0d-a119bd062bb6" />
-
-```bash
 # Build all models (source views, mapping views, DWH tables)
 dbt build
 ```
-
-<img width="735" height="490" alt="dbt build output" src="https://github.com/user-attachments/assets/1a29178b-0bb5-468f-ac97-7920538299a2" />
 
 ### 6. Query the Results
 
@@ -127,8 +113,7 @@ The data is now in DuckDB, and you should see tables such as `customerfullname` 
 python query_duckdb.py
 ```
 
-<img width="427" height="34" alt="Query result" src="https://github.com/user-attachments/assets/8f5f856e-9b66-4867-a603-82da206af69a" />
-
+This results in the full customer names as defined in the seed file.
 Or connect to `demo.duckdb` with any DuckDB client and run:
 
 ```sql
