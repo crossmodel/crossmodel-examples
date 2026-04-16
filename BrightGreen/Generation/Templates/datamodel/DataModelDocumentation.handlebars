@@ -1,0 +1,74 @@
+{{!--
+  DataModelDocumentation.handlebars
+  =================================
+  Main orchestrator template for generating markdown documentation
+  from a CrossModel DataModel object.
+
+  Usage:
+    Engine:     Handlebars
+    Model type: DataModel
+    Output:     {{datamodel.id}}.md
+
+  Partials (auto-registered from this directory):
+    menu.handlebars         – Navigation sidebar with all sections
+    entity.handlebars       – Single entity block
+    relationship.handlebars – Single relationship block
+    mapping.handlebars      – Single mapping block
+--}}
+# {{datamodel.name}}
+
+{{#if datamodel.description}}
+> {{datamodel.description}}
+
+{{/if}}
+
+| | |
+|:--|:--|
+| **ID** | `{{datamodel.id}}` |
+| **Type** | `{{datamodel.type}}` |
+{{#if datamodel.version}}| **Version** | `{{datamodel.version}}` |
+{{/if}}
+
+{{#each datamodel.dependencies}}
+{{#if @first}}
+#### Dependencies
+
+| Data Model | Version |
+|:-----------|:-------:|
+{{/if}}
+| [{{datamodel.name}}](./{{datamodel.id}}.md) | `{{version}}` |
+{{/each}}
+
+---
+
+{{> menu}}
+
+---
+
+{{#each datamodel.entities}}
+{{#if @first}}
+# Entities
+
+{{/if}}
+{{> entity}}
+{{/each}}
+
+{{#each datamodel.relationships}}
+{{#if @first}}
+# Relationships
+
+{{/if}}
+{{> relationship}}
+{{/each}}
+
+{{#each datamodel.mappings}}
+{{#if @first}}
+# Mappings
+
+{{/if}}
+{{> mapping}}
+{{/each}}
+
+---
+
+> *Documentation generated from data model `{{datamodel.id}}`{{#if datamodel.version}} — version {{datamodel.version}}{{/if}}*

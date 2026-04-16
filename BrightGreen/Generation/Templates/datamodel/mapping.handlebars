@@ -1,0 +1,47 @@
+{{!--
+  mapping.handlebars
+  ==================
+  Renders a single mapping section: source entities, target, and
+  the attribute-level mapping between them.
+
+  Context: a Mapping object (iterated from datamodel.mappings)
+
+  Available properties:
+    id                        – Mapping identifier
+    sources[]                 – Source objects
+      .id                     – Source alias used in conditions/expressions
+      .entity                 – Reference to source LogicalEntity (resolved)
+      .entity._globalId       – Fully qualified: "DataModel.Entity"
+      .join                   – "from", "inner-join", "left-join", etc.
+      .conditions[]           – Join conditions (BinaryExpression)
+    target                    – Target object
+      .entity                 – Reference to target LogicalEntity (resolved)
+      .mappings[]             – Attribute mappings
+        .attribute.value      – Target attribute (resolved)
+        .sources[].value      – Source attribute(s) (resolved)
+        .expressions[]        – Computed expressions (.language, .expression)
+--}}
+<h2 id="mapping-{{id}}">Mapping: {{id}}</h2>
+
+### Sources
+
+| Alias | Entity | Join | Conditions |
+|:------|:-------|:-----|:-----------|
+{{#each sources}}
+| **{{id}}** | `{{#if entity}}{{entity._globalId}}{{/if}}` | {{#if join}}`{{join}}`{{/if}} | {{#each conditions}}{{expression.left.value.id}} {{expression.op}} {{expression.right.value.id}}{{#unless @last}}, {{/unless}}{{/each}} |
+{{/each}}
+
+{{#if target}}
+### Target → [{{#if target.entity}}{{target.entity.name}}{{/if}}](#{{#if target.entity}}{{target.entity.id}}{{/if}})
+
+{{#each target.mappings}}
+{{#if @first}}
+| Target Attribute | Source(s) | Expression |
+|:-----------------|:----------|:-----------|
+{{/if}}
+| {{#if attribute}}**{{attribute.value.name}}**{{/if}} | {{#each sources}}{{value.id}}{{#unless @last}}, {{/unless}}{{/each}} | {{#each expressions}}`{{{expression}}}` *({{language}})*{{#unless @last}} {{/unless}}{{/each}} |
+{{/each}}
+{{/if}}
+
+---
+

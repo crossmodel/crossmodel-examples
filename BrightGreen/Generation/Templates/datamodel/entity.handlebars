@@ -1,0 +1,43 @@
+{{!--
+  entity.handlebars
+  =================
+  Renders a single entity section with attributes table and identifiers.
+
+  Context: a LogicalEntity object (iterated from datamodel.entities)
+
+  Available properties:
+    id, name, description   – Identity
+    attributes[]            – Array of LogicalEntityAttribute
+      .id, .name            – Attribute identity
+      .datatype             – e.g. "Integer", "Text", "Decimal"
+      .length               – Text length constraint
+      .precision, .scale    – Decimal precision
+      .mandatory            – Boolean, required field
+      .description          – Free-text description
+      ._isPrimaryIdentifier – Computed: true if part of primary key
+    identifiers[]           – Array of LogicalIdentifier
+      .primary              – Boolean
+      .attributes[]         – Attributes in this identifier
+    inherits[]              – Parent entities (inheritance)
+--}}
+<h2 id="{{id}}">{{name}}</h2>
+
+{{#if description}}
+> {{description}}
+
+{{/if}}
+{{#each inherits}}{{#if @first}}> **Inherits from:** {{/if}}[{{name}}](#{{id}}){{#unless @last}}, {{/unless}}{{#if @last}}
+
+{{/if}}{{/each}}
+| | Attribute | Datatype | PK | Mandatory | Description |
+|--:|:----------|:---------|:--:|:---------:|:------------|
+{{#each attributes}}
+| {{@index}} | {{#if _isPrimaryIdentifier}}**{{name}}**{{else}}{{name}}{{/if}} | `{{datatype}}`{{#if length}}({{length}}){{/if}}{{#if precision}}({{precision}}{{#if scale}},{{scale}}{{/if}}){{/if}} | {{#if _isPrimaryIdentifier}}🔑{{/if}} | {{#if mandatory}}✔{{/if}} | {{#if description}}*{{description}}*{{/if}} |
+{{/each}}
+
+{{#each identifiers}}{{#if primary}}
+> 🔑 **Primary Key** — {{#each attributes}}**{{name}}**{{#unless @last}}, {{/unless}}{{/each}}
+{{/if}}{{/each}}
+
+---
+
