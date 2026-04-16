@@ -7,7 +7,7 @@ This repository demonstrates how [CrossModel](https://www.crossmodel.io/) genera
 This repository is used across two environments:
 
 1. **Modeling environment (CrossModel)** -- A data modeller defines entities and mappings in CrossModel. An engineer creates Nunjucks templates, runs code generation to produce dbt SQL models, and commits the results to this repository.
-2. **Execution environment (dbt + DuckDB)** -- A data engineer or analyst pulls the latest changes from the repository and runs `dbt seed` and `dbt build` to materialize the pipeline in DuckDB.
+2. **Execution environment (dbt + DuckDB)** -- A data engineer or analyst pulls the latest changes from the repository and runs `dbtf seed` and `dbtf build` to materialize the pipeline in DuckDB.
 
 This separation allows the modeling team to work in CrossModel without needing dbt installed, while the execution team runs dbt without needing CrossModel. The repository is the handoff point between the two.
 
@@ -69,15 +69,7 @@ Open the project in the CrossModel environment. Browse the `.cm` files under `Br
 
 ### 2. Generate dbt Models
 
-Use the CrossGenerate feature in CrossModel to generate dbt SQL files from the templates. Nunjucks is used as the template engine. There are four generation steps:
-
-**Source models** -- Generate one SQL model per source entity. As template select the source_entity_model.sql from the CrossGenerate/templates folder. These create views that select from the raw CSV seeds.The source views are written to the dbt folder `dbt/BrightGreen/models/source/{{entity_name}}.sql`.
-
-**Seed files** -- Generate empty CSV files with the correct column headers for each source entity. Select empty_seed.csv as template. They are written to `dbt/BrightGreen/seeds/raw_{{entity.name}}.csv`
-
-**Mapping models** -- Generate the transformation logic that maps source data to DWH entities (joins, expressions, aggregations). The mappings are written to the dbt folder `dbt/BrightGreen/models/mapping/mapping_{{mapping.target.entity.id}}.sql`.
-
-**DWH models** -- Generate the final DWH layer models that reference the mappings. Select the entity_mapping.sql as template. The files are written to `dbt/BrightGreen/models/dwh/{{entity.id}}.sql`.
+Use the CrossGenerate feature in CrossModel to generate dbt SQL and seed files from the templates. For the example templates, you can use the Nunjucks engine.
 
 ### 3. Commit and Push
 
@@ -89,20 +81,22 @@ In a separate environment where dbt Fusion and DuckDB are installed, pull the la
 
 ### 4. Load Sample Data
 
-Add sample data to the CSV files in `dbt/BrightGreen/seeds/`. A small example is provided in `seeds_example/` for reference.
+You can add sample data to the CSV files in `dbt/BrightGreen/seeds/`. A small example is provided in `seeds_example/` for reference, which you can copy to the `dbt/BrightGreen/seeds/` directory.
 
 ### 5. Run dbt
 
+Follow to procedures of the dbt fusion extension to login with your dbt account. You can register a free account at the [dbt website](https://www.getdbt.com/signup) 
+You can use the command 'dbt' or 'dbtf' depending on how you configured your environment variables. 
 Navigate to the dbt project directory and run:
 
 ```bash
 cd dbt/BrightGreen
 
 # Load the CSV seed data into DuckDB
-dbt seed
+dbtf seed
 
 # Build all models (source views, mapping views, DWH tables)
-dbt build
+dbtf build
 ```
 
 ### 6. Query the Results
