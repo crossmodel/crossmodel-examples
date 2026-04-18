@@ -1,0 +1,25 @@
+{# Create view to implement mapping #}
+CREATE OR REPLACE VIEW vw_{{mapping.id}} AS
+SELECT
+{#- Construct the SELECT clause using the attributemappings #}
+{%- for attributemapping in mapping.target.mappings %}
+	{#- If an expression is set, use it in the column specification #}
+	{%- if attributemapping.expressions | length -%}
+		{%- for expr in attributemapping.expressions %}
+	{{expr.expression | replace("{{","") | replace("}}","")}}
+		{%- endfor -%}
+	{%- else -%}
+		{#- If no expression is defined, output the source column(s) #}
+		{%- for src in attributemapping.sources %}
+	{{src.value.$refText}}
+		{%- endfor -%}
+	{%- endif %} AS {{attributemapping.attribute.value.id}}{% if not loop.last %},{% endif %}
+{%- endfor %}
+{#- Construct the FROM clause using the source objects defined in the mapping #}
+{%- for src in mapping.sources %}
+{{src.join | replace("-"," ") | upper}} {{src.entity._globalId}} AS {{src.id}}
+	{#- If join conditions are set, apply them in the result #}
+	{%- for condition in src.conditions %}
+	{% if loop.first %} ON {% else %} AND {% endif %}{{condition.expression.left.value.$refText}} {{condition.expression.op}} {{condition.expression.right.value.$refText}}
+	{%- endfor %}
+{%- endfor %}
