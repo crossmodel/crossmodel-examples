@@ -1,0 +1,43 @@
+mapping:
+    id: CustomerRevenue_mapping
+    sources:
+      - id: BL_Invoice_Source
+        entity: Invoice
+        join: from
+      - id: BL_Customer_Source
+        entity: Customer
+        join: inner-join
+        dependencies:
+          - BL_Invoice_Source
+        conditions:
+          - BL_Customer_Source.CustomerId = BL_Invoice_Source.CustomerId
+      - id: BL_SalesPerson_Source
+        entity: SalesPerson
+        join: inner-join
+        dependencies:
+          - BL_Invoice_Source
+        conditions:
+          - BL_SalesPerson_Source.SalesPersonId = BL_Invoice_Source.SalesPersonId
+    target:
+        entity: CustomerRevenue
+        mappings:
+          - attribute: CustomerId
+            sources:
+              - BL_Invoice_Source.CustomerId
+          - attribute: SalesPersonId
+            sources:
+              - BL_Invoice_Source.SalesPersonId
+          - attribute: TotalRevenue
+            sources:
+              - BL_Invoice_Source.TotalAmount
+              - BL_Invoice_Source.Status
+            expressions:
+              - language: "SQL"
+                expression: "SUM(CASE WHEN {{BL_Invoice_Source.Status}} IN ('Paid', 'Sent', 'Overdue') THEN {{BL_Invoice_Source.TotalAmount}} ELSE 0 END)"
+          - attribute: PaidRevenue
+            sources:
+              - BL_Invoice_Source.TotalAmount
+              - BL_Invoice_Source.Status
+            expressions:
+              - language: "SQL"
+                expression: "SUM(CASE WHEN {{BL_Invoice_Source.Status}} = 'Paid' THEN {{BL_Invoice_Source.TotalAmount}} ELSE 0 END)"

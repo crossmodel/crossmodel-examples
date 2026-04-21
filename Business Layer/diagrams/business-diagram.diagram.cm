@@ -3,22 +3,28 @@ systemDiagram:
     nodes:
       - id: SalesPersonNode
         entity: SalesPerson
-        x: -20
-        y: 240
+        x: -10
+        y: 230
         width: 200
         height: 150
       - id: CustomerNode
         entity: Customer
-        x: 370
-        y: 30
+        x: 400
+        y: 100
         width: 200
         height: 155.23072338104248
       - id: InvoiceNode
         entity: Invoice
-        x: -10
-        y: -110
+        x: 230
+        y: 320
         width: 200
         height: 195.01093006134033
+      - id: CustomerRevenueNode
+        entity: CustomerRevenue
+        x: 320
+        y: 560
+        width: 200
+        height: 150
     edges:
       - id: SalesPersonCustomerEdge_SalesPersonNode_CustomerNode
         relationship: business-layer.SalesPersonCustomer
@@ -32,3 +38,11 @@ systemDiagram:
         relationship: business-layer.CustomerInvoice
         sourceNode: CustomerNode
         targetNode: InvoiceNode
+      - id: CustomerCustomerRevenueEdge
+        relationship: business-layer.CustomerCustomerRevenue
+        sourceNode: CustomerNode
+        targetNode: CustomerRevenueNode
+      - id: SalesPersonCustomerRevenueEdge
+        relationship: business-layer.SalesPersonCustomerRevenue
+        sourceNode: SalesPersonNode
+        targetNode: CustomerRevenueNode

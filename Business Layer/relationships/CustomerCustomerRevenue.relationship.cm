@@ -1,0 +1,13 @@
+relationship:
+  id: CustomerCustomerRevenue
+  name: "Customer Customer Revenue"
+  description: "Links a customer to their aggregated revenue record"
+  parent: Customer
+  parentRole: "customer"
+  parentCardinality: 1..1
+  child: CustomerRevenue
+  childRole: "revenue summary"
+  childCardinality: 0..1
+  attributes:
+  - parent: Customer.CustomerId
+    child: CustomerRevenue.CustomerId

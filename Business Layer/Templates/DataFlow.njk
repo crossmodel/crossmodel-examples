@@ -1,0 +1,24 @@
+CREATE VIEW {{ target.entity.id }} AS
+SELECT
+{%- for target_mapping in target.mappings %}
+    {%- if target_mapping.expression -%}
+        {{target_mapping.expression}}
+    {%- else -%}
+        {{target_mapping.sources[0]}}
+    {%- endif -%}
+    {%- if not loop.last %},{% endif %}
+{%- endfor %}
+{%- for source in mapping.sources %}
+    {{uppercase (replace join "-" " ")}}
+    {%- for condition in source.conditions %}
+    {%- if loop.first %}ON {%- else -%}AND {% endif %} {{condition}}
+    {%- endfor %}
+{%- endfor %}
+GROUP BY
+{%- for identifier in target.entity.identifiers %}
+     {%- if identifier.primary %}
+      {%- for attribute in identifier.attributes -%}
+        {{ attribute.id }}{% if not loop.last %}, {% endif %}
+      {%- endfor -%}
+{%- endfor %}
+;

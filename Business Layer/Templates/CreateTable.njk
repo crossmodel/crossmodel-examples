@@ -1,0 +1,81 @@
+{#- 
+  CreateTable.njk — Generates a SQL CREATE TABLE statement for one entity.
+  
+  Receives: entity (with attributes, identifiers, and childRelationships)
+  Output:   One .sql file per entity
+-#}
+{#- ============================================================
+    Macro: sqlType — Maps CrossModel datatypes to SQL types
+    ============================================================ -#}
+{%- macro sqlType(attr) -%}
+  {%- if attr.datatype == "Integer" -%}
+    INTEGER
+  {%- elif attr.datatype == "Text" and attr.length -%}
+    VARCHAR({{ attr.length }})
+  {%- elif attr.datatype == "Decimal" and attr.precision -%}
+    DECIMAL({{ attr.precision }},{{ attr.scale }})
+  {%- elif attr.datatype == "Date" -%}
+    DATE
+  {%- else -%}
+    TEXT
+  {%- endif -%}
+{%- endmacro -%}
+
+{#- ============================================================
+    Macro: afterDot — Extracts the attribute name after the dot
+    e.g. "Customer.SalesPersonId" → "SalesPersonId"
+    ============================================================ -#}
+{%- macro afterDot(qualifiedId) -%}
+  {{ qualifiedId.split('.')[1] }}
+{%- endmacro -%}
+
+{#- ============================================================
+    Collect primary key identifiers and child relationships
+    to determine comma placement
+    ============================================================ -#}
+{%- set primaryKeys = [] -%}
+{%- for identifier in entity.identifiers -%}
+  {%- if identifier.primary -%}
+    {%- set primaryKeys = [identifier] -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- set fks = entity.childRelationships if entity.childRelationships else [] -%}
+{%- set hasConstraints = (primaryKeys | length > 0) or (fks | length > 0) -%}
+
+{#- ============================================================
+    CREATE TABLE statement
+    ============================================================ -#}
+{%- if entity.description %}
+-- Description: {{ entity.description }}
+{%- endif %}
+CREATE TABLE {{ entity.id }} (
+{#- --- Column definitions --- -#}
+{%- for attribute in entity.attributes %}
+    {{ attribute.id }}{{ " " | safe }}{{ sqlType(attribute) }}
+    {%- if attribute.mandatory %} NOT NULL{% endif %}
+    {%- if not loop.last %},{% elif hasConstraints %},{% endif %}
+{%- endfor %}
+{#- --- Primary key constraint --- -#}
+{%- for identifier in primaryKeys %}
+    CONSTRAINT {{ identifier.id }} PRIMARY KEY (
+      {%- for attr in identifier.attributes -%}
+        {{ attr.id if attr.id else attr }}{% if not loop.last %}, {% endif %}
+      {%- endfor -%}
+    )
+    {%- if fks | length > 0 %},{% endif %}
+{%- endfor %}
+{#- --- Foreign key constraints from childRelationships --- -#}
+{%- for rel in fks %}
+    CONSTRAINT FK_{{ entity.id }}_{{ rel.parent }} FOREIGN KEY (
+      {%- for mapping in rel.attributes -%}
+        {{ afterDot(mapping.child) | trim }}{% if not loop.last %}, {% endif %}
+      {%- endfor -%}
+    ) REFERENCES {{ rel.parent }} (
+      {%- for mapping in rel.attributes -%}
+        {{ afterDot(mapping.parent) | trim }}{% if not loop.last %}, {% endif %}
+      {%- endfor -%}
+    )
+    {%- if not loop.last %},{% endif %}
+{%- endfor %}
+);

@@ -1,0 +1,36 @@
+entity:
+    id: CustomerRevenue
+    name: "Customer Revenue"
+    description: "Aggregated revenue per customer and managing sales person, from Paid, Sent, and Overdue invoices."
+    attributes:
+      - id: CustomerId
+        name: "Customer Id"
+        description: "FK to the Customer"
+        datatype: "Integer"
+        mandatory: true
+      - id: SalesPersonId
+        name: "Sales Person Id"
+        description: "FK to the managing Sales Person"
+        datatype: "Integer"
+        mandatory: true
+      - id: TotalRevenue
+        name: "Total Revenue"
+        description: "Total revenue from Paid, Sent, and Overdue invoices"
+        datatype: "Decimal"
+        precision: 15
+        scale: 2
+        mandatory: true
+      - id: PaidRevenue
+        name: "Paid Revenue"
+        description: "Revenue from Paid invoices only"
+        datatype: "Decimal"
+        precision: 15
+        scale: 2
+        mandatory: true
+    identifiers:
+      - id: CustomerRevenuePK
+        name: "Customer Revenue PK"
+        primary: true
+        attributes:
+          - CustomerId
+          - SalesPersonId
