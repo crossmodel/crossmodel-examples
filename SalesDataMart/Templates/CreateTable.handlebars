@@ -1,0 +1,19 @@
+-- ============================================================
+-- {{entity.id}} — {{entity.description}}
+-- ============================================================
+
+CREATE TABLE {{entity.id}} (
+{{#each entity.attributes}}
+    {{id}} {{> SqlDataType}}{{#if mandatory}} NOT NULL{{/if}},
+{{/each}}
+{{#each entity.identifiers}}
+{{#if primary}}    CONSTRAINT {{id}} PRIMARY KEY ({{#each attributes}}{{this}}{{#unless @last}}, {{/unless}}{{/each}})
+{{/if}}
+{{/each}}
+);
+{{#each entity.parentRelationships}}
+{{#each attributes}}
+
+CREATE INDEX IX_{{../../entity.id}}_{{child.id}} ON {{../../entity.id}} ({{child.id}});
+{{/each}}
+{{/each}}

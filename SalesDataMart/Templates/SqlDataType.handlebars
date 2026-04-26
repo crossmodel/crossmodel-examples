@@ -1,0 +1,1 @@
+{{~#eq datatype "Integer"}}INTEGER{{~else}}{{~#eq datatype "Text"}}{{~#if length}}VARCHAR({{length}}){{~else}}TEXT{{~/if}}{{~else}}{{~#eq datatype "Decimal"}}DECIMAL({{precision}},{{scale}}){{~else}}{{~#eq datatype "Date"}}DATE{{~else}}{{~#eq datatype "DateTime"}}TIMESTAMP{{~else}}TEXT{{~/eq}}{{~/eq}}{{~/eq}}{{~/eq}}{{~/eq~}}

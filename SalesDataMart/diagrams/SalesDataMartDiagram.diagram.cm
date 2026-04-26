@@ -1,0 +1,50 @@
+systemDiagram:
+    id: SalesDataMartDiagram
+    nodes:
+      - id: DimProductNode
+        entity: DimProduct
+        x: 10
+        y: 310
+        width: 165.2717480659485
+        height: 115.00000095367432
+      - id: DimCustomerNode
+        entity: DimCustomer
+        x: 590
+        y: 300
+        width: 165.2717480659485
+        height: 134.80000114440918
+      - id: DimTimeNode
+        entity: DimTime
+        x: 300
+        y: 80
+        width: 135.95431756973267
+        height: 134.80000114440918
+      - id: FactSalesNode
+        entity: FactSales
+        x: 262.84859704971313
+        y: 275.5421071052551
+        width: 200.84859704971313
+        height: 174.4000015258789
+      - id: DimAccountManagerNode
+        entity: DimAccountManager
+        x: 260
+        y: 530
+        width: 200.84859704971313
+        height: 174.4000015258789
+    edges:
+      - id: FactSalesDimProductEdge
+        relationship: FactSalesDimProduct
+        sourceNode: DimProductNode
+        targetNode: FactSalesNode
+      - id: FactSalesDimCustomerEdge
+        relationship: FactSalesDimCustomer
+        sourceNode: DimCustomerNode
+        targetNode: FactSalesNode
+      - id: FactSalesDimTimeEdge
+        relationship: FactSalesDimTime
+        sourceNode: DimTimeNode
+        targetNode: FactSalesNode
+      - id: FactSalesDimAccountManagerEdge
+        relationship: FactSalesDimAccountManager
+        sourceNode: DimAccountManagerNode
+        targetNode: FactSalesNode

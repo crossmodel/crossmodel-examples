@@ -1,0 +1,13 @@
+relationship:
+  id: FactSalesDimAccountManager
+  name: "FactSales DimAccountManager"
+  description: "Links FactSales to the Account Manager dimension"
+  parent: DimAccountManager
+  parentRole: "AccountManager"
+  parentCardinality: 1..1
+  child: FactSales
+  childRole: "Sales"
+  childCardinality: 0..N
+  attributes:
+  - parent: DimAccountManager.AccountManagerKey
+    child: FactSales.AccountManagerKey

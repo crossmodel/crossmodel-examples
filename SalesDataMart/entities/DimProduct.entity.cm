@@ -1,0 +1,33 @@
+entity:
+  id: DimProduct
+  name: "DimProduct"
+  description: "Product dimension table for the Sales Data Mart"
+  attributes:
+  - id: ProductKey
+    name: "Product Key"
+    description: "Surrogate key for product dimension"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductId
+    name: "Product Id"
+    description: "Natural key from source system"
+    datatype: "Text"
+    length: 50
+    mandatory: true
+  - id: ProductName
+    name: "Product Name"
+    description: "Product name"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: ProductCategory
+    name: "Product Category"
+    description: "Product category"
+    datatype: "Text"
+    length: 50
+  identifiers:
+  - id: DimProductPk
+    name: "DimProduct Primary Key"
+    primary: true
+    attributes:
+    - ProductKey

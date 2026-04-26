@@ -1,0 +1,55 @@
+mapping:
+  id: FactSales_mapping
+  sources:
+  - id: ERP_Invoice_Source
+    entity: erp-source.Invoice
+    join: from
+  - id: ERP_SalesOrder_Source
+    entity: erp-source.SalesOrder
+    join: inner-join
+    dependencies:
+    - ERP_Invoice_Source
+    conditions:
+    - ERP_Invoice_Source.SalesOrderId = ERP_SalesOrder_Source.SalesOrderId
+  - id: ERP_OrderLine_Source
+    entity: erp-source.OrderLine
+    join: inner-join
+    dependencies:
+    - ERP_SalesOrder_Source
+    conditions:
+    - ERP_SalesOrder_Source.SalesOrderId = ERP_OrderLine_Source.SalesOrderId
+  - id: CRM_Customer_Source
+    entity: crm-source.Customer
+    join: inner-join
+    dependencies:
+    - ERP_SalesOrder_Source
+    conditions:
+    - ERP_SalesOrder_Source.CustomerNumber = CRM_Customer_Source.CustomerId
+  - id: CRM_Opportunity_Source
+    entity: crm-source.Opportunity
+    join: inner-join
+    dependencies:
+    - CRM_Customer_Source
+    conditions:
+    - CRM_Customer_Source.CustomerId = CRM_Opportunity_Source.CustomerId
+  target:
+    entity: SalesDataMart.FactSales
+    mappings:
+    - attribute: ProductKey
+      sources:
+      - ERP_OrderLine_Source.ProductId
+    - attribute: CustomerKey
+      sources:
+      - ERP_SalesOrder_Source.CustomerNumber
+    - attribute: TimeKey
+      sources:
+      - ERP_Invoice_Source.InvoiceDate
+    - attribute: Revenue
+      sources:
+      - ERP_Invoice_Source.TotalAmount
+    - attribute: Quantity
+      sources:
+      - ERP_OrderLine_Source.Quantity
+    - attribute: AccountManagerKey
+      sources:
+      - CRM_Opportunity_Source.SalesPersonId

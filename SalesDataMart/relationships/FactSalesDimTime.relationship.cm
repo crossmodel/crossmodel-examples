@@ -1,0 +1,13 @@
+relationship:
+  id: FactSalesDimTime
+  name: "FactSales DimTime"
+  description: "Links FactSales to the Time dimension"
+  parent: DimTime
+  parentRole: "Time"
+  parentCardinality: 1..1
+  child: FactSales
+  childRole: "Sales"
+  childCardinality: 0..N
+  attributes:
+  - parent: DimTime.TimeKey
+    child: FactSales.TimeKey

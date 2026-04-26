@@ -1,0 +1,50 @@
+entity:
+  id: DimAccountManager
+  name: "DimAccountManager"
+  description: "Account manager dimension table for the Sales Data Mart"
+  attributes:
+  - id: AccountManagerKey
+    name: "Account Manager Key"
+    description: "Surrogate key for account manager dimension"
+    datatype: "Integer"
+    mandatory: true
+  - id: SalesPersonId
+    name: "Sales Person Id"
+    description: "Natural key from CRM source system"
+    datatype: "Text"
+    length: 50
+    mandatory: true
+  - id: FirstName
+    name: "First Name"
+    description: "Account manager first name"
+    datatype: "Text"
+    length: 80
+    mandatory: true
+  - id: LastName
+    name: "Last Name"
+    description: "Account manager last name"
+    datatype: "Text"
+    length: 80
+    mandatory: true
+  - id: FullName
+    name: "Full Name"
+    description: "Account manager full name"
+    datatype: "Text"
+    length: 160
+    mandatory: true
+  - id: Email
+    name: "Email"
+    description: "Account manager email address"
+    datatype: "Text"
+    length: 240
+  - id: Region
+    name: "Region"
+    description: "Sales territory or region"
+    datatype: "Text"
+    length: 30
+  identifiers:
+  - id: DimAccountManagerPk
+    name: "DimAccountManager Primary Key"
+    primary: true
+    attributes:
+    - AccountManagerKey

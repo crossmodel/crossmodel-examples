@@ -1,0 +1,15 @@
+mapping:
+  id: DimCustomer_mapping
+  sources:
+  - id: CRM_Customer_Source
+    entity: crm-source.Customer
+    join: from
+  target:
+    entity: SalesDataMart.DimCustomer
+    mappings:
+    - attribute: CustomerId
+      sources:
+      - CRM_Customer_Source.CustomerId
+    - attribute: CustomerName
+      sources:
+      - CRM_Customer_Source.CompanyName

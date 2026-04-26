@@ -1,0 +1,38 @@
+entity:
+  id: DimCustomer
+  name: "DimCustomer"
+  description: "Customer dimension table for the Sales Data Mart"
+  attributes:
+  - id: CustomerKey
+    name: "Customer Key"
+    description: "Surrogate key for customer dimension"
+    datatype: "Integer"
+    mandatory: true
+  - id: CustomerId
+    name: "Customer Id"
+    description: "Natural key from source system"
+    datatype: "Text"
+    length: 50
+    mandatory: true
+  - id: CustomerName
+    name: "Customer Name"
+    description: "Customer name"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: CustomerCity
+    name: "Customer City"
+    description: "Customer city"
+    datatype: "Text"
+    length: 100
+  - id: CustomerCountry
+    name: "Customer Country"
+    description: "Customer country"
+    datatype: "Text"
+    length: 100
+  identifiers:
+  - id: DimCustomerPk
+    name: "DimCustomer Primary Key"
+    primary: true
+    attributes:
+    - CustomerKey

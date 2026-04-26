@@ -1,0 +1,13 @@
+relationship:
+  id: FactSalesDimProduct
+  name: "FactSales DimProduct"
+  description: "Links FactSales to the Product dimension"
+  parent: DimProduct
+  parentRole: "Product"
+  parentCardinality: 1..1
+  child: FactSales
+  childRole: "Sales"
+  childCardinality: 0..N
+  attributes:
+  - parent: DimProduct.ProductKey
+    child: FactSales.ProductKey

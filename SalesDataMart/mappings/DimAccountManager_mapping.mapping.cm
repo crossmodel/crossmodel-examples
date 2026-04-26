@@ -1,0 +1,31 @@
+mapping:
+  id: DimAccountManager_mapping
+  sources:
+  - id: CRM_SalesPerson_Source
+    entity: crm-source.SalesPerson
+    join: from
+  target:
+    entity: SalesDataMart.DimAccountManager
+    mappings:
+    - attribute: SalesPersonId
+      sources:
+      - CRM_SalesPerson_Source.SalesPersonId
+    - attribute: FirstName
+      sources:
+      - CRM_SalesPerson_Source.FirstName
+    - attribute: LastName
+      sources:
+      - CRM_SalesPerson_Source.LastName
+    - attribute: FullName
+      sources:
+      - CRM_SalesPerson_Source.FirstName
+      - CRM_SalesPerson_Source.LastName
+      expressions:
+      - language: "SQL"
+        expression: "{{CRM_SalesPerson_Source.FirstName}} || ' ' || {{CRM_SalesPerson_Source.LastName}}"
+    - attribute: Email
+      sources:
+      - CRM_SalesPerson_Source.Email
+    - attribute: Region
+      sources:
+      - CRM_SalesPerson_Source.Region

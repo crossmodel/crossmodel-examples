@@ -1,0 +1,48 @@
+entity:
+  id: FactSales
+  name: "FactSales"
+  description: "Fact table recording sales transactions in the Sales Data Mart"
+  attributes:
+  - id: SalesKey
+    name: "Sales Key"
+    description: "Surrogate key for the fact record"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductKey
+    name: "Product Key"
+    description: "Foreign key to DimProduct"
+    datatype: "Integer"
+    mandatory: true
+  - id: CustomerKey
+    name: "Customer Key"
+    description: "Foreign key to DimCustomer"
+    datatype: "Integer"
+    mandatory: true
+  - id: TimeKey
+    name: "Time Key"
+    description: "Foreign key to DimTime"
+    datatype: "Integer"
+    mandatory: true
+  - id: AccountManagerKey
+    name: "Account Manager Key"
+    description: "Foreign key to DimAccountManager"
+    datatype: "Integer"
+    mandatory: true
+  - id: Revenue
+    name: "Revenue"
+    description: "Total revenue amount"
+    datatype: "Decimal"
+    precision: 15
+    scale: 2
+    mandatory: true
+  - id: Quantity
+    name: "Quantity"
+    description: "Total quantity sold"
+    datatype: "Integer"
+    mandatory: true
+  identifiers:
+  - id: FactSalesPk
+    name: "FactSales Primary Key"
+    primary: true
+    attributes:
+    - SalesKey

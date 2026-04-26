@@ -1,0 +1,33 @@
+mapping:
+  id: DimTime_mapping
+  sources:
+  - id: ERP_Invoice_Source
+    entity: erp-source.Invoice
+    join: from
+  target:
+    entity: SalesDataMart.DimTime
+    mappings:
+    - attribute: Year
+      sources:
+      - ERP_Invoice_Source.InvoiceDate
+      expressions:
+      - language: "SQL"
+        expression: "YEAR({{ERP_Invoice_Source.InvoiceDate}})"
+    - attribute: Month
+      sources:
+      - ERP_Invoice_Source.InvoiceDate
+      expressions:
+      - language: "SQL"
+        expression: "MONTH({{ERP_Invoice_Source.InvoiceDate}})"
+    - attribute: MonthName
+      sources:
+      - ERP_Invoice_Source.InvoiceDate
+      expressions:
+      - language: "SQL"
+        expression: "DATENAME(MONTH, {{ERP_Invoice_Source.InvoiceDate}})"
+    - attribute: Quarter
+      sources:
+      - ERP_Invoice_Source.InvoiceDate
+      expressions:
+      - language: "SQL"
+        expression: "DATEPART(QUARTER, {{ERP_Invoice_Source.InvoiceDate}})"

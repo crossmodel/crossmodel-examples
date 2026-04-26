@@ -1,0 +1,36 @@
+entity:
+  id: DimTime
+  name: "DimTime"
+  description: "Time dimension table for the Sales Data Mart"
+  attributes:
+  - id: TimeKey
+    name: "Time Key"
+    description: "Surrogate key for time dimension"
+    datatype: "Integer"
+    mandatory: true
+  - id: Year
+    name: "Year"
+    description: "Calendar year"
+    datatype: "Integer"
+    mandatory: true
+  - id: Month
+    name: "Month"
+    description: "Calendar month number (1-12)"
+    datatype: "Integer"
+    mandatory: true
+  - id: MonthName
+    name: "Month Name"
+    description: "Month name (e.g., January)"
+    datatype: "Text"
+    length: 20
+    mandatory: true
+  - id: Quarter
+    name: "Quarter"
+    description: "Calendar quarter (1-4)"
+    datatype: "Integer"
+  identifiers:
+  - id: DimTimePk
+    name: "DimTime Primary Key"
+    primary: true
+    attributes:
+    - TimeKey

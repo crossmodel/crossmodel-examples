@@ -1,0 +1,13 @@
+relationship:
+  id: FactSalesDimCustomer
+  name: "FactSales DimCustomer"
+  description: "Links FactSales to the Customer dimension"
+  parent: DimCustomer
+  parentRole: "Customer"
+  parentCardinality: 1..1
+  child: FactSales
+  childRole: "Sales"
+  childCardinality: 0..N
+  attributes:
+  - parent: DimCustomer.CustomerKey
+    child: FactSales.CustomerKey

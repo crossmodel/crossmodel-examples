@@ -36,37 +36,3 @@
 
 {%- set fks = entity.childRelationships if entity.childRelationships else [] -%}
 {%- set hasConstraints = (primaryKeys | length > 0) or (fks | length > 0) -%}
-
-CREATE TABLE {{ entity.id }} (
-{#- --- Column definitions --- -#}
-{%- for attribute in entity.attributes %}
-    {{ attribute.id }}{{ " " | safe }}{{ sqlType(attribute) }}
-    {%- if attribute.mandatory %} NOT NULL{% endif %}
-    {%- if not loop.last %},{% else %},{% endif %}
-{%- endfor %}
-    {#- --- InsertedAt audit column --- #}
-    InsertedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-    {%- if hasConstraints %},{% endif %}
-    {#- --- Primary key constraint --- -#}
-{%- for identifier in primaryKeys %}
-    CONSTRAINT {{ identifier.id }} PRIMARY KEY (
-      {%- for attr in identifier.attributes -%}
-        {{ attr.id if attr.id else attr }}{% if not loop.last %}, {% endif %}
-      {%- endfor -%}
-    )
-    {%- if fks | length > 0 %},{% endif %}
-{%- endfor %}
-{#- --- Foreign key constraints from childRelationships --- -#}
-{%- for rel in fks %}
-    CONSTRAINT FK_{{ entity.id }}_{{ rel.parent }} FOREIGN KEY (
-      {%- for mapping in rel.attributes -%}
-        {{ afterDot(mapping.child) | trim }}{% if not loop.last %}, {% endif %}
-      {%- endfor -%}
-    ) REFERENCES {{ rel.parent }} (
-      {%- for mapping in rel.attributes -%}
-        {{ afterDot(mapping.parent) | trim }}{% if not loop.last %}, {% endif %}
-      {%- endfor -%}
-    )
-    {%- if not loop.last %},{% endif %}
-{%- endfor %}
-);

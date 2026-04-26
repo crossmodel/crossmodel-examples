@@ -1,0 +1,18 @@
+mapping:
+  id: DimProduct_mapping
+  sources:
+  - id: ERP_Product_Source
+    entity: erp-source.Product
+    join: from
+  target:
+    entity: SalesDataMart.DimProduct
+    mappings:
+    - attribute: ProductId
+      sources:
+      - ERP_Product_Source.ProductId
+    - attribute: ProductName
+      sources:
+      - ERP_Product_Source.ProductName
+    - attribute: ProductCategory
+      sources:
+      - ERP_Product_Source.Category
