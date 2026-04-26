@@ -4,7 +4,7 @@ datamodel:
     type: logical
     version: 1.0.0
     crossmodel:
-        edition: core
+        edition: team
         version: 0
     dependencies:
       - datamodel: JuiceERP
