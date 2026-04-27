@@ -1,0 +1,19 @@
+mapping:
+    id: JuiceERP_CustomerFullName
+    sources:
+      - id: CustomerSourceObject
+        entity: JuiceERP.Customer
+        join: from
+    target:
+        entity: CustomerFullName
+        mappings:
+          - attribute: CustomerID
+            sources:
+              - CustomerSourceObject.CustomerID
+          - attribute: FullName
+            sources:
+              - CustomerSourceObject.FirstName
+              - CustomerSourceObject.LastName
+            expressions:
+              - language: "SQL"
+                expression: "CONCAT(CONCAT(CustomerSourceObject.FirstName, ' '), CustomerSourceObject.LastName)"
