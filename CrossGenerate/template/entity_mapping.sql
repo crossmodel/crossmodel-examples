@@ -1,13 +1,13 @@
 {#-
     Generates a Snowflake CREATE VIEW that projects source attributes onto target attributes.
     - The view is named src_<target_entity_id> and is referenced by the load procedure template.
-    - Whitespace control ({%- / -%} and {{- / -}}) keeps the rendered SQL readable.
+    - Whitespace control ({%- / -%} and {{- / -}}) keeps the template as well as the rendered SQL readable.
 -#}
 CREATE OR REPLACE VIEW src_{{ mapping.target.entity.id }} AS (
     SELECT
     {%- for attr in mapping.target.mappings %}
         {%- if attr.expressions | length %}
-            {%- for expr in attr.expressions -%} {{ expr.expression }} {%- endfor %} AS {{ attr.attribute.value.id }}
+            {% for expr in attr.expressions -%} {{ expr.expression }} {%- endfor %} AS {{ attr.attribute.value.id }}
         {%- else %}
             {{ attr.sources[0].value.id }} AS {{ attr.attribute.value.id }}
         {%- endif %}
