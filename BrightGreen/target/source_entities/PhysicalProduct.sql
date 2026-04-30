@@ -1,13 +1,14 @@
+USE DATABASE CrossModel;
 USE SCHEMA SourceVault;
 
 CREATE TABLE PhysicalProduct (
-    ProductID INTEGER,
+    ProductID INT,
     EANCode VARCHAR,
     Description VARCHAR,
     ItemPrice DECIMAL,
-    WidthInCm INTEGER,
-    LengthInCm INTEGER,
-    HeightInCm INTEGER,
+    WidthInCm INT,
+    LengthInCm INT,
+    HeightInCm INT,
     WeightInKG DECIMAL,
         CONSTRAINT pk_PhysicalProduct PRIMARY KEY (ProductID)
 );

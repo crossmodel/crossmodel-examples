@@ -1,7 +1,8 @@
+USE DATABASE CrossModel;
 USE SCHEMA SourceVault;
 
 CREATE TABLE Product (
-    ProductID INTEGER,
+    ProductID INT,
     EANCode VARCHAR,
     Description VARCHAR,
     ItemPrice DECIMAL,

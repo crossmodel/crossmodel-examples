@@ -1,3 +1,6 @@
+USE DATABASE CrossModel;
+USE SCHEMA dwh;
+
 CREATE OR REPLACE VIEW src_CustomerFullName AS (
     SELECT
             CustomerID AS CustomerID,

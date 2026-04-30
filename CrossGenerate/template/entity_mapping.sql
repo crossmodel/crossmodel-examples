@@ -3,6 +3,9 @@
     - The view is named src_<target_entity_id> and is referenced by the load procedure template.
     - Whitespace control ({%- / -%} and {{- / -}}) keeps the template as well as the rendered SQL readable.
 -#}
+USE DATABASE CrossModel;
+USE SCHEMA dwh;
+
 CREATE OR REPLACE VIEW src_{{ mapping.target.entity.id }} AS (
     SELECT
     {%- for attr in mapping.target.mappings %}

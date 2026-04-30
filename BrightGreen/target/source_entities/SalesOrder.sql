@@ -1,9 +1,10 @@
+USE DATABASE CrossModel;
 USE SCHEMA SourceVault;
 
 CREATE TABLE SalesOrder (
-    SalesOrderID INTEGER,
+    SalesOrderID INT,
     OrderDate DATE,
-    CustomerID INTEGER,
+    CustomerID INT,
     OrderStatus VARCHAR,
         CONSTRAINT pk_SalesOrder PRIMARY KEY (SalesOrderID)
 );

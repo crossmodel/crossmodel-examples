@@ -9,3 +9,10 @@ entity:
       - id: FullName
         name: "FullName"
         datatype: "Text"
+        mandatory: true
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - CustomerID

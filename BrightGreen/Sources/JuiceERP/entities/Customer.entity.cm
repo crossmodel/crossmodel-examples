@@ -8,9 +8,11 @@ entity:
       - id: FirstName
         name: "FirstName"
         datatype: "Text"
+        mandatory: true
       - id: LastName
         name: "LastName"
         datatype: "Text"
+        mandatory: true
       - id: DateOfBirth
         name: "DateOfBirth"
         datatype: "Date"

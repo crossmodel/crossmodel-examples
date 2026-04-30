@@ -3,6 +3,9 @@
     (src_<target_entity_id>, produced by entity_mapping.sql) into the target DWH table.
     The procedure returns 1 on success.
 -#}
+USE DATABASE CrossModel;
+USE SCHEMA dwh;
+
 CREATE OR REPLACE PROCEDURE load_{{ mapping.target.entity.id }}()
 RETURNS INTEGER
 LANGUAGE SQL
