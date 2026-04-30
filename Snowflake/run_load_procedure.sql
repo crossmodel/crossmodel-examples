@@ -1,0 +1,1 @@
+CALL load_full_name();
