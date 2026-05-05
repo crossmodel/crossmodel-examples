@@ -9,7 +9,7 @@ with mapping_{{ mapping.target.entity.id }} as (
         {% if attr.expressions | length -%}
             {%- for expr in attr.expressions -%}{{ expr.expression | replace("{{","") | replace("}}","") }}{%- endfor -%}
         {%- else -%}
-            {{ attr.sources[0].value.id -}}
+            {{ attr.sources[0].value.$refText -}}
         {%- endif %} AS {{ attr.attribute.value.id }}{% if not loop.last %},{% endif %}
 {%- endfor %}
 {%- for source in mapping.sources %}
