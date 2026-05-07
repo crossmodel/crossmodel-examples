@@ -2,5 +2,7 @@ datamodel:
     id: JuiceERP
     name: "JuiceERP"
     type: logical
-    edition: team
     version: 1.0.0
+    crossmodel:
+        edition: team
+        version: 0
