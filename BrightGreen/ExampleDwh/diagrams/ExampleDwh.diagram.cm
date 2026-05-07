@@ -7,3 +7,9 @@ systemDiagram:
         y: 110
         width: 10
         height: 10
+      - id: CustomerFullNameNode
+        entity: CustomerFullName
+        x: 560
+        y: 110
+        width: 130.20599365234375
+        height: 76
