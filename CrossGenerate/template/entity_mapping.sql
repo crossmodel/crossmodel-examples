@@ -14,7 +14,7 @@ CREATE OR REPLACE VIEW src_{{ mapping.target.entity.id }} AS (
             {% for expr in attr.expressions -%} {{ expr.expression | replace("{{","") | replace("}}","") }} {%- endfor %} AS {{ attr.attribute.value.id }}
         {#- otherwise falls back to the first source attribute (there should only be one attribute in that case) #}
         {%- else %}
-            {{ attr.sources[0].value.id }} AS {{ attr.attribute.value.id }}
+            {{ attr.sources[0].value.$refText }} AS {{ attr.attribute.value.id }}
         {%- endif %}
         {%- if not loop.last %},{% endif %}
     {%- endfor %}
