@@ -3,6 +3,7 @@ datamodel:
     name: "Example DWH"
     type: logical
     version: 1.0.0
+    edition: team
     dependencies:
       - datamodel: JuiceERP
         version: 1.0.0

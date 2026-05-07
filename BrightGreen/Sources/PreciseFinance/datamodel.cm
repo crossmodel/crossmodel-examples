@@ -2,4 +2,5 @@ datamodel:
     id: PreciseFinance
     name: "PreciseFinance"
     type: logical
+    edition: team
     version: 1.0.0
