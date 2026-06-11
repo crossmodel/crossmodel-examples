@@ -22,3 +22,9 @@ entity:
       - id: ExpirationPeriodInDays
         name: "ExpirationPeriodInDays"
         datatype: "Integer"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ProductID
