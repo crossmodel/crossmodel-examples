@@ -7,5 +7,6 @@ CREATE TABLE DigitalProduct (
     Description VARCHAR,
     ItemPrice DECIMAL,
     ActivationURL VARCHAR,
-    ExpirationPeriodInDays INT
+    ExpirationPeriodInDays INT,
+        CONSTRAINT pk_DigitalProduct PRIMARY KEY (ProductID)
 );
