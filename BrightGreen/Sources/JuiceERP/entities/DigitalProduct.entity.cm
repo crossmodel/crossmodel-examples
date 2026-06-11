@@ -29,3 +29,9 @@ entity:
         name: "ExpirationPeriodInDays"
         description: "Number of days after activation before the digital product expires"
         datatype: "Integer"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ProductID
