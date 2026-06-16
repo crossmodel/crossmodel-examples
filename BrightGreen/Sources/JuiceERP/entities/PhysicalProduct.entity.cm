@@ -13,10 +13,12 @@ entity:
         name: "EANCode"
         description: "European Article Number barcode for the product"
         datatype: "Text"
+        length: 36
       - id: Description
         name: "Description"
         description: "Textual description of the product"
         datatype: "Text"
+        length: 1024
       - id: ItemPrice
         name: "ItemPrice"
         description: "Unit price of the product"
