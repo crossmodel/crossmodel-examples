@@ -1,0 +1,7 @@
+dbt/jaffle_shop/*
+dbt/BrightGreen/logs/*
+dbt/BrightGreen/target/*
+dbt/BrightGreen/dbt_internal_packages/*
+dbt/BrightGreen/.user.yml
+dbt/BrightGreen/demo.duckdb
+dbt/BrightGreen/demo.duckdb.wal
