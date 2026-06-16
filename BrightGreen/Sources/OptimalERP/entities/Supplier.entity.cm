@@ -1,0 +1,42 @@
+entity:
+  id: Supplier
+  name: "Supplier"
+  description: "Represents a supplier in the OptimalERP system"
+  attributes:
+  - id: ^id
+    name: "SupplierId"
+    description: "Surrogate key for Supplier"
+    datatype: "Integer"
+    mandatory: true
+  - id: Name
+    name: "Name"
+    description: "Supplier name"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: ContactPerson
+    name: "Contact Person"
+    description: "Primary contact person"
+    datatype: "Text"
+    length: 100
+  - id: Email
+    name: "Email"
+    description: "Supplier email address"
+    datatype: "Text"
+    length: 100
+  - id: Phone
+    name: "Phone"
+    description: "Supplier phone number"
+    datatype: "Text"
+    length: 20
+  - id: Address
+    name: "Address"
+    description: "Supplier street address"
+    datatype: "Text"
+    length: 200
+  identifiers:
+  - id: SupplierPrimaryKey
+    name: "Supplier Primary Key"
+    primary: true
+    attributes:
+    - ^id

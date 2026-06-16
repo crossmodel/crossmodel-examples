@@ -1,0 +1,42 @@
+entity:
+  id: Shipment
+  name: "Shipment"
+  description: "Represents a shipment in the OptimalERP system"
+  attributes:
+  - id: ^id
+    name: "ShipmentId"
+    description: "Surrogate key for Shipment"
+    datatype: "Integer"
+    mandatory: true
+  - id: OrderId
+    name: "OrderId"
+    description: "Foreign key to Sales Order"
+    datatype: "Integer"
+    mandatory: true
+  - id: ShipmentDate
+    name: "Shipment Date"
+    description: "Date when shipment was sent"
+    datatype: "Date"
+    mandatory: true
+  - id: Carrier
+    name: "Carrier"
+    description: "Shipping carrier"
+    datatype: "Text"
+    length: 50
+  - id: TrackingNumber
+    name: "Tracking Number"
+    description: "Shipment tracking number"
+    datatype: "Text"
+    length: 50
+  - id: Status
+    name: "Status"
+    description: "Shipment status"
+    datatype: "Text"
+    length: 20
+    mandatory: true
+  identifiers:
+  - id: ShipmentPrimaryKey
+    name: "Shipment Primary Key"
+    primary: true
+    attributes:
+    - ^id

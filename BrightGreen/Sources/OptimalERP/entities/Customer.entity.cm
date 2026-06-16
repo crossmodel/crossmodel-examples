@@ -1,0 +1,67 @@
+entity:
+  id: Customer
+  name: "Customer"
+  description: "Represents a customer in the OptimalERP system"
+  attributes:
+  - id: ^id
+    name: "CustomerId"
+    description: "Surrogate key for Customer"
+    datatype: "Integer"
+    mandatory: true
+  - id: Name
+    name: "Name"
+    description: "Customer name"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: ContactPerson
+    name: "Contact Person"
+    description: "Primary contact person"
+    datatype: "Text"
+    length: 100
+  - id: Email
+    name: "Email"
+    description: "Customer email address"
+    datatype: "Text"
+    length: 100
+  - id: Phone
+    name: "Phone"
+    description: "Customer phone number"
+    datatype: "Text"
+    length: 20
+  - id: Address
+    name: "Address"
+    description: "Customer street address"
+    datatype: "Text"
+    length: 200
+  - id: City
+    name: "City"
+    description: "Customer city"
+    datatype: "Text"
+    length: 50
+  - id: State
+    name: "State"
+    description: "Customer state/province"
+    datatype: "Text"
+    length: 50
+  - id: PostalCode
+    name: "Postal Code"
+    description: "Customer postal code"
+    datatype: "Text"
+    length: 20
+  - id: Country
+    name: "Country"
+    description: "Customer country"
+    datatype: "Text"
+    length: 50
+  - id: TaxId
+    name: "Tax ID"
+    description: "Customer tax identification number"
+    datatype: "Text"
+    length: 50
+  identifiers:
+  - id: CustomerPrimaryKey
+    name: "Customer Primary Key"
+    primary: true
+    attributes:
+    - ^id

@@ -1,0 +1,45 @@
+entity:
+  id: PurchaseOrderLine
+  name: "Purchase Order Line"
+  description: "Represents a line item in a purchase order"
+  attributes:
+  - id: ^id
+    name: "PurchaseOrderLineId"
+    description: "Surrogate key for Purchase Order Line"
+    datatype: "Integer"
+    mandatory: true
+  - id: PurchaseOrderId
+    name: "PurchaseOrderId"
+    description: "Foreign key to Purchase Order"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductId
+    name: "ProductId"
+    description: "Foreign key to Product"
+    datatype: "Integer"
+    mandatory: true
+  - id: Quantity
+    name: "Quantity"
+    description: "Quantity ordered"
+    datatype: "Integer"
+    mandatory: true
+  - id: UnitPrice
+    name: "Unit Price"
+    description: "Unit price at time of purchase order"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+    mandatory: true
+  - id: LineTotal
+    name: "Line Total"
+    description: "Total amount for this line"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+    mandatory: true
+  identifiers:
+  - id: PurchaseOrderLinePrimaryKey
+    name: "Purchase Order Line Primary Key"
+    primary: true
+    attributes:
+    - ^id

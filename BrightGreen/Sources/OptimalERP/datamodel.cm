@@ -1,0 +1,13 @@
+datamodel:
+  id: OptimalERP
+  name: "OptimalERP Logical Data Model"
+  description: "Logical data model for OptimalERP system"
+  type: logical
+  version: 1.0.0
+  customProperties:
+  - id: owner
+    name: "owner"
+    value: "erp-team"
+  crossmodel:
+    edition: team
+    version: 0

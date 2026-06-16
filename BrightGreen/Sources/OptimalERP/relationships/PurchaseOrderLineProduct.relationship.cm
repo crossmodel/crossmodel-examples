@@ -1,0 +1,13 @@
+relationship:
+  id: PurchaseOrderLineProduct
+  name: "Purchase Order Line Product"
+  description: "Links a purchase order line to a product"
+  parent: Product
+  parentRole: "product"
+  parentCardinality: 1..1
+  child: PurchaseOrderLine
+  childRole: "purchase order lines"
+  childCardinality: 0..N
+  attributes:
+  - parent: Product.^id
+    child: PurchaseOrderLine.ProductId

@@ -1,0 +1,48 @@
+entity:
+  id: Product
+  name: "Product"
+  description: "Represents a product in the OptimalERP system"
+  attributes:
+  - id: ^id
+    name: "ProductId"
+    description: "Surrogate key for Product"
+    datatype: "Integer"
+    mandatory: true
+  - id: Name
+    name: "Name"
+    description: "Product name"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: Description
+    name: "Description"
+    description: "Product description"
+    datatype: "Text"
+    length: 500
+  - id: UnitPrice
+    name: "Unit Price"
+    description: "Product unit price"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+    mandatory: true
+  - id: StockQuantity
+    name: "Stock Quantity"
+    description: "Current stock quantity"
+    datatype: "Integer"
+    mandatory: true
+  - id: Category
+    name: "Category"
+    description: "Product category"
+    datatype: "Text"
+    length: 50
+  - id: WarehouseId
+    name: "WarehouseId"
+    description: "Foreign key to Warehouse"
+    datatype: "Integer"
+  identifiers:
+  - id: ProductPrimaryKey
+    name: "Product Primary Key"
+    primary: true
+    attributes:
+    - ^id

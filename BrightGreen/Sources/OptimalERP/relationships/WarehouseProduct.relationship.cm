@@ -1,0 +1,13 @@
+relationship:
+  id: WarehouseProduct
+  name: "Warehouse Product"
+  description: "Links a warehouse to its products"
+  parent: Warehouse
+  parentRole: "warehouse"
+  parentCardinality: 1..1
+  child: Product
+  childRole: "products"
+  childCardinality: 0..N
+  attributes:
+  - parent: Warehouse.^id
+    child: Product.WarehouseId

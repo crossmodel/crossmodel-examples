@@ -1,0 +1,13 @@
+relationship:
+  id: SalesOrderInvoice
+  name: "Sales Order Invoice"
+  description: "Links a sales order to its invoice"
+  parent: SalesOrder
+  parentRole: "sales order"
+  parentCardinality: 1..1
+  child: Invoice
+  childRole: "invoice"
+  childCardinality: 0..1
+  attributes:
+  - parent: SalesOrder.^id
+    child: Invoice.OrderId
