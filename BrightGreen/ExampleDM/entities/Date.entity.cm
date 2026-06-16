@@ -1,0 +1,36 @@
+entity:
+  id: Date
+  name: "Date"
+  description: "Dimension table for dates"
+  attributes:
+  - id: DateID
+    name: "Date ID"
+    description: "Primary identifier for dates"
+    datatype: "Integer"
+    mandatory: true
+  - id: Day
+    name: "Day"
+    description: "Day of the month"
+    datatype: "Integer"
+    mandatory: true
+  - id: Month
+    name: "Month"
+    description: "Month of the year"
+    datatype: "Integer"
+    mandatory: true
+  - id: Year
+    name: "Year"
+    description: "Year"
+    datatype: "Integer"
+    mandatory: true
+  - id: Quarter
+    name: "Quarter"
+    description: "Quarter of the year"
+    datatype: "Integer"
+    mandatory: true
+  identifiers:
+  - id: DatePrimaryKey
+    name: "Date Primary Key"
+    primary: true
+    attributes:
+    - DateID

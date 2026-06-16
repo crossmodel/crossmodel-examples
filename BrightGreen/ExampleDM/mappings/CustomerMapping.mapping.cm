@@ -1,0 +1,15 @@
+mapping:
+  id: CustomerMapping
+  sources:
+  - id: CustomerSource
+    entity: example-dwh.Customer
+    join: from
+  target:
+    entity: Customer
+    mappings:
+    - attribute: CustomerID
+      sources:
+        - CustomerSource.^id
+    - attribute: Name
+      sources:
+        - CustomerSource.Name

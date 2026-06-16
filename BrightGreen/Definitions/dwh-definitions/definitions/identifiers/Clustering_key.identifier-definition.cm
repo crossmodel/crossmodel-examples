@@ -1,0 +1,4 @@
+identifierDefinition:
+    id: Clustering_key
+    name: "Clustering key"
+    extends: Identifier

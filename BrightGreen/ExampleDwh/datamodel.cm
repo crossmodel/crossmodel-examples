@@ -11,6 +11,8 @@ datamodel:
         version: 1.0.0
       - datamodel: OptimalERP
         version: 1.0.0
+      - datamodel: dwh-definitions
+        version: 1.0.0
     crossmodel:
         edition: team
         version: 0

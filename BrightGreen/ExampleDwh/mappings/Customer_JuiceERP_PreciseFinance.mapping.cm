@@ -1,0 +1,43 @@
+mapping:
+    id: Customer_JuiceERP_PreciseFinance
+    sources:
+      - id: CustomerSource
+        entity: JuiceERP.Customer
+        join: from
+      - id: DebtorSource
+        entity: PreciseFinance.DEBTOR
+        join: left-join
+        dependencies:
+          - CustomerSource
+        conditions:
+          - CustomerSource.CustomerID = DebtorSource.JUICEERPCUSTOMERID
+    target:
+        entity: Customer
+        mappings:
+          - attribute: ^id
+            sources:
+              - CustomerSource.CustomerID
+          - attribute: Name
+            sources:
+              - DebtorSource.NAME
+          - attribute: ContactPerson
+            sources:
+              - CustomerSource.FirstName
+              - CustomerSource.LastName
+            expressions:
+              - language: "SQL"
+                expression: "{{CustomerSource.FirstName}} + ' ' + {{CustomerSource.LastName}}"
+          - attribute: Email
+            sources:
+              - CustomerSource.EmailAddress
+          - attribute: Phone
+            expressions:
+              - language: "SQL"
+                expression: "'N/A'"
+          - attribute: Address
+          - attribute: City
+          - attribute: PostalCode
+          - attribute: Country
+          - attribute: CreditLimit
+            sources:
+              - DebtorSource.Credit_limit

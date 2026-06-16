@@ -1,0 +1,38 @@
+entity:
+    id: Sales
+    name: "Sales"
+    description: "Fact table for sales transactions"
+    type: Fact
+    attributes:
+      - id: Amount
+        name: "Amount"
+        description: "Total amount of the sale"
+        datatype: "Decimal"
+        precision: 10
+        scale: 2
+        mandatory: true
+      - id: Quantity
+        name: "Quantity"
+        description: "Number of items sold"
+        datatype: "Integer"
+        mandatory: true
+      - id: CustomerID
+        name: "Customer ID"
+        description: "Foreign key to Customer"
+        datatype: "Integer"
+        mandatory: true
+      - id: ProductID
+        name: "Product ID"
+        description: "Foreign key to Product"
+        datatype: "Integer"
+        mandatory: true
+      - id: DateID
+        name: "Date ID"
+        description: "Foreign key to Date"
+        datatype: "Integer"
+        mandatory: true
+      - id: WarehouseID
+        name: "Warehouse ID"
+        description: "Foreign key to Warehouse"
+        datatype: "Integer"
+        mandatory: true

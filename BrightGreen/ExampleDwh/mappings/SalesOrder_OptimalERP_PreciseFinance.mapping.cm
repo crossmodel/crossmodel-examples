@@ -1,0 +1,21 @@
+mapping:
+    id: SalesOrder_OptimalERP_PreciseFinance
+    sources:
+      - id: SalesOrderSource
+        entity: OptimalERP.SalesOrder
+        join: from
+    target:
+        entity: SalesOrder
+        mappings:
+          - attribute: ^id
+            sources:
+              - SalesOrderSource.^id
+          - attribute: OrderDate
+            sources:
+              - SalesOrderSource.OrderDate
+          - attribute: TotalAmount
+            sources:
+              - SalesOrderSource.TotalAmount
+          - attribute: CustomerId
+            sources:
+              - SalesOrderSource.CustomerId

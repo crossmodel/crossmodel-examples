@@ -1,0 +1,13 @@
+relationship:
+  id: SalesProduct
+  name: "Sales Product"
+  description: "Links sales to products"
+  parent: Product
+  parentRole: "product"
+  parentCardinality: 1..1
+  child: Sales
+  childRole: "sales"
+  childCardinality: 0..N
+  attributes:
+  - parent: Product.ProductID
+    child: Sales.ProductID

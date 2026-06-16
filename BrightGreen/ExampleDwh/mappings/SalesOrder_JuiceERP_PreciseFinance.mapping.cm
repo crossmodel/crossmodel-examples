@@ -1,0 +1,22 @@
+mapping:
+    id: SalesOrder_JuiceERP_PreciseFinance
+    sources:
+      - id: SalesOrderSource
+        entity: JuiceERP.SalesOrder
+        join: from
+    target:
+        entity: SalesOrder
+        mappings:
+          - attribute: ^id
+            sources:
+              - SalesOrderSource.SalesOrderID
+          - attribute: OrderDate
+            sources:
+              - SalesOrderSource.OrderDate
+          - attribute: TotalAmount
+            expressions:
+              - language: "SQL"
+                expression: "0.00"
+          - attribute: CustomerId
+            sources:
+              - SalesOrderSource.CustomerID

@@ -1,0 +1,27 @@
+mapping:
+  id: SalesOrderLine_OptimalERP
+  sources:
+  - id: OrderLineSource
+    entity: OptimalERP.OrderLine
+    join: from
+  target:
+    entity: SalesOrderLine
+    mappings:
+    - attribute: ^id
+      sources:
+        - OrderLineSource.^id
+    - attribute: SalesOrderId
+      sources:
+        - OrderLineSource.OrderId
+    - attribute: ProductId
+      sources:
+        - OrderLineSource.ProductId
+    - attribute: Quantity
+      sources:
+        - OrderLineSource.Quantity
+    - attribute: UnitPrice
+      sources:
+        - OrderLineSource.UnitPrice
+    - attribute: LineTotal
+      sources:
+        - OrderLineSource.LineTotal

@@ -1,0 +1,27 @@
+mapping:
+  id: Product_OptimalERP
+  sources:
+  - id: ProductSource
+    entity: OptimalERP.Product
+    join: from
+  target:
+    entity: Product
+    mappings:
+    - attribute: ^id
+      sources:
+        - ProductSource.^id
+    - attribute: Name
+      sources:
+        - ProductSource.Name
+    - attribute: Description
+      sources:
+        - ProductSource.Description
+    - attribute: UnitPrice
+      sources:
+        - ProductSource.UnitPrice
+    - attribute: Category
+      sources:
+        - ProductSource.Category
+    - attribute: WarehouseId
+      sources:
+        - ProductSource.WarehouseId

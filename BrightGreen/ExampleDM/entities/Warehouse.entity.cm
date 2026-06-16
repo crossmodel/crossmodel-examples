@@ -1,0 +1,28 @@
+entity:
+  id: Warehouse
+  name: "Warehouse"
+  description: "Dimension table for warehouses"
+  attributes:
+  - id: WarehouseID
+    name: "Warehouse ID"
+    description: "Primary identifier for warehouses"
+    datatype: "Integer"
+    mandatory: true
+  - id: Name
+    name: "Name"
+    description: "Warehouse name"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: Location
+    name: "Location"
+    description: "Warehouse location"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  identifiers:
+  - id: WarehousePrimaryKey
+    name: "Warehouse Primary Key"
+    primary: true
+    attributes:
+    - WarehouseID

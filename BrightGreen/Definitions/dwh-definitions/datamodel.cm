@@ -1,0 +1,8 @@
+datamodel:
+    id: dwh-definitions
+    name: "dwh-definitions"
+    type: logical
+    version: 1.0.0
+    crossmodel:
+        edition: team
+        version: 0

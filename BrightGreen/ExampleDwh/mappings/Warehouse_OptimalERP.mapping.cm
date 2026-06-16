@@ -1,0 +1,18 @@
+mapping:
+    id: Warehouse_OptimalERP
+    sources:
+      - id: WarehouseSource
+        entity: OptimalERP.Warehouse
+        join: from
+    target:
+        entity: Warehouse
+        mappings:
+          - attribute: ^id
+            sources:
+              - WarehouseSource.^id
+          - attribute: Name
+            sources:
+              - WarehouseSource.Name
+          - attribute: Location
+            sources:
+              - WarehouseSource.Location

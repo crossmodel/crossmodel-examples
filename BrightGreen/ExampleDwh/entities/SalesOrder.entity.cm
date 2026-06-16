@@ -1,33 +1,34 @@
 entity:
-  id: SalesOrder
-  name: "SalesOrder"
-  description: "Represents a sales order placed by a customer"
-  attributes:
-  - id: ^id
-    name: "Id"
-    description: "Surrogate key for SalesOrder"
-    datatype: "Integer"
-    mandatory: true
-  - id: OrderDate
-    name: "Order Date"
-    description: "Date when the sales order was placed"
-    datatype: "Date"
-    mandatory: true
-  - id: TotalAmount
-    name: "Total Amount"
-    description: "Total amount of the sales order"
-    datatype: "Decimal"
-    precision: 10
-    scale: 2
-    mandatory: true
-  - id: CustomerId
-    name: "Customer Id"
-    description: "Reference to the customer who placed this order"
-    datatype: "Integer"
-    mandatory: true
-  identifiers:
-  - id: SalesOrderPrimaryKey
-    name: "SalesOrder Primary Key"
-    primary: true
+    id: SalesOrder
+    name: "SalesOrder"
+    description: "Represents a sales order placed by a customer"
+    type: dwh-definitions.Formal_entity
     attributes:
-    - ^id
+      - id: ^id
+        name: "Id"
+        description: "Surrogate key for SalesOrder"
+        datatype: "Integer"
+        mandatory: true
+      - id: OrderDate
+        name: "Order Date"
+        description: "Date when the sales order was placed"
+        datatype: "Date"
+        mandatory: true
+      - id: TotalAmount
+        name: "Total Amount"
+        description: "Total amount of the sales order"
+        datatype: "Decimal"
+        precision: 10
+        scale: 2
+        mandatory: true
+      - id: CustomerId
+        name: "Customer Id"
+        description: "Reference to the customer who placed this order"
+        datatype: "Integer"
+        mandatory: true
+    identifiers:
+      - id: SalesOrderPrimaryKey
+        name: "SalesOrder Primary Key"
+        primary: true
+        attributes:
+          - ^id

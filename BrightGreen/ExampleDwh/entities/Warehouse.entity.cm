@@ -1,36 +1,27 @@
 entity:
-  id: Warehouse
-  name: "Warehouse"
-  description: "Represents a warehouse for storing products"
-  attributes:
-  - id: ^id
-    name: "Id"
-    description: "Surrogate key for Warehouse"
-    datatype: "Integer"
-    mandatory: true
-  - id: Name
-    name: "Name"
-    description: "Warehouse name"
-    datatype: "Text"
-    length: 100
-    mandatory: true
-  - id: Location
-    name: "Location"
-    description: "Warehouse location"
-    datatype: "Text"
-    length: 200
-  - id: Capacity
-    name: "Capacity"
-    description: "Warehouse capacity"
-    datatype: "Integer"
-  - id: Manager
-    name: "Manager"
-    description: "Warehouse manager"
-    datatype: "Text"
-    length: 100
-  identifiers:
-  - id: WarehousePrimaryKey
-    name: "Warehouse Primary Key"
-    primary: true
+    id: Warehouse
+    name: "Warehouse"
+    description: "Represents a warehouse for storing products"
     attributes:
-    - ^id
+      - id: ^id
+        name: "Id"
+        description: "Surrogate key for Warehouse"
+        datatype: "Integer"
+        mandatory: true
+      - id: Name
+        name: "Name"
+        description: "Warehouse name"
+        datatype: "Text"
+        length: 100
+        mandatory: true
+      - id: Location
+        name: "Location"
+        description: "Warehouse location"
+        datatype: "Text"
+        length: 200
+    identifiers:
+      - id: WarehousePrimaryKey
+        name: "Warehouse Primary Key"
+        primary: true
+        attributes:
+          - ^id

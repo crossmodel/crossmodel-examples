@@ -1,0 +1,29 @@
+mapping:
+    id: Product_JuiceERP
+    sources:
+      - id: ProductSource
+        entity: JuiceERP.Product
+        join: from
+    target:
+        entity: Product
+        mappings:
+          - attribute: ^id
+            sources:
+              - ProductSource.ProductID
+          - attribute: Name
+            sources:
+              - ProductSource.EANCode
+          - attribute: Description
+            sources:
+              - ProductSource.Description
+          - attribute: UnitPrice
+            sources:
+              - ProductSource.ItemPrice
+          - attribute: Category
+            expressions:
+              - language: "SQL"
+                expression: "'Unknown'"
+          - attribute: WarehouseId
+            expressions:
+              - language: "SQL"
+                expression: "1"

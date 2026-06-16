@@ -1,0 +1,16 @@
+entityDefinition:
+    id: Formal_entity
+    name: "Formal_entity"
+    attributes:
+      - id: Record_source
+        name: "Record_source"
+        description: "Defines the origin of the record"
+        datatype: "Text"
+        length: 1024
+    customProperties:
+      - id: Materialize
+        name: "Materialize"
+        description: "True when entity should be materialized, false otherwise"
+        datatype: "Boolean"
+        mandatory: true
+        value: "False"
