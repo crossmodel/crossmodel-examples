@@ -14,9 +14,7 @@ mapping:
             sources:
               - SalesOrderSource.OrderDate
           - attribute: TotalAmount
-            expressions:
-              - language: "SQL"
-                expression: "0.00"
+            expression: "0.00"
           - attribute: CustomerId
             sources:
               - SalesOrderSource.CustomerID

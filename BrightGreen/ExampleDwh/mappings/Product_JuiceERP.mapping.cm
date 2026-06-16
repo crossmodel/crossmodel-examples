@@ -20,10 +20,6 @@ mapping:
             sources:
               - ProductSource.ItemPrice
           - attribute: Category
-            expressions:
-              - language: "SQL"
-                expression: "'Unknown'"
+            expression: "'Unknown'"
           - attribute: WarehouseId
-            expressions:
-              - language: "SQL"
-                expression: "1"
+            expression: "1"
