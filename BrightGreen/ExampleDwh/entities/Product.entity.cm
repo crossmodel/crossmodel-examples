@@ -2,7 +2,6 @@ entity:
     id: Product
     name: "Product"
     description: "Represents a product available for sale"
-    type: dwh-definitions.Historical_entity
     attributes:
       - id: ^id
         name: "Id"

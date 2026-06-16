@@ -2,7 +2,6 @@ entity:
     id: Sales
     name: "Sales"
     description: "Fact table for sales transactions"
-    type: Fact
     attributes:
       - id: Amount
         name: "Amount"

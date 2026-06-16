@@ -2,7 +2,6 @@ entity:
     id: Customer
     name: "Customer"
     description: "Represents a customer in the data warehouse"
-    type: dwh-definitions.Formal_entity
     attributes:
       - id: ^id
         name: "Id"

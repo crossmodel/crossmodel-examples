@@ -2,7 +2,6 @@ entity:
     id: SalesOrder
     name: "SalesOrder"
     description: "Represents a sales order placed by a customer"
-    type: dwh-definitions.Formal_entity
     attributes:
       - id: ^id
         name: "Id"
