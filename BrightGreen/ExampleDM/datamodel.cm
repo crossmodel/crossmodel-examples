@@ -1,5 +1,5 @@
 datamodel:
-    id: ExampleDM
+    id: example-dm
     name: "Example DataMart"
     description: "A data model for sales and related dimensions"
     type: logical
