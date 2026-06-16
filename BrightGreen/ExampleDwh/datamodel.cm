@@ -9,6 +9,8 @@ datamodel:
         version: 1.0.0
       - datamodel: PreciseFinance
         version: 1.0.0
+      - datamodel: OptimalERP
+        version: 1.0.0
     crossmodel:
         edition: team
         version: 0

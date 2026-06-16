@@ -19,6 +19,11 @@ entity:
         name: "JuiceERP_CustomerID"
         description: "Cross-reference to the corresponding customer in JuiceERP"
         datatype: "Integer"
+      - id: Credit_limit
+        name: "Credit_limit"
+        datatype: "Decimal"
+        precision: 8
+        scale: 2
     identifiers:
       - id: Primary_Identifier
         name: "Primary Identifier"

@@ -1,0 +1,13 @@
+relationship:
+  id: SalesOrderLineProduct
+  name: "Sales Order Line Product"
+  description: "Links a sales order line to its product"
+  parent: Product
+  parentRole: "product"
+  parentCardinality: 1..1
+  child: SalesOrderLine
+  childRole: "Sales Order Lines"
+  childCardinality: 0..N
+  attributes:
+  - parent: Product.^id
+    child: SalesOrderLine.ProductId
