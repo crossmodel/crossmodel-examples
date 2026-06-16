@@ -4,6 +4,7 @@ mapping:
       - id: SalesOrderSource
         entity: OptimalERP.SalesOrder
         join: from
+        expression: "{{SalesOrderSource.Status}}!= 'Cancelled' "
     target:
         entity: SalesOrder
         mappings:
