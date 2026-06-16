@@ -1,5 +1,5 @@
 systemDiagram:
-    id: ExampleDwhDiagram
+    id: ExampleDwh
     nodes:
       - id: CustomerNode
         entity: Customer
