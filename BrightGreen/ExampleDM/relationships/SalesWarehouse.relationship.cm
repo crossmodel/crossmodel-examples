@@ -1,0 +1,13 @@
+relationship:
+  id: SalesWarehouse
+  name: "Sales Warehouse"
+  description: "Links sales to warehouses"
+  parent: Warehouse
+  parentRole: "warehouse"
+  parentCardinality: 1..1
+  child: Sales
+  childRole: "sales"
+  childCardinality: 0..N
+  attributes:
+  - parent: Warehouse.WarehouseID
+    child: Sales.WarehouseID

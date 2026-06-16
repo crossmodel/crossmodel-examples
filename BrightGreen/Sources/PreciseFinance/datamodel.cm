@@ -1,6 +1,7 @@
 datamodel:
     id: PreciseFinance
     name: "PreciseFinance"
+    description: "Source system model for PreciseFinance, containing debtor, invoice, and invoice line data"
     type: logical
     version: 1.0.0
     crossmodel:

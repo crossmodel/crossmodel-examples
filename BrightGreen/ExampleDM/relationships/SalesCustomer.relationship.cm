@@ -1,0 +1,13 @@
+relationship:
+  id: SalesCustomer
+  name: "Sales Customer"
+  description: "Links sales to customers"
+  parent: Customer
+  parentRole: "customer"
+  parentCardinality: 1..1
+  child: Sales
+  childRole: "sales"
+  childCardinality: 0..N
+  attributes:
+  - parent: Customer.CustomerID
+    child: Sales.CustomerID

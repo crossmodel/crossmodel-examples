@@ -1,18 +1,23 @@
 entity:
     id: Product
     name: "Product"
+    description: "Base entity representing a product available for sale in JuiceERP"
     attributes:
       - id: ProductID
         name: "ProductID"
+        description: "Unique identifier for the product"
         datatype: "Integer"
       - id: EANCode
         name: "EANCode"
+        description: "European Article Number barcode for the product"
         datatype: "Text"
       - id: Description
         name: "Description"
+        description: "Textual description of the product"
         datatype: "Text"
       - id: ItemPrice
         name: "ItemPrice"
+        description: "Unit price of the product"
         datatype: "Decimal"
     identifiers:
       - id: Primary_Identifier

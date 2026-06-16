@@ -1,24 +1,31 @@
 entity:
     id: INVOICELINE
     name: "InvoiceLine"
+    description: "Represents an individual line item on an invoice"
     attributes:
       - id: INVOICENO
         name: "InvoiceNo"
+        description: "Reference to the parent invoice"
         datatype: "Integer"
       - id: INVOICELINENO
         name: "InvoiceLineNo"
+        description: "Sequential line number within the invoice"
         datatype: "Integer"
       - id: LINEDESCRIPTION
         name: "LineDescription"
+        description: "Description of the goods or services on this invoice line"
         datatype: "Text"
       - id: PRICE
         name: "Price"
+        description: "Unit price for this invoice line item"
         datatype: "Decimal"
       - id: VAT
         name: "VAT"
+        description: "Value Added Tax amount for this invoice line"
         datatype: "Decimal"
       - id: QUANTITY
         name: "Quantity"
+        description: "Number of units billed on this invoice line"
         datatype: "Integer"
     identifiers:
       - id: Primary_Identifier

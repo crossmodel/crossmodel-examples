@@ -1,9 +1,50 @@
 systemDiagram:
-    id: exampleDwh
+    id: ExampleDwh
     nodes:
-      - id: CustomerWithOrderCountNode
-        entity: CustomerWithOrderCount
-        x: 286
+      - id: CustomerNode
+        entity: Customer
+        x: 12
+        y: 96.2
+        width: 171.984375
+        height: 253
+      - id: SalesOrderNode
+        entity: SalesOrder
+        x: 290
+        y: 130
+        width: 171.984375
+        height: 127
+      - id: SalesOrderLineNode
+        entity: SalesOrderLine
+        x: 610
         y: 110
-        width: 10
-        height: 10
+        width: 185.4722900390625
+        height: 169
+      - id: ProductNode
+        entity: Product
+        x: 890
+        y: 120
+        width: 173.4722900390625
+        height: 169
+      - id: WarehouseNode
+        entity: Warehouse
+        x: 1150
+        y: 130
+        width: 159.48187255859375
+        height: 148
+    edges:
+      - id: CustomerSalesOrderEdge
+        relationship: CustomerSalesOrder
+        sourceNode: CustomerNode
+        targetNode: SalesOrderNode
+      - id: SalesOrderSalesOrderLineEdge
+        relationship: SalesOrderSalesOrderLine
+        sourceNode: SalesOrderNode
+        targetNode: SalesOrderLineNode
+      - id: ProductWarehouseEdge
+        relationship: ProductWarehouse
+        sourceNode: WarehouseNode
+        targetNode: ProductNode
+      - id: SalesOrderLineProductEdge_ProductNode_SalesOrderLineNode
+        relationship: example-dwh.SalesOrderLineProduct
+        sourceNode: ProductNode
+        targetNode: SalesOrderLineNode

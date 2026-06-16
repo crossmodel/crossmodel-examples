@@ -1,0 +1,21 @@
+mapping:
+  id: ProductMapping
+  sources:
+  - id: ProductSource
+    entity: example-dwh.Product
+    join: from
+  target:
+    entity: Product
+    mappings:
+    - attribute: ProductID
+      sources:
+        - ProductSource.^id
+    - attribute: Name
+      sources:
+        - ProductSource.Name
+    - attribute: Price
+      sources:
+        - ProductSource.UnitPrice
+    - attribute: Category
+      sources:
+        - ProductSource.Category

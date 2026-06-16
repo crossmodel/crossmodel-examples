@@ -1,0 +1,12 @@
+datamodel:
+    id: example-dm
+    name: "Example DataMart"
+    description: "A data model for sales and related dimensions"
+    type: logical
+    version: 1.0.0
+    dependencies:
+      - datamodel: example-dwh
+        version: 1.0.0
+    crossmodel:
+        edition: team
+        version: 0

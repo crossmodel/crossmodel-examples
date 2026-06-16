@@ -1,0 +1,45 @@
+entity:
+  id: SalesOrder
+  name: "Sales Order"
+  description: "Represents a sales order in the OptimalERP system"
+  attributes:
+  - id: ^id
+    name: "OrderId"
+    description: "Surrogate key for Sales Order"
+    datatype: "Integer"
+    mandatory: true
+  - id: OrderNumber
+    name: "Order Number"
+    description: "Order reference number"
+    datatype: "Text"
+    length: 20
+    mandatory: true
+  - id: OrderDate
+    name: "Order Date"
+    description: "Date when order was placed"
+    datatype: "Date"
+    mandatory: true
+  - id: CustomerId
+    name: "CustomerId"
+    description: "Foreign key to Customer"
+    datatype: "Integer"
+    mandatory: true
+  - id: TotalAmount
+    name: "Total Amount"
+    description: "Total order amount"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+    mandatory: true
+  - id: Status
+    name: "Status"
+    description: "Order status"
+    datatype: "Text"
+    length: 20
+    mandatory: true
+  identifiers:
+  - id: SalesOrderPrimaryKey
+    name: "Sales Order Primary Key"
+    primary: true
+    attributes:
+    - ^id

@@ -1,0 +1,13 @@
+relationship:
+  id: SalesDate
+  name: "Sales Date"
+  description: "Links sales to dates"
+  parent: Date
+  parentRole: "date"
+  parentCardinality: 1..1
+  child: Sales
+  childRole: "sales"
+  childCardinality: 0..N
+  attributes:
+  - parent: Date.DateID
+    child: Sales.DateID

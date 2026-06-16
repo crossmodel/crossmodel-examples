@@ -1,6 +1,7 @@
 datamodel:
     id: JuiceERP
     name: "JuiceERP"
+    description: "Source system model for JuiceERP, containing customer, product, and sales order data"
     type: logical
     version: 1.0.0
     crossmodel:

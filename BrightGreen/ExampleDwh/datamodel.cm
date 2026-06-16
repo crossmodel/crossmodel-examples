@@ -1,12 +1,17 @@
 datamodel:
     id: example-dwh
     name: "Example DWH"
+    description: "Data warehouse model that consolidates customer and order data from JuiceERP and PreciseFinance source systems"
     type: logical
     version: 1.0.0
     dependencies:
       - datamodel: JuiceERP
         version: 1.0.0
       - datamodel: PreciseFinance
+        version: 1.0.0
+      - datamodel: OptimalERP
+        version: 1.0.0
+      - datamodel: dwh-definitions
         version: 1.0.0
     crossmodel:
         edition: team

@@ -1,0 +1,14 @@
+entityDefinition:
+    id: Fact
+    name: "Fact"
+    extends: Entity
+    attributes:
+      - id: RecordID
+        name: "RecordID"
+        datatype: "Integer"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - RecordID

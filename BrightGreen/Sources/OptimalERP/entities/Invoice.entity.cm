@@ -1,0 +1,49 @@
+entity:
+  id: Invoice
+  name: "Invoice"
+  description: "Represents an invoice in the OptimalERP system"
+  attributes:
+  - id: ^id
+    name: "InvoiceId"
+    description: "Surrogate key for Invoice"
+    datatype: "Integer"
+    mandatory: true
+  - id: InvoiceNumber
+    name: "Invoice Number"
+    description: "Invoice reference number"
+    datatype: "Text"
+    length: 20
+    mandatory: true
+  - id: OrderId
+    name: "OrderId"
+    description: "Foreign key to Sales Order"
+    datatype: "Integer"
+    mandatory: true
+  - id: InvoiceDate
+    name: "Invoice Date"
+    description: "Date when invoice was issued"
+    datatype: "Date"
+    mandatory: true
+  - id: DueDate
+    name: "Due Date"
+    description: "Payment due date"
+    datatype: "Date"
+  - id: TotalAmount
+    name: "Total Amount"
+    description: "Total invoice amount"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+    mandatory: true
+  - id: Status
+    name: "Status"
+    description: "Invoice status"
+    datatype: "Text"
+    length: 20
+    mandatory: true
+  identifiers:
+  - id: InvoicePrimaryKey
+    name: "Invoice Primary Key"
+    primary: true
+    attributes:
+    - ^id

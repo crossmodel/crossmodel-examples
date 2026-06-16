@@ -1,0 +1,46 @@
+mapping:
+  id: Customer_OptimalERP_PreciseFinance
+  sources:
+  - id: CustomerSource
+    entity: OptimalERP.Customer
+    join: from
+  - id: DebtorSource
+    entity: PreciseFinance.DEBTOR
+    join: left-join
+    dependencies:
+    - CustomerSource
+    conditions:
+    - CustomerSource.Name = DebtorSource.NAME
+  target:
+    entity: Customer
+    mappings:
+    - attribute: ^id
+      sources:
+        - CustomerSource.^id
+    - attribute: Name
+      sources:
+        - CustomerSource.Name
+    - attribute: ContactPerson
+      sources:
+        - CustomerSource.ContactPerson
+    - attribute: Email
+      sources:
+        - CustomerSource.Email
+    - attribute: Phone
+      sources:
+        - CustomerSource.Phone
+    - attribute: Address
+      sources:
+        - CustomerSource.Address
+    - attribute: City
+      sources:
+        - CustomerSource.City
+    - attribute: PostalCode
+      sources:
+        - CustomerSource.PostalCode
+    - attribute: Country
+      sources:
+        - CustomerSource.Country
+    - attribute: CreditLimit
+      sources:
+        - DebtorSource.Credit_limit

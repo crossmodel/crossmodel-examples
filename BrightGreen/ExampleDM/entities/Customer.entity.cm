@@ -1,0 +1,22 @@
+entity:
+  id: Customer
+  name: "Customer"
+  description: "Dimension table for customers"
+  attributes:
+  - id: CustomerID
+    name: "Customer ID"
+    description: "Primary identifier for customers"
+    datatype: "Integer"
+    mandatory: true
+  - id: Name
+    name: "Name"
+    description: "Customer name"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  identifiers:
+  - id: CustomerPrimaryKey
+    name: "Customer Primary Key"
+    primary: true
+    attributes:
+    - CustomerID

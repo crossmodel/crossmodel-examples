@@ -1,7 +1,8 @@
 relationship:
    id: FK_INVOICE_INVOICE_D_DEBTOR
    name: "FK_INVOICE_INVOICE_D_DEBTOR"
-   parent: DEBTOR   
+   description: "Links a debtor to the invoices issued to them"
+   parent: DEBTOR
    parentCardinality: 0..1
    child: INVOICE   
    childCardinality: 0..N

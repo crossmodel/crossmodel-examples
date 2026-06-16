@@ -1,0 +1,48 @@
+mapping:
+    id: SalesMapping
+    sources:
+      - id: SalesOrderLineSource
+        entity: example-dwh.SalesOrderLine
+        join: from
+      - id: SalesOrderSource
+        entity: example-dwh.SalesOrder
+        join: left-join
+        dependencies:
+          - SalesOrderLineSource
+        conditions:
+          - SalesOrderLineSource.SalesOrderId = SalesOrderSource.^id
+      - id: ProductSource
+        entity: example-dwh.Product
+        join: left-join
+        dependencies:
+          - SalesOrderLineSource
+        conditions:
+          - SalesOrderLineSource.ProductId = ProductSource.^id
+      - id: WarehouseSource
+        entity: example-dwh.Warehouse
+        join: left-join
+        dependencies:
+          - ProductSource
+        conditions:
+          - ProductSource.WarehouseId = WarehouseSource.^id
+    target:
+        entity: Sales
+        mappings:        
+          - attribute: Amount
+            sources:
+              - SalesOrderLineSource.LineTotal
+          - attribute: Quantity
+            sources:
+              - SalesOrderLineSource.Quantity
+          - attribute: CustomerID
+            sources:
+              - SalesOrderSource.CustomerId
+          - attribute: ProductID
+            sources:
+              - SalesOrderLineSource.ProductId
+          - attribute: WarehouseID
+            sources:
+              - ProductSource.WarehouseId
+          - attribute: DateID
+            sources:
+              - SalesOrderSource.OrderDate

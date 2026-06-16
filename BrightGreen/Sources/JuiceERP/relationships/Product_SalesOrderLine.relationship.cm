@@ -1,7 +1,8 @@
 relationship:
    id: Product_SalesOrderLine
    name: "Product_SalesOrderLine"
-   parent: Product   
+   description: "Links a product to the sales order lines in which it was ordered"
+   parent: Product
    parentCardinality: 0..1
    child: SalesOrderLine   
    childCardinality: 0..N

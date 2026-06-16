@@ -1,19 +1,29 @@
 entity:
     id: DEBTOR
     name: "Debtor"
+    description: "Represents a debtor (customer who owes payment) in the PreciseFinance system"
     attributes:
       - id: DEBTORID
         name: "DebtorId"
+        description: "Unique identifier for the debtor"
         datatype: "Integer"
       - id: NAME
         name: "Name"
+        description: "Full name of the debtor"
         datatype: "Text"
       - id: IBAN
         name: "IBAN"
+        description: "International Bank Account Number of the debtor"
         datatype: "Text"
       - id: JUICEERPCUSTOMERID
         name: "JuiceERP_CustomerID"
+        description: "Cross-reference to the corresponding customer in JuiceERP"
         datatype: "Integer"
+      - id: Credit_limit
+        name: "Credit_limit"
+        datatype: "Decimal"
+        precision: 8
+        scale: 2
     identifiers:
       - id: Primary_Identifier
         name: "Primary Identifier"

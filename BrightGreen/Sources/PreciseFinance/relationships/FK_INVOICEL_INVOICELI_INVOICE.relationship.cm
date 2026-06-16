@@ -1,7 +1,8 @@
 relationship:
    id: FK_INVOICEL_INVOICELI_INVOICE
    name: "FK_INVOICEL_INVOICELI_INVOICE"
-   parent: INVOICE   
+   description: "Links an invoice to its individual invoice line items"
+   parent: INVOICE
    parentCardinality: 0..1
    child: INVOICELINE   
    childCardinality: 0..N

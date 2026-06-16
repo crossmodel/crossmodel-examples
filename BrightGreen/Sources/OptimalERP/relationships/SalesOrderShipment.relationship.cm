@@ -1,0 +1,13 @@
+relationship:
+  id: SalesOrderShipment
+  name: "Sales Order Shipment"
+  description: "Links a sales order to its shipments"
+  parent: SalesOrder
+  parentRole: "sales order"
+  parentCardinality: 1..1
+  child: Shipment
+  childRole: "shipments"
+  childCardinality: 0..N
+  attributes:
+  - parent: SalesOrder.^id
+    child: Shipment.OrderId

@@ -1,0 +1,18 @@
+mapping:
+  id: WarehouseMapping
+  sources:
+  - id: WarehouseSource
+    entity: example-dwh.Warehouse
+    join: from
+  target:
+    entity: Warehouse
+    mappings:
+    - attribute: WarehouseID
+      sources:
+        - WarehouseSource.^id
+    - attribute: Name
+      sources:
+        - WarehouseSource.Name
+    - attribute: Location
+      sources:
+        - WarehouseSource.Location

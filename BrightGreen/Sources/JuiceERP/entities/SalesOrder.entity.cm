@@ -1,18 +1,23 @@
 entity:
     id: SalesOrder
     name: "SalesOrder"
+    description: "Represents a sales order placed by a customer in JuiceERP"
     attributes:
       - id: SalesOrderID
         name: "SalesOrderID"
+        description: "Unique identifier for the sales order"
         datatype: "Integer"
       - id: OrderDate
         name: "OrderDate"
+        description: "Date when the sales order was placed"
         datatype: "Date"
       - id: CustomerID
         name: "CustomerID"
+        description: "Reference to the customer who placed this order"
         datatype: "Integer"
       - id: OrderStatus
         name: "OrderStatus"
+        description: "Current status of the sales order"
         datatype: "Text"
     identifiers:
       - id: Primary_Identifier

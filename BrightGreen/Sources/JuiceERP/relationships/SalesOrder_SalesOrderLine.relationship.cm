@@ -1,7 +1,8 @@
 relationship:
    id: SalesOrder_SalesOrderLine
    name: "SalesOrder_SalesOrderLine"
-   parent: SalesOrder   
+   description: "Links a sales order to its individual line items"
+   parent: SalesOrder
    parentCardinality: 0..1
    child: SalesOrderLine   
    childCardinality: 0..N

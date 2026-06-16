@@ -1,26 +1,33 @@
 entity:
     id: DigitalProduct
     name: "DigitalProduct"
+    description: "A digital product that can be activated online, inheriting base product attributes"
     inherits:
       - Product
     attributes:
       - id: ProductID
         name: "ProductID"
+        description: "Unique identifier for the product"
         datatype: "Integer"
       - id: EANCode
         name: "EANCode"
+        description: "European Article Number barcode for the product"
         datatype: "Text"
       - id: Description
         name: "Description"
+        description: "Textual description of the product"
         datatype: "Text"
       - id: ItemPrice
         name: "ItemPrice"
+        description: "Unit price of the product"
         datatype: "Decimal"
       - id: ActivationURL
         name: "ActivationURL"
+        description: "URL used to activate the digital product after purchase"
         datatype: "Text"
       - id: ExpirationPeriodInDays
         name: "ExpirationPeriodInDays"
+        description: "Number of days after activation before the digital product expires"
         datatype: "Integer"
     identifiers:
       - id: Primary_Identifier

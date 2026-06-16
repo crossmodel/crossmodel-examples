@@ -1,0 +1,35 @@
+entity:
+  id: Product
+  name: "Product"
+  description: "Dimension table for products"
+  attributes:
+  - id: ProductID
+    name: "Product ID"
+    description: "Primary identifier for products"
+    datatype: "Integer"
+    mandatory: true
+  - id: Name
+    name: "Name"
+    description: "Product name"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: Price
+    name: "Price"
+    description: "Product price"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2
+    mandatory: true
+  - id: Category
+    name: "Category"
+    description: "Product category"
+    datatype: "Text"
+    length: 50
+    mandatory: true
+  identifiers:
+  - id: ProductPrimaryKey
+    name: "Product Primary Key"
+    primary: true
+    attributes:
+    - ProductID
