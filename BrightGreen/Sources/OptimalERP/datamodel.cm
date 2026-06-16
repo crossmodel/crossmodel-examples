@@ -1,6 +1,6 @@
 datamodel:
   id: OptimalERP
-  name: "OptimalERP Logical Data Model"
+  name: "OptimalERP"
   description: "Logical data model for OptimalERP system"
   type: logical
   version: 1.0.0
