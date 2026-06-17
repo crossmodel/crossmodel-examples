@@ -26,6 +26,4 @@ mapping:
       sources:
         - SalesOrderLineSource.Quantity
         - SalesOrderLineSource.ItemPrice
-      expressions:
-      - language: "SQL"
-        expression: "{{SalesOrderLineSource.Quantity}} * {{SalesOrderLineSource.ItemPrice}}"
+      expression: "{{SalesOrderLineSource.Quantity}} * {{SalesOrderLineSource.ItemPrice}}"

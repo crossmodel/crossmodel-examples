@@ -24,16 +24,12 @@ mapping:
             sources:
               - CustomerSource.FirstName
               - CustomerSource.LastName
-            expressions:
-              - language: "SQL"
-                expression: "{{CustomerSource.FirstName}} + ' ' + {{CustomerSource.LastName}}"
+            expression: "{{CustomerSource.FirstName}} + ' ' + {{CustomerSource.LastName}}"
           - attribute: Email
             sources:
               - CustomerSource.EmailAddress
           - attribute: Phone
-            expressions:
-              - language: "SQL"
-                expression: "'N/A'"
+            expression: "'N/A'"
           - attribute: Address
           - attribute: City
           - attribute: PostalCode
