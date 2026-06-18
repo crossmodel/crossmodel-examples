@@ -1,0 +1,5 @@
+CREATE SCHEMA SourceVault
+GO;
+
+CREATE SCHEMA dwh
+GO;
