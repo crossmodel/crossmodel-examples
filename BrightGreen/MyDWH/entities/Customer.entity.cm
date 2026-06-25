@@ -1,7 +1,7 @@
 entity:
     id: Customer
     name: "Customer"
-    description: "A customer of our business"
+    description: "The customer entity integrates customer data from various source systems"
     attributes:
       - id: ID
         name: "ID"
@@ -14,10 +14,6 @@ entity:
       - id: DateOfBirth
         name: "DateOfBirth"
         datatype: "Date"
-      - id: Email
-        name: "Email"
-        datatype: "Text"
-        length: 120
     identifiers:
       - id: Primary_Identifier
         name: "Primary Identifier"

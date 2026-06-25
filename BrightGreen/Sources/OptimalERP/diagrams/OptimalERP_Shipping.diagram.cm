@@ -9,8 +9,8 @@ systemDiagram:
         height: 169
       - id: ShipmentNode
         entity: Shipment
-        x: 233.984375
-        y: 84.42857142857143
+        x: 350
+        y: 50
         width: 172.4718017578125
         height: 169
     edges:

@@ -24,18 +24,18 @@ systemDiagram:
         height: 134.36363220214844
       - id: Product
         entity: Product
-        x: 90
+        x: 130
         y: 360
         width: 175
-        height: 114.63636016845703
+        height: 127.60952377319336
         backgroundColor: "#BBF451"
         borderColor: "#7CCF35"
       - id: DigitalProduct
         entity: DigitalProduct
-        x: -70
-        y: 570
-        width: 221.1290864944458
-        height: 154.09090423583984
+        x: -140
+        y: 590
+        width: 236.9995903968811
+        height: 169.91428565979004
         backgroundColor: "#D8F999"
         borderColor: "#7CCF35"
       - id: PhysicalProduct

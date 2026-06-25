@@ -1,7 +1,6 @@
 entity:
-    id: Customer
-    name: "Customer"
-    description: "A customer of our business"
+    id: Product
+    name: "Product"
     attributes:
       - id: ID
         name: "ID"
@@ -10,14 +9,11 @@ entity:
         name: "Name"
         datatype: "Text"
         length: 125
-        mandatory: true
-      - id: DateOfBirth
-        name: "DateOfBirth"
-        datatype: "Date"
-      - id: Email
-        name: "Email"
-        datatype: "Text"
-        length: 120
+      - id: UnitPrice
+        name: "UnitPrice"
+        datatype: "Decimal"
+        precision: 5
+        scale: 2
     identifiers:
       - id: Primary_Identifier
         name: "Primary Identifier"

@@ -1,0 +1,30 @@
+entity:
+    id: SalesOrderLine
+    name: "SalesOrderLine"
+    attributes:
+      - id: ID
+        name: "ID"
+        datatype: "Integer"
+      - id: SalesOrderID
+        name: "SalesOrderID"
+        datatype: "Integer"
+      - id: CustomerID
+        name: "CustomerID"
+        datatype: "Integer"
+      - id: ProductID
+        name: "ProductID"
+        datatype: "Integer"
+      - id: UnitPrice
+        name: "UnitPrice"
+        datatype: "Decimal"
+        precision: 5
+        scale: 2
+      - id: Quantity
+        name: "Quantity"
+        datatype: "Integer"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ID

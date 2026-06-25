@@ -1,0 +1,40 @@
+systemDiagram:
+    id: Main
+    nodes:
+      - id: SalesOrderLineNode
+        entity: SalesOrderLine
+        x: 120
+        y: 350
+        width: 172.1666717529297
+        height: 169
+      - id: ProductNode
+        entity: Product
+        x: 110
+        y: 90
+        width: 152.5
+        height: 106
+      - id: SalesOrderNode
+        entity: SalesOrder
+        x: 450
+        y: 400
+        width: 159.1666717529297
+        height: 106
+      - id: CustomerNode
+        entity: Customer
+        x: 450
+        y: 90
+        width: 146
+        height: 127
+    edges:
+      - id: Customer_to_SalesOrderEdge
+        relationship: MyFirstModel.Customer_to_SalesOrder
+        sourceNode: CustomerNode
+        targetNode: SalesOrderNode
+      - id: SalesOrder_to_SalesOrderLineEdge
+        relationship: MyFirstModel.SalesOrder_to_SalesOrderLine
+        sourceNode: SalesOrderNode
+        targetNode: SalesOrderLineNode
+      - id: Product_to_SalesOrderLineEdge
+        relationship: MyFirstModel.Product_to_SalesOrderLine
+        sourceNode: ProductNode
+        targetNode: SalesOrderLineNode

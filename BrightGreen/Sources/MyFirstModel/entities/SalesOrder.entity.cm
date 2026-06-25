@@ -1,0 +1,23 @@
+entity:
+    id: SalesOrder
+    name: "SalesOrder"
+    description: "Salesorder entity"
+    attributes:
+      - id: ID
+        name: "ID"
+        description: "The primary identifier"
+        datatype: "Integer"
+      - id: CustomerID
+        name: "CustomerID"
+        description: "A reference to the customer that placed the order"
+        datatype: "Integer"
+      - id: OrderDate
+        name: "OrderDate"
+        description: "The date the order was placed"
+        datatype: "Date"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ID
