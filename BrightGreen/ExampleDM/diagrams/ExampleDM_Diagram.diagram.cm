@@ -1,6 +1,7 @@
-systemDiagram:
+diagram:
     id: ExampleDM_Diagram
     nodes:
+      entityNodes:
       - id: SalesNode
         entity: Sales
         x: 234.83333587646484
@@ -39,6 +40,7 @@ systemDiagram:
         backgroundColor: "#fec35d"
         borderWeight: 0
     edges:
+      relationshipEdges:
       - id: SalesCustomerEdge
         relationship: SalesCustomer
         sourceNode: CustomerNode

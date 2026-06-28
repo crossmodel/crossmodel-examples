@@ -1,50 +1,52 @@
-systemDiagram:
-    id: OptimalERP_Inventory
-    nodes:
-      - id: ProductNode
-        entity: Product
-        x: 231.97756958007812
-        y: 53.125
-        width: 185.96173095703125
-        height: 190
-      - id: WarehouseNode
-        entity: Warehouse
-        x: 12
-        y: 12
-        width: 166.9722900390625
-        height: 106
-      - id: SupplierNode
-        entity: Supplier
-        x: 13.4879150390625
-        y: 220.69642857142856
-        width: 165.484375
-        height: 169
-      - id: PurchaseOrderNode
-        entity: PurchaseOrder
-        x: 228.9722900390625
-        y: 293.125
-        width: 191.9722900390625
-        height: 169
-      - id: PurchaseOrderLineNode
-        entity: PurchaseOrderLine
-        x: 470.944580078125
-        y: 136.85833333333335
-        width: 217.9566650390625
-        height: 169
-    edges:
-      - id: WarehouseProductEdge
-        relationship: WarehouseProduct
-        sourceNode: WarehouseNode
-        targetNode: ProductNode
-      - id: SupplierPurchaseOrderEdge
-        relationship: SupplierPurchaseOrder
-        sourceNode: SupplierNode
-        targetNode: PurchaseOrderNode
-      - id: PurchaseOrderPurchaseOrderLineEdge
-        relationship: PurchaseOrderPurchaseOrderLine
-        sourceNode: PurchaseOrderNode
-        targetNode: PurchaseOrderLineNode
-      - id: PurchaseOrderLineProductEdge
-        relationship: PurchaseOrderLineProduct
-        sourceNode: ProductNode
-        targetNode: PurchaseOrderLineNode
+diagram:
+  id: OptimalERP_Inventory
+  nodes:
+    entityNodes:
+    - id: ProductNode
+      entity: Product
+      x: 231.97756958007812
+      y: 53.125
+      width: 185.96173095703125
+      height: 190
+    - id: WarehouseNode
+      entity: Warehouse
+      x: 12
+      y: 12
+      width: 166.9722900390625
+      height: 106
+    - id: SupplierNode
+      entity: Supplier
+      x: 13.4879150390625
+      y: 220.69642857142856
+      width: 165.484375
+      height: 169
+    - id: PurchaseOrderNode
+      entity: PurchaseOrder
+      x: 228.9722900390625
+      y: 293.125
+      width: 191.9722900390625
+      height: 169
+    - id: PurchaseOrderLineNode
+      entity: PurchaseOrderLine
+      x: 470.944580078125
+      y: 136.85833333333335
+      width: 217.9566650390625
+      height: 169
+  edges:
+    relationshipEdges:
+    - id: WarehouseProductEdge
+      relationship: WarehouseProduct
+      sourceNode: WarehouseNode
+      targetNode: ProductNode
+    - id: SupplierPurchaseOrderEdge
+      relationship: SupplierPurchaseOrder
+      sourceNode: SupplierNode
+      targetNode: PurchaseOrderNode
+    - id: PurchaseOrderPurchaseOrderLineEdge
+      relationship: PurchaseOrderPurchaseOrderLine
+      sourceNode: PurchaseOrderNode
+      targetNode: PurchaseOrderLineNode
+    - id: PurchaseOrderLineProductEdge
+      relationship: PurchaseOrderLineProduct
+      sourceNode: ProductNode
+      targetNode: PurchaseOrderLineNode

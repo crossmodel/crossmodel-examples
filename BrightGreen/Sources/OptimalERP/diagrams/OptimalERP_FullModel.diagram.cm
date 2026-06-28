@@ -1,100 +1,102 @@
-systemDiagram:
-    id: OptimalERP_FullModel
-    nodes:
-      - id: CustomerNode
-        entity: Customer
-        x: 13.4879150390625
-        y: 54.64285714285711
-        width: 165.484375
-        height: 274
-      - id: SalesOrderNode
-        entity: SalesOrder
-        x: 243.96322631835938
-        y: 179.57142857142856
-        width: 171.984375
-        height: 169
-      - id: OrderLineNode
-        entity: OrderLine
-        x: 470.944580078125
-        y: 470.99999999999994
-        width: 165.9722900390625
-        height: 169
-      - id: InvoiceNode
-        entity: Invoice
-        x: 470.944580078125
-        y: 12
-        width: 171.984375
-        height: 190
-      - id: ShipmentNode
-        entity: Shipment
-        x: 470.944580078125
-        y: 252
-        width: 172.4718017578125
-        height: 169
-      - id: ProductNode
-        entity: Product
-        x: 232.97932942708334
-        y: 430.19999999999993
-        width: 185.96173095703125
-        height: 190
-      - id: WarehouseNode
-        entity: Warehouse
-        x: 12
-        y: 389.07499999999993
-        width: 166.9722900390625
-        height: 106
-      - id: SupplierNode
-        entity: Supplier
-        x: 13.4879150390625
-        y: 597.7714285714285
-        width: 165.484375
-        height: 169
-      - id: PurchaseOrderNode
-        entity: PurchaseOrder
-        x: 228.9722900390625
-        y: 670.1999999999999
-        width: 191.9722900390625
-        height: 169
-      - id: PurchaseOrderLineNode
-        entity: PurchaseOrderLine
-        x: 470.944580078125
-        y: 732.1666666666665
-        width: 217.9566650390625
-        height: 169
-    edges:
-      - id: CustomerSalesOrderEdge
-        relationship: CustomerSalesOrder
-        sourceNode: CustomerNode
-        targetNode: SalesOrderNode
-      - id: SalesOrderOrderLineEdge
-        relationship: SalesOrderOrderLine
-        sourceNode: SalesOrderNode
-        targetNode: OrderLineNode
-      - id: OrderLineProductEdge
-        relationship: OrderLineProduct
-        sourceNode: ProductNode
-        targetNode: OrderLineNode
-      - id: SalesOrderInvoiceEdge
-        relationship: SalesOrderInvoice
-        sourceNode: SalesOrderNode
-        targetNode: InvoiceNode
-      - id: SalesOrderShipmentEdge
-        relationship: SalesOrderShipment
-        sourceNode: SalesOrderNode
-        targetNode: ShipmentNode
-      - id: SupplierPurchaseOrderEdge
-        relationship: SupplierPurchaseOrder
-        sourceNode: SupplierNode
-        targetNode: PurchaseOrderNode
-      - id: PurchaseOrderPurchaseOrderLineEdge
-        relationship: PurchaseOrderPurchaseOrderLine
-        sourceNode: PurchaseOrderNode
-        targetNode: PurchaseOrderLineNode
-      - id: PurchaseOrderLineProductEdge
-        relationship: PurchaseOrderLineProduct
-        sourceNode: ProductNode
-        targetNode: PurchaseOrderLineNode
-      - id: WarehouseProductEdge
-        relationship: WarehouseProduct
-        sourceNode: WarehouseNode
-        targetNode: ProductNode
+diagram:
+  id: OptimalERP_FullModel
+  nodes:
+    entityNodes:
+    - id: CustomerNode
+      entity: Customer
+      x: 13.4879150390625
+      y: 54.64285714285711
+      width: 165.484375
+      height: 274
+    - id: SalesOrderNode
+      entity: SalesOrder
+      x: 243.96322631835938
+      y: 179.57142857142856
+      width: 171.984375
+      height: 169
+    - id: OrderLineNode
+      entity: OrderLine
+      x: 470.944580078125
+      y: 470.99999999999994
+      width: 165.9722900390625
+      height: 169
+    - id: InvoiceNode
+      entity: Invoice
+      x: 470.944580078125
+      y: 12
+      width: 171.984375
+      height: 190
+    - id: ShipmentNode
+      entity: Shipment
+      x: 470.944580078125
+      y: 252
+      width: 172.4718017578125
+      height: 169
+    - id: ProductNode
+      entity: Product
+      x: 232.97932942708334
+      y: 430.19999999999993
+      width: 185.96173095703125
+      height: 190
+    - id: WarehouseNode
+      entity: Warehouse
+      x: 12
+      y: 389.07499999999993
+      width: 166.9722900390625
+      height: 106
+    - id: SupplierNode
+      entity: Supplier
+      x: 13.4879150390625
+      y: 597.7714285714285
+      width: 165.484375
+      height: 169
+    - id: PurchaseOrderNode
+      entity: PurchaseOrder
+      x: 228.9722900390625
+      y: 670.1999999999999
+      width: 191.9722900390625
+      height: 169
+    - id: PurchaseOrderLineNode
+      entity: PurchaseOrderLine
+      x: 470.944580078125
+      y: 732.1666666666665
+      width: 217.9566650390625
+      height: 169
+  edges:
+    relationshipEdges:
+    - id: CustomerSalesOrderEdge
+      relationship: CustomerSalesOrder
+      sourceNode: CustomerNode
+      targetNode: SalesOrderNode
+    - id: SalesOrderOrderLineEdge
+      relationship: SalesOrderOrderLine
+      sourceNode: SalesOrderNode
+      targetNode: OrderLineNode
+    - id: OrderLineProductEdge
+      relationship: OrderLineProduct
+      sourceNode: ProductNode
+      targetNode: OrderLineNode
+    - id: SalesOrderInvoiceEdge
+      relationship: SalesOrderInvoice
+      sourceNode: SalesOrderNode
+      targetNode: InvoiceNode
+    - id: SalesOrderShipmentEdge
+      relationship: SalesOrderShipment
+      sourceNode: SalesOrderNode
+      targetNode: ShipmentNode
+    - id: SupplierPurchaseOrderEdge
+      relationship: SupplierPurchaseOrder
+      sourceNode: SupplierNode
+      targetNode: PurchaseOrderNode
+    - id: PurchaseOrderPurchaseOrderLineEdge
+      relationship: PurchaseOrderPurchaseOrderLine
+      sourceNode: PurchaseOrderNode
+      targetNode: PurchaseOrderLineNode
+    - id: PurchaseOrderLineProductEdge
+      relationship: PurchaseOrderLineProduct
+      sourceNode: ProductNode
+      targetNode: PurchaseOrderLineNode
+    - id: WarehouseProductEdge
+      relationship: WarehouseProduct
+      sourceNode: WarehouseNode
+      targetNode: ProductNode
