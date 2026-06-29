@@ -1,0 +1,7 @@
+customPropertyDefinition:
+    id: data_owner
+    name: "data owner"
+    description: "Set the data owner for a entity"
+    extends: CustomProperty
+    datatype: "Text"
+    length: 1024
