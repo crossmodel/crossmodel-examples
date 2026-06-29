@@ -1,0 +1,47 @@
+entity:
+  id: StockTransaction
+  name: "Stock Transaction"
+  description: "Represents stock movements (sales, purchases, etc.)"
+  attributes:
+  - id: ^id
+    name: "Id"
+    description: "Surrogate key for Stock Transaction"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductId
+    name: "Product Id"
+    description: "Foreign key to Product"
+    datatype: "Integer"
+    mandatory: true
+  - id: WarehouseId
+    name: "Warehouse Id"
+    description: "Foreign key to Warehouse"
+    datatype: "Integer"
+    mandatory: true
+  - id: Quantity
+    name: "Quantity"
+    description: "Quantity moved in this transaction"
+    datatype: "Integer"
+    mandatory: true
+  - id: Type
+    name: "Type"
+    description: "Type of transaction (S=Sale, P=Purchase)"
+    datatype: "Text"
+    length: 1
+    mandatory: true
+  - id: ReferenceId
+    name: "Reference Id"
+    description: "Reference to sales or purchase shipment"
+    datatype: "Integer"
+    mandatory: true
+  - id: Date
+    name: "Date"
+    description: "Date when transaction occurred"
+    datatype: "DateTime"
+    mandatory: true
+  identifiers:
+  - id: StockTransactionPrimaryKey
+    name: "Stock Transaction Primary Key"
+    primary: true
+    attributes:
+    - ^id

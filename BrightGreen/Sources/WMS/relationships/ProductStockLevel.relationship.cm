@@ -1,0 +1,13 @@
+relationship:
+  id: ProductStockLevel
+  name: "Product Stock Level"
+  description: "Links a product to its stock levels"
+  parent: Product
+  parentRole: "product"
+  parentCardinality: 1..1
+  child: StockLevel
+  childRole: "stock levels"
+  childCardinality: 0..N
+  attributes:
+  - parent: Product.^id
+    child: StockLevel.ProductId

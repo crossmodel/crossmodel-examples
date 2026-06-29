@@ -1,0 +1,27 @@
+entity:
+  id: Warehouse
+  name: "Warehouse"
+  description: "Represents a warehouse location"
+  attributes:
+  - id: ^id
+    name: "Id"
+    description: "Surrogate key for Warehouse"
+    datatype: "Integer"
+    mandatory: true
+  - id: Name
+    name: "Name"
+    description: "The name of the warehouse"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: Location
+    name: "Location"
+    description: "Physical location of the warehouse"
+    datatype: "Text"
+    length: 100
+  identifiers:
+  - id: WarehousePrimaryKey
+    name: "Warehouse Primary Key"
+    primary: true
+    attributes:
+    - ^id

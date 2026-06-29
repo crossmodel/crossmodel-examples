@@ -1,0 +1,37 @@
+entity:
+  id: Product
+  name: "Product"
+  description: "Represents a product in the warehouse management system"
+  attributes:
+  - id: ^id
+    name: "Id"
+    description: "Surrogate key for Product"
+    datatype: "Integer"
+    mandatory: true
+  - id: Name
+    name: "Name"
+    description: "The name of the product"
+    datatype: "Text"
+    length: 100
+    mandatory: true
+  - id: Description
+    name: "Description"
+    description: "Description of the product"
+    datatype: "Text"
+    length: 255
+  - id: SKU
+    name: "SKU"
+    description: "Stock Keeping Unit - unique identifier for the product"
+    datatype: "Text"
+    length: 50
+    mandatory: true
+  identifiers:
+  - id: ProductPrimaryKey
+    name: "Product Primary Key"
+    primary: true
+    attributes:
+    - ^id
+  - id: ProductSKU
+    name: "Product SKU"
+    attributes:
+    - SKU

@@ -1,0 +1,13 @@
+relationship:
+  id: WarehouseStockTransaction
+  name: "Warehouse Stock Transaction"
+  description: "Links a warehouse to its stock transactions"
+  parent: Warehouse
+  parentRole: "warehouse"
+  parentCardinality: 1..1
+  child: StockTransaction
+  childRole: "stock transactions"
+  childCardinality: 0..N
+  attributes:
+  - parent: Warehouse.^id
+    child: StockTransaction.WarehouseId

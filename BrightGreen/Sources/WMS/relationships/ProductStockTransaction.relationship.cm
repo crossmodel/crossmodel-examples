@@ -1,0 +1,13 @@
+relationship:
+  id: ProductStockTransaction
+  name: "Product Stock Transaction"
+  description: "Links a product to its stock transactions"
+  parent: Product
+  parentRole: "product"
+  parentCardinality: 1..1
+  child: StockTransaction
+  childRole: "stock transactions"
+  childCardinality: 0..N
+  attributes:
+  - parent: Product.^id
+    child: StockTransaction.ProductId

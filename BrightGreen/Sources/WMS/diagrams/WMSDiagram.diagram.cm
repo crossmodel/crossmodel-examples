@@ -1,0 +1,46 @@
+diagram:
+    id: WMSDiagram
+    nodes:
+        entityNodes:
+          - id: ProductNode
+            entity: Product
+            x: 12
+            y: 171.63499245852188
+            width: 146
+            height: 127
+          - id: WarehouseNode
+            entity: Warehouse
+            x: 31.5
+            y: 12
+            width: 126.5
+            height: 106
+          - id: StockLevelNode
+            entity: StockLevel
+            x: 208
+            y: 35.94871794871794
+            width: 172.6666717529297
+            height: 148
+          - id: StockTransactionNode
+            entity: StockTransaction
+            x: 208
+            y: 233.94871794871796
+            width: 172.6666717529297
+            height: 190
+    edges:
+        relationshipEdges:
+          - id: ProductStockLevelEdge
+            relationship: ProductStockLevel
+            sourceNode: ProductNode
+            targetNode: StockLevelNode
+          - id: WarehouseStockLevelEdge
+            relationship: WarehouseStockLevel
+            sourceNode: WarehouseNode
+            targetNode: StockLevelNode
+          - id: ProductStockTransactionEdge
+            relationship: ProductStockTransaction
+            sourceNode: ProductNode
+            targetNode: StockTransactionNode
+          - id: WarehouseStockTransactionEdge
+            relationship: WarehouseStockTransaction
+            sourceNode: WarehouseNode
+            targetNode: StockTransactionNode
