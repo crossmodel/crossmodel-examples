@@ -1,45 +1,46 @@
 entity:
-  id: SalesOrderLine
-  name: "SalesOrderLine"
-  description: "Represents an individual line item within a sales order"
-  attributes:
-  - id: ^id
-    name: "Id"
-    description: "Surrogate key for SalesOrderLine"
-    datatype: "Integer"
-    mandatory: true
-  - id: SalesOrderId
-    name: "Sales Order Id"
-    description: "Reference to the parent sales order"
-    datatype: "Integer"
-    mandatory: true
-  - id: ProductId
-    name: "Product Id"
-    description: "Reference to the product on this order line"
-    datatype: "Integer"
-    mandatory: true
-  - id: Quantity
-    name: "Quantity"
-    description: "Number of units ordered for this line item"
-    datatype: "Integer"
-    mandatory: true
-  - id: UnitPrice
-    name: "Unit Price"
-    description: "Price per unit of the product at the time of the order"
-    datatype: "Decimal"
-    precision: 10
-    scale: 2
-    mandatory: true
-  - id: LineTotal
-    name: "Line Total"
-    description: "Total amount for this order line"
-    datatype: "Decimal"
-    precision: 10
-    scale: 2
-    mandatory: true
-  identifiers:
-  - id: SalesOrderLinePrimaryKey
-    name: "SalesOrderLine Primary Key"
-    primary: true
+    id: SalesOrderLine
+    name: "SalesOrderLine"
+    description: "Represents an individual line item within a sales order"
+    type: dwh-definitions.HistoricalEntity
     attributes:
-    - ^id
+      - id: ^id
+        name: "Id"
+        description: "Surrogate key for SalesOrderLine"
+        datatype: "Integer"
+        mandatory: true
+      - id: SalesOrderId
+        name: "Sales Order Id"
+        description: "Reference to the parent sales order"
+        datatype: "Integer"
+        mandatory: true
+      - id: ProductId
+        name: "Product Id"
+        description: "Reference to the product on this order line"
+        datatype: "Integer"
+        mandatory: true
+      - id: Quantity
+        name: "Quantity"
+        description: "Number of units ordered for this line item"
+        datatype: "Integer"
+        mandatory: true
+      - id: UnitPrice
+        name: "Unit Price"
+        description: "Price per unit of the product at the time of the order"
+        datatype: "Decimal"
+        precision: 10
+        scale: 2
+        mandatory: true
+      - id: LineTotal
+        name: "Line Total"
+        description: "Total amount for this order line"
+        datatype: "Decimal"
+        precision: 10
+        scale: 2
+        mandatory: true
+    identifiers:
+      - id: SalesOrderLinePrimaryKey
+        name: "SalesOrderLine Primary Key"
+        primary: true
+        attributes:
+          - ^id

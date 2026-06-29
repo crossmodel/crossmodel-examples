@@ -2,6 +2,7 @@ entity:
     id: Customer
     name: "Customer"
     description: "Represents a customer in the data warehouse"
+    type: dwh-definitions.HistoricalEntity
     attributes:
       - id: ^id
         name: "Id"

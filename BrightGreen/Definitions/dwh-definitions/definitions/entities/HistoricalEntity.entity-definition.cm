@@ -1,0 +1,22 @@
+entityDefinition:
+    id: HistoricalEntity
+    name: "HistoricalEntity"
+    description: "A governed entity that needs to be stored historically"
+    extends: GovernedEntity
+    attributes:
+      - id: LoadDateTime
+        name: "LoadDateTime"
+        datatype: "DateTime"
+        mandatory: true
+      - id: EndDateTime
+        name: "EndDateTime"
+        datatype: "DateTime"
+    customProperties:
+      - id: hashing_algorithm
+        name: "hashing algorithm"
+        description: "hash algorithm used to hash records for change detection"
+        value: "MD5"
+    templates:
+      - path: "../../templates/entities/create_historical_table.handlebars"
+        outputDirectory: "../../../../Generation/{{entity.$parent.id}}"
+        outputFilename: "hist_{{entity.id}}.sql"

@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS HIST_{{entity.id}}
+(
+    -- Attributes of {{entity.id}}
+    {{#each entity.attributes}}
+    {{#unless @first}},{{/unless}}{{id}} {{#eq datatype "Text"}}NVARCHAR({{#if (eq length 0)}}{{length}}{{else}}250{{/if}}){{else}}{{datatype}}{{/eq}}{{#if mandatory}} NOT NULL{{/if}}
+    {{/each}}
+    {{#each entity.identifiers}}
+    {{#if primary}}
+    ,CONSTRAINT PK_{{../entity.id}} PRIMARY KEY (
+        {{#each attributes}}
+        {{id}},
+        {{/each}}
+        -- Add loadDateTime to the key since this is a historical table
+        LoadDateTime
+    )
+    {{/if}}
+    {{/each}}
+);

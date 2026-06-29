@@ -1,0 +1,17 @@
+entityDefinition:
+    id: GovernedEntity
+    name: "GovernedEntity"
+    description: "Abstract type that contains common definition for governed entities"
+    abstract: true
+    extends: Entity
+    attributes:
+      - id: RecordSource
+        name: "RecordSource"
+        datatype: "Text"
+        mandatory: true
+    customProperties:
+      - id: data_owner
+        type: dwh-definitions.data_owner
+      - id: catalog_id
+        name: "catalog id"
+        description: "Reference to the definition in the enterprise data catalog system"

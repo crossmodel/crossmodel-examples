@@ -1,0 +1,19 @@
+entityDefinition:
+    id: NonHistoricalEntity
+    name: "NonHistoricalEntity"
+    extends: GovernedEntity
+    attributes:
+      - id: RecordSource
+        name: "RecordSource"
+        datatype: "Text"
+        mandatory: true
+    customProperties:
+      - id: data_owner
+        name: "data owner"
+        description: "Set the data owner for a entity"
+        type: dwh-definitions.data_owner
+        datatype: "Text"
+        length: 1024
+      - id: catalog_id
+        name: "catalog id"
+        description: "Reference to the definition in the enterprise data catalog system"

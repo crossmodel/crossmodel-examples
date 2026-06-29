@@ -2,6 +2,7 @@ entity:
     id: SalesOrder
     name: "SalesOrder"
     description: "Represents a sales order placed by a customer"
+    type: dwh-definitions.HistoricalEntity
     attributes:
       - id: ^id
         name: "Id"
