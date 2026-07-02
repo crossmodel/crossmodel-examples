@@ -1,6 +1,7 @@
-systemDiagram:
+diagram:
     id: PreciseFinance
     nodes:
+      entityNodes:
       - id: DEBTOR
         entity: DEBTOR
         x: -22
@@ -20,6 +21,7 @@ systemDiagram:
         width: 175
         height: 156
     edges:
+      relationshipEdges:
       - id: FK_INVOICE_INVOICE_D_DEBTOR
         relationship: FK_INVOICE_INVOICE_D_DEBTOR
         sourceNode: DEBTOR

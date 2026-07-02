@@ -1,67 +1,63 @@
-systemDiagram:
+diagram:
     id: JuiceERP
     nodes:
-      - id: Customer
-        entity: Customer
-        x: 90
-        y: 180
-        width: 175
-        height: 134.36363220214844
-        backgroundColor: "#CEFAFE"
-        borderColor: "#42D3F2"
-      - id: SalesOrder
-        entity: SalesOrder
-        x: -170
-        y: 180
-        width: 175
-        height: 114.63636016845703
-        backgroundColor: "#F3E8FF"
-      - id: SalesOrderLine
-        entity: SalesOrderLine
-        x: -170
-        y: 350
-        width: 175
-        height: 134.36363220214844
-      - id: Product
-        entity: Product
-        x: 90
-        y: 360
-        width: 175
-        height: 114.63636016845703
-        backgroundColor: "#BBF451"
-        borderColor: "#7CCF35"
-      - id: DigitalProduct
-        entity: DigitalProduct
-        x: -70
-        y: 570
-        width: 221.1290864944458
-        height: 154.09090423583984
-        backgroundColor: "#D8F999"
-        borderColor: "#7CCF35"
-      - id: PhysicalProduct
-        entity: PhysicalProduct
-        x: 220
-        y: 570
-        width: 175
-        height: 194.40223026275635
-        backgroundColor: "#D8F999"
-        borderColor: "#7CCF35"
+        entityNodes:
+          - id: Customer
+            entity: Customer
+            x: 90
+            y: 180
+            width: 175
+            height: 134.36363220214844
+            backgroundColor: "#CEFAFE"
+            borderColor: "#42D3F2"
+          - id: SalesOrder
+            entity: SalesOrder
+            x: -170
+            y: 180
+            width: 175
+            height: 114.63636016845703
+            backgroundColor: "#F3E8FF"
+          - id: SalesOrderLine
+            entity: SalesOrderLine
+            x: -170
+            y: 350
+            width: 175
+            height: 134.36363220214844
+          - id: Product
+            entity: Product
+            x: 90
+            y: 360
+            width: 175
+            height: 114.63636016845703
+            backgroundColor: "#BBF451"
+            borderColor: "#7CCF35"
+          - id: DigitalProduct
+            entity: DigitalProduct
+            x: -70
+            y: 570
+            width: 221.1290864944458
+            height: 154.09090423583984
+            backgroundColor: "#D8F999"
+            borderColor: "#7CCF35"
+          - id: PhysicalProduct
+            entity: PhysicalProduct
+            x: 220
+            y: 570
+            width: 175
+            height: 194.40223026275635
+            backgroundColor: "#D8F999"
+            borderColor: "#7CCF35"
     edges:
-      - id: Customer_SalesOrder
-        relationship: Customer_SalesOrder
-        sourceNode: Customer
-        targetNode: SalesOrder
-      - id: SalesOrder_SalesOrderLine
-        relationship: SalesOrder_SalesOrderLine
-        sourceNode: SalesOrder
-        targetNode: SalesOrderLine
-      - id: PRODUCT_SALESORDERLINE
-        relationship: Product_SalesOrderLine
-        sourceNode: Product
-        targetNode: SalesOrderLine
-      - id: PRODUCT_-_PRODUCTINHERITANCE_-_DIGITALPRODUCT
-        baseNode: DigitalProduct
-        superNode: Product
-      - id: PRODUCT_-_PRODUCTINHERITANCE_-_PHYSICALPRODUCT
-        baseNode: PhysicalProduct
-        superNode: Product
+        relationshipEdges:
+          - id: Customer_SalesOrder
+            relationship: Customer_SalesOrder
+            sourceNode: Customer
+            targetNode: SalesOrder
+          - id: SalesOrder_SalesOrderLine
+            relationship: SalesOrder_SalesOrderLine
+            sourceNode: SalesOrder
+            targetNode: SalesOrderLine
+          - id: PRODUCT_SALESORDERLINE
+            relationship: Product_SalesOrderLine
+            sourceNode: Product
+            targetNode: SalesOrderLine

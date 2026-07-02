@@ -1,6 +1,7 @@
-systemDiagram:
+diagram:
     id: OptimalERP_Shipping
     nodes:
+      entityNodes:
       - id: SalesOrderNode
         entity: SalesOrder
         x: 12
@@ -14,6 +15,7 @@ systemDiagram:
         width: 172.4718017578125
         height: 169
     edges:
+      relationshipEdges:
       - id: SalesOrderShipmentEdge
         relationship: SalesOrderShipment
         sourceNode: SalesOrderNode

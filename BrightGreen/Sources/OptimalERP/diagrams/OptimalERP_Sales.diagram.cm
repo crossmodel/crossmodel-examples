@@ -1,6 +1,7 @@
-systemDiagram:
+diagram:
     id: OptimalERP_Sales
     nodes:
+      entityNodes:
       - id: CustomerNode
         entity: Customer
         x: 12
@@ -32,6 +33,7 @@ systemDiagram:
         width: 172.4718017578125
         height: 169
     edges:
+      relationshipEdges:
       - id: CustomerSalesOrderEdge
         relationship: CustomerSalesOrder
         sourceNode: CustomerNode

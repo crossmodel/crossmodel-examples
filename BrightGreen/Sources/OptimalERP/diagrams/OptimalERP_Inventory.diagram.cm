@@ -1,6 +1,7 @@
-systemDiagram:
+diagram:
     id: OptimalERP_Inventory
     nodes:
+      entityNodes:
       - id: ProductNode
         entity: Product
         x: 231.97756958007812
@@ -32,6 +33,7 @@ systemDiagram:
         width: 217.9566650390625
         height: 169
     edges:
+      relationshipEdges:
       - id: WarehouseProductEdge
         relationship: WarehouseProduct
         sourceNode: WarehouseNode

@@ -1,6 +1,7 @@
-systemDiagram:
+diagram:
     id: ExampleDwh
     nodes:
+      entityNodes:
       - id: CustomerNode
         entity: Customer
         x: 12
@@ -32,6 +33,7 @@ systemDiagram:
         width: 159.48187255859375
         height: 148
     edges:
+      relationshipEdges:
       - id: CustomerSalesOrderEdge
         relationship: CustomerSalesOrder
         sourceNode: CustomerNode
