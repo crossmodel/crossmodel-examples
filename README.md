@@ -1,35 +1,28 @@
-# BrightGreen Example
+# BrightGreen — Documentation Generation (Handlebars)
 
-BrightGreen is a sample CrossModel workspace that demonstrates data modeling across multiple source systems and a data warehouse layer.
+This branch extends the [BrightGreen](../../tree/BrightGreen) example with **Handlebars** templates that generate markdown documentation from a CrossModel `DataModel`.
 
-## Models
+## What's in this branch
 
-| Data Model | Location | Description |
-|:-----------|:---------|:------------|
-| **JuiceERP** | `Sources/JuiceERP/` | ERP source system with customers, products, sales orders and order lines |
-| **PreciseFinance** | `Sources/PreciseFinance/` | Finance source system with debtors, invoices and invoice lines |
-| **Example DWH** | `ExampleDwh/` | Data warehouse that consolidates data from JuiceERP and PreciseFinance via mappings |
+The BrightGreen models (JuiceERP, PreciseFinance, Example DWH) plus:
 
-### JuiceERP (`Sources/JuiceERP/`)
+| Path | Purpose |
+|:-----|:--------|
+| `BrightGreen/Generation/Templates/datamodel/DataModelDocumentation.handlebars` | Main template (scope: `DataModel`) |
+| `BrightGreen/Generation/Templates/datamodel/menu.handlebars` | Partial — table-of-contents sidebar |
+| `BrightGreen/Generation/Templates/datamodel/entity.handlebars` | Partial — single entity block |
+| `BrightGreen/Generation/Templates/datamodel/relationship.handlebars` | Partial — single relationship block |
+| `BrightGreen/Generation/Templates/datamodel/mapping.handlebars` | Partial — single mapping block |
+| `BrightGreen/Generation/Output/Documentation/` | Example generated markdown for each data model |
 
-- **Entities:** `Customer`, `Product`, `DigitalProduct`, `PhysicalProduct`, `SalesOrder`, `SalesOrderLine`
-- **Relationships:** `Customer_SalesOrder`, `SalesOrder_SalesOrderLine`, `Product_SalesOrderLine`
-- **Diagrams:** `JuiceERP.diagram.cm`, `main.diagram.cm`
+Partials are auto-registered by Handlebars from the same directory as the main template.
 
-### PreciseFinance (`Sources/PreciseFinance/`)
+## How to generate
 
-- **Entities:** `Debtor`, `Invoice`, `InvoiceLine`
-- **Relationships:** `FK_INVOICE_INVOICE_D_DEBTOR`, `FK_INVOICEL_INVOICELI_INVOICE`
-- **Diagrams:** `PreciseFinance.diagram.cm`
-
-### Example DWH (`ExampleDwh/`)
-
-Depends on `JuiceERP` and `PreciseFinance`.
-
-- **Entities:** `CustomerWithOrderCount`, `OrderWithCustomerData`
-- **Mappings:** `JuiceERP_CustomerWithOrderCount`, `OrderWithCustomerDataMapping`
-- **Diagrams:** `ExampleDwh.diagram.cm`
-
-## Supporting Files
-
-- `Wms-files/` contains a WMS schema (`wms-schema.sql`) and accompanying documentation (`wms-doc.pdf`) used for reverse-engineering exercises.
+1. Open CrossGenerate in CrossModel (`Ctrl+Shift+P` → *CrossGenerate: Open Test View*).
+2. Select a **DataModel** (e.g. `JuiceERP`, `PreciseFinance`, or `example-dwh`), or *All Data Models*.
+3. Choose engine **Handlebars**.
+4. Select main template `DataModelDocumentation.handlebars`.
+5. Set output filename pattern to `{{datamodel.id}}.md`.
+6. Set output directory, e.g. `Generation/Output/Documentation`.
+7. Generate — the resulting markdown includes a table of contents and sections for entities, relationships and mappings.

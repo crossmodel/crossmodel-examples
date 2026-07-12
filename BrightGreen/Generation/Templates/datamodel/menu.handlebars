@@ -1,0 +1,37 @@
+{{!--
+  menu.handlebars
+  ===============
+  Navigation menu listing all sections as bullet lists.
+  Only shows a category if the datamodel has items of that type.
+
+  Context: root model object (contains `datamodel`)
+
+  Links use custom anchor IDs set via <h2 id=""> in each partial.
+--}}
+## Table of Contents
+
+{{#each datamodel.entities}}
+{{#if @first}}
+**Entities**
+
+{{/if}}
+- [`{{name}}`](#{{id}})
+{{/each}}
+
+{{#each datamodel.relationships}}
+{{#if @first}}
+
+**Relationships**
+
+{{/if}}
+- [`{{name}}`](#{{id}}) — {{parent.name}} → {{child.name}}
+{{/each}}
+
+{{#each datamodel.mappings}}
+{{#if @first}}
+
+**Mappings**
+
+{{/if}}
+- [`{{id}}`](#mapping-{{id}})
+{{/each}}

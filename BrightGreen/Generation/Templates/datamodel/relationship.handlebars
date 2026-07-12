@@ -1,0 +1,38 @@
+{{!--
+  relationship.handlebars
+  =======================
+  Renders a single relationship section.
+
+  Context: a Relationship object (iterated from datamodel.relationships)
+
+  Available properties:
+    id, name, description   – Identity
+    parent                  – Reference to parent LogicalEntity (auto-resolved)
+    parentCardinality       – e.g. "1..1", "0..N"
+    child                   – Reference to child LogicalEntity (auto-resolved)
+    childCardinality        – e.g. "0..N", "1..1"
+    attributes[]            – Attribute pairs linking parent ↔ child
+      .parent               – Parent entity attribute (resolved)
+      .child                – Child entity attribute (resolved)
+--}}
+<h2 id="{{id}}">{{name}}</h2>
+
+{{#if description}}
+> {{description}}
+
+{{/if}}
+| Role | Entity | Cardinality |
+|:-----|:-------|:-----------:|
+| **Parent** | [{{parent.name}}](#{{parent.id}}) | `{{parentCardinality}}` |
+| **Child** | [{{child.name}}](#{{child.id}}) | `{{childCardinality}}` |
+
+{{#each attributes}}
+{{#if @first}}
+| Parent | | Child |
+|:-------|:-:|:------|
+{{/if}}
+| `{{parent.name}}` | ↔ | `{{child.name}}` |
+{{/each}}
+
+---
+
