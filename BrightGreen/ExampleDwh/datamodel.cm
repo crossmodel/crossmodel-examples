@@ -15,4 +15,4 @@ datamodel:
         version: 1.0.0
     crossmodel:
         edition: professional
-        version: 0
+        version: 1

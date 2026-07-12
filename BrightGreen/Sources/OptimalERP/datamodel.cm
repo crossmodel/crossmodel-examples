@@ -10,4 +10,4 @@ datamodel:
     value: "erp-team"
   crossmodel:
     edition: professional
-    version: 0
+    version: 1
