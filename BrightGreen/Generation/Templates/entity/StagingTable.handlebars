@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS {{entity.id}}
+(
+    -- Attributes of {{entity.id}}
+    {{#each entity.attributes}}
+    {{#unless @first}},{{/unless}}{{id}} {{datatype}}{{#if mandatory}} NOT NULL{{/if}}
+    {{/each}}
+    {{#each entity.identifiers}}
+    {{#if primary}}
+    ,CONSTRAINT PK_{{../entity.id}} PRIMARY KEY (
+        {{#each attributes}}
+        {{id}}{{#unless @last}},{{/unless}}
+        {{/each}}
+    )
+    {{/if}}
+    {{/each}}
+);
