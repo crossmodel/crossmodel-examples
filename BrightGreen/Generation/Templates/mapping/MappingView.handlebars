@@ -1,0 +1,12 @@
+{{!-- Create view to implement mapping --}}
+CREATE OR REPLACE VIEW vw_{{mapping.id}} AS
+SELECT
+{{#each mapping.target.mappings}}
+	{{#if expressions}}{{#each expressions}}{{{replace (replace expression "{{" "") "}}" ""}}}{{/each}}{{else}}{{#each sources}}{{$refText}}{{/each}}{{/if}} AS {{attribute.id}}{{#unless @last}},{{/unless}}
+{{/each}}
+{{#each mapping.sources}}
+{{uppercase (replace join "-" " ")}} {{entity._globalId}} AS {{id}}
+	{{#each conditions}}
+	{{#if @first}} ON {{else}}AND {{/if}}{{expression.left.$refText}} {{{expression.op}}} {{expression.right.$refText}}
+	{{/each}}
+{{/each}}
