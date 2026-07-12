@@ -9,5 +9,5 @@ datamodel:
     name: "owner"
     value: "erp-team"
   crossmodel:
-    edition: team
+    edition: professional
     version: 0

@@ -8,5 +8,5 @@ datamodel:
       - datamodel: example-dwh
         version: 1.0.0
     crossmodel:
-        edition: team
+        edition: professional
         version: 0
