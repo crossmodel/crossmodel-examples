@@ -1,0 +1,1 @@
+{{attribute.id}} {% if attribute.datatype == 'Text' %} Varchar ({{attribute.length}}) {% else %}{{attribute.datatype}}{% if attribute.mandatory %} NOT NULL {% endif %} {% endif %}
