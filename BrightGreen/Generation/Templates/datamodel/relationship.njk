@@ -1,0 +1,39 @@
+{#
+  relationship.njk
+  ================
+  Renders a single relationship section.
+
+  Context: `rel` variable from {% for rel in datamodel.relationships %}
+
+  Available properties:
+    id, name, description   – Identity
+    parent                  – Reference to parent LogicalEntity (auto-resolved)
+    parentCardinality       – e.g. "1..1", "0..N"
+    child                   – Reference to child LogicalEntity (auto-resolved)
+    childCardinality        – e.g. "0..N", "1..1"
+    attributes[]            – Attribute pairs linking parent ↔ child
+      .parent               – Parent entity attribute (resolved)
+      .child                – Child entity attribute (resolved)
+#}
+<h2 id="{{ rel.id }}">{{ rel.name }}</h2>
+
+{% if rel.description %}
+> {{ rel.description }}
+
+{% endif %}
+| Role | Entity | Cardinality |
+|:-----|:-------|:-----------:|
+| **Parent** | [{{ rel.parent.name }}](#{{ rel.parent.id }}) | `{{ rel.parentCardinality }}` |
+| **Child** | [{{ rel.child.name }}](#{{ rel.child.id }}) | `{{ rel.childCardinality }}` |
+
+{%- for attr in rel.attributes %}
+{%- if loop.first %}
+
+| Parent | | Child |
+|:-------|:-:|:------|
+{%- endif %}
+| `{{ attr.parent.name }}` | ↔ | `{{ attr.child.name }}` |
+{%- endfor %}
+
+---
+

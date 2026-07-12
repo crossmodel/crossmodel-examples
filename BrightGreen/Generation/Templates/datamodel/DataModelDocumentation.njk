@@ -1,0 +1,75 @@
+{#
+  DataModelDocumentation.njk
+  ==========================
+  Main orchestrator template for generating markdown documentation
+  from a CrossModel DataModel object.
+
+  Usage:
+    Engine:     Nunjucks
+    Model type: DataModel
+    Output:     {{ datamodel.id }}.md
+
+  Includes (resolved from this directory):
+    menu.njk         – Navigation with all sections
+    entity.njk       – Single entity block
+    relationship.njk – Single relationship block
+    mapping.njk      – Single mapping block
+#}
+# {{ datamodel.name }}
+
+{% if datamodel.description %}
+> {{ datamodel.description }}
+
+{% endif %}
+
+| | |
+|:--|:--|
+| **ID** | `{{ datamodel.id }}` |
+| **Type** | `{{ datamodel.type }}` |
+{% if datamodel.version %}| **Version** | `{{ datamodel.version }}` |
+{% endif %}
+
+{% for dep in datamodel.dependencies %}
+{%- if loop.first %}
+
+#### Dependencies
+
+| Data Model | Version |
+|:-----------|:-------:|
+{%- endif %}
+| [{{ dep.datamodel.name }}](./{{ dep.datamodel.id }}.md) | `{{ dep.version }}` |
+{%- endfor %}
+
+---
+
+{% include "menu.njk" %}
+
+---
+
+{% for entity in datamodel.entities %}
+{% if loop.first %}
+# Entities
+
+{% endif %}
+{% include "entity.njk" %}
+{% endfor %}
+
+{% for rel in datamodel.relationships %}
+{% if loop.first %}
+# Relationships
+
+{% endif %}
+{% include "relationship.njk" %}
+{% endfor %}
+
+{% for mapping in datamodel.mappings %}
+{% if loop.first %}
+# Mappings
+
+{% endif %}
+{% include "mapping.njk" %}
+{% endfor %}
+
+---
+
+> *Documentation generated from data model `{{ datamodel.id }}`{% if datamodel.version %} — version {{ datamodel.version }}{% endif %}*
