@@ -1,0 +1,13 @@
+relationship:
+  id: WarehouseStockLevel
+  name: "Warehouse Stock Level"
+  description: "Links a warehouse to its stock levels"
+  parent: Warehouse
+  parentRole: "warehouse"
+  parentCardinality: 1..1
+  child: StockLevel
+  childRole: "stock levels"
+  childCardinality: 0..N
+  attributes:
+  - parent: Warehouse.^id
+    child: StockLevel.WarehouseId

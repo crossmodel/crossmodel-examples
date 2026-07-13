@@ -1,0 +1,36 @@
+entity:
+  id: StockLevel
+  name: "Stock Level"
+  description: "Represents current stock levels for products in warehouses"
+  attributes:
+  - id: ^id
+    name: "Id"
+    description: "Surrogate key for Stock Level"
+    datatype: "Integer"
+    mandatory: true
+  - id: ProductId
+    name: "Product Id"
+    description: "Foreign key to Product"
+    datatype: "Integer"
+    mandatory: true
+  - id: WarehouseId
+    name: "Warehouse Id"
+    description: "Foreign key to Warehouse"
+    datatype: "Integer"
+    mandatory: true
+  - id: Quantity
+    name: "Quantity"
+    description: "Current quantity in stock"
+    datatype: "Integer"
+    mandatory: true
+  - id: Date
+    name: "Date"
+    description: "Date when stock level was recorded"
+    datatype: "DateTime"
+    mandatory: true
+  identifiers:
+  - id: StockLevelPrimaryKey
+    name: "Stock Level Primary Key"
+    primary: true
+    attributes:
+    - ^id

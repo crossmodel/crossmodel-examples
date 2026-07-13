@@ -1,0 +1,13 @@
+datamodel:
+  id: WMS
+  name: "Warehouse Management System"
+  description: "Logical data model for Warehouse Management System"
+  type: logical
+  version: 1.0.0
+  customProperties:
+  - id: owner
+    name: "owner"
+    value: "wms-team"
+  crossmodel:
+    edition: professional
+    version: 1
