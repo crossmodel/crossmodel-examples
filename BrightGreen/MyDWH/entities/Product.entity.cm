@@ -1,0 +1,20 @@
+entity:
+    id: Product
+    name: "Product"
+    description: "Product integrated from the JuiceERP base product and physical product data"
+    attributes:
+      - id: ProductID
+        name: "ProductID"
+        datatype: "Integer"
+      - id: Description
+        name: "Description"
+        datatype: "Text"
+      - id: Dimensions
+        name: "Dimensions"
+        datatype: "Text"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ProductID

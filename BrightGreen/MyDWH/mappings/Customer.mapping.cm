@@ -1,0 +1,20 @@
+mapping:
+    id: Customer
+    sources:
+      - id: CustomerSource
+        entity: JuiceERP.Customer
+        join: from
+    target:
+        entity: Customer
+        mappings:
+          - attribute: ID
+            sources:
+              - CustomerSource.CustomerID
+          - attribute: Name
+            sources:
+              - CustomerSource.FirstName
+              - CustomerSource.LastName
+            expression: "CONCAT_WS(' ', {{CustomerSource.FirstName}}, {{CustomerSource.LastName}})"
+          - attribute: DateOfBirth
+            sources:
+              - CustomerSource.DateOfBirth

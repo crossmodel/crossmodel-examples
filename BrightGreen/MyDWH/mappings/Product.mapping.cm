@@ -1,0 +1,28 @@
+mapping:
+    id: Product
+    sources:
+      - id: ProductSource
+        entity: JuiceERP.Product
+        join: from
+      - id: PhysicalProductSource
+        entity: JuiceERP.PhysicalProduct
+        join: left-join
+        dependencies:
+          - ProductSource
+        conditions:
+          - ProductSource.ProductID = PhysicalProductSource.ProductID
+    target:
+        entity: Product
+        mappings:
+          - attribute: ProductID
+            sources:
+              - ProductSource.ProductID
+          - attribute: Description
+            sources:
+              - ProductSource.Description
+          - attribute: Dimensions
+            sources:
+              - PhysicalProductSource.WidthInCm
+              - PhysicalProductSource.HeightInCm
+              - PhysicalProductSource.LengthInCm
+            expression: "CONCAT_WS(' x ', {{PhysicalProductSource.WidthInCm}}, {{PhysicalProductSource.HeightInCm}}, {{PhysicalProductSource.LengthInCm}})"
