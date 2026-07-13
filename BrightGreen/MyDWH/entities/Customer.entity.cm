@@ -1,0 +1,22 @@
+entity:
+    id: Customer
+    name: "Customer"
+    description: "The customer entity integrates customer data from various source systems"
+    attributes:
+      - id: ID
+        name: "ID"
+        datatype: "Integer"
+      - id: Name
+        name: "Name"
+        datatype: "Text"
+        length: 125
+        mandatory: true
+      - id: DateOfBirth
+        name: "DateOfBirth"
+        datatype: "Date"
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ID

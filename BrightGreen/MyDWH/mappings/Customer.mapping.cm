@@ -1,0 +1,15 @@
+mapping:
+    id: Customer
+    sources:
+      - id: CustomerSource
+        entity: JuiceERP.Customer
+        join: from
+    target:
+        entity: Customer
+        mappings:
+          - attribute: ID
+            sources:
+              - CustomerSource.CustomerID
+          - attribute: DateOfBirth
+            sources:
+              - CustomerSource.DateOfBirth
