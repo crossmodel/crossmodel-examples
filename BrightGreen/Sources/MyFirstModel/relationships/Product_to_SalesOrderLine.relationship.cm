@@ -1,0 +1,7 @@
+relationship:
+    id: Product_to_SalesOrderLine
+    name: "Product to SalesOrderLine"
+    parent: Product
+    parentCardinality: 0..1
+    child: SalesOrderLine
+    childCardinality: 0..N

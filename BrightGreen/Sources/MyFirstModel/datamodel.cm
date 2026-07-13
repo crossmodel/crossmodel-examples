@@ -1,0 +1,8 @@
+datamodel:
+    id: MyFirstModel
+    name: "MyFirstModel"
+    type: logical
+    version: 1.0.0
+    crossmodel:
+        edition: professional
+        version: 1

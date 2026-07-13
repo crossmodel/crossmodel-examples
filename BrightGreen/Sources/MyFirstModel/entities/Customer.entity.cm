@@ -1,0 +1,26 @@
+entity:
+    id: Customer
+    name: "Customer"
+    description: "A customer of our business"
+    attributes:
+      - id: ID
+        name: "ID"
+        datatype: "Integer"
+      - id: Name
+        name: "Name"
+        datatype: "Text"
+        length: 125
+        mandatory: true
+      - id: DateOfBirth
+        name: "DateOfBirth"
+        datatype: "Date"
+      - id: Email
+        name: "Email"
+        datatype: "Text"
+        length: 120
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ID

@@ -1,0 +1,22 @@
+entity:
+    id: Product
+    name: "Product"
+    attributes:
+      - id: ID
+        name: "ID"
+        datatype: "Integer"
+      - id: Name
+        name: "Name"
+        datatype: "Text"
+        length: 125
+      - id: UnitPrice
+        name: "UnitPrice"
+        datatype: "Decimal"
+        precision: 5
+        scale: 2
+    identifiers:
+      - id: Primary_Identifier
+        name: "Primary Identifier"
+        primary: true
+        attributes:
+          - ID
