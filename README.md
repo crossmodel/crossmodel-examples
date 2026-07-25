@@ -20,3 +20,12 @@ The staging templates (`Templates/entity/StagingTable.njk`, `entity/attributes/S
 4. Select template `MappingView.njk`.
 5. Set output filename pattern to `Vw_{{mapping.id}}.sql`.
 6. Generate — output is a `CREATE OR REPLACE VIEW` statement that implements the mapping.
+
+## Documentation
+
+This example is written up in the CrossModel knowledge base, with the background and
+context that does not belong in a README:
+
+  **[Generating data warehouse views](https://www.crossmodel.io/knowledgebase/examples/generating-dwh-views/)**
+
+See [Examples](https://www.crossmodel.io/knowledgebase/examples/) for the other ready-made workspaces.
