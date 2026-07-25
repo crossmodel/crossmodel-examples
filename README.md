@@ -117,3 +117,12 @@ You should see the full customer names as defined in the sample data.
 - **Add entities:** Define new source or DWH entities and mappings as `.cm` files in CrossModel, then re-run code generation to produce the corresponding SQL files.
 - **Templates:** The Nunjucks templates in `CrossGenerate/template/` can be modified to change the generated SQL patterns.
 - **Sample data:** Extend `Snowflake/sample_data.sql` with additional rows to test more scenarios.
+
+## Documentation
+
+This example is written up in the CrossModel knowledge base, with the background and
+context that does not belong in a README:
+
+  **[Generating Snowflake SQL](https://www.crossmodel.io/knowledgebase/examples/generating-snowflake-sql/)**
+
+See [Examples](https://www.crossmodel.io/knowledgebase/examples/) for the other ready-made workspaces.
