@@ -119,3 +119,12 @@ SELECT * FROM demo.customerfullname;
 - **Materialization:** The dbt project is configured in `dbt_project.yml` to materialize source and mapping models as views, and DWH models as tables. Adjust this to fit your needs.
 - **Add entities:** Define new source, DWH entities or mappings as `.cm` files, then re-run code generation to produce the corresponding dbt models.
 - **Templates:** The Nunjucks templates in `BrightGreen/Generation/Templates/dbt/` can be modified to change the generated SQL patterns.
+
+## Documentation
+
+This example is written up in the CrossModel knowledge base, with the background and
+context that does not belong in a README:
+
+  **[Generating dbt models](https://www.crossmodel.io/knowledgebase/examples/generating-dbt-models/)**
+
+See [Examples](https://www.crossmodel.io/knowledgebase/examples/) for the other ready-made workspaces.
