@@ -33,3 +33,14 @@ Depends on `JuiceERP` and `PreciseFinance`.
 ## Supporting Files
 
 - `Wms-files/` contains a WMS schema (`wms-schema.sql`) and accompanying documentation (`wms-doc.pdf`) used for reverse-engineering exercises.
+
+## Where to go from here
+
+`BrightGreen` is the base every other branch builds on. The branches that add material
+to it are described in the CrossModel knowledge base:
+
+- **[Tutorials](https://www.crossmodel.io/knowledgebase/tutorials/)** — step-by-step, starting from a `tutorials/…` branch
+- **[Examples](https://www.crossmodel.io/knowledgebase/examples/)** — finished workspaces on the `examples/…` branches
+
+In CrossModel you can clone any of them from the welcome page under
+**Tutorials & Examples**, without needing the repository URL.
