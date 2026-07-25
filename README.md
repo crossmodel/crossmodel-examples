@@ -32,7 +32,7 @@ BrightGreen/                        # CrossModel project
     entities/                       #     DWH entities (CustomerFullName, ...)
     mappings/                       #     Transformation mappings (source -> DWH)
 
-CrossGenerate/templates/            # Code generation templates
+BrightGreen/Generation/Templates/dbt/  # Code generation templates
   source_entity_model.sql           #   Template for source layer models
   entity_mapping.sql                #   Template for mapping layer models
   dwh_entity_model.sql              #   Template for DWH layer models
@@ -118,4 +118,4 @@ SELECT * FROM demo.customerfullname;
 
 - **Materialization:** The dbt project is configured in `dbt_project.yml` to materialize source and mapping models as views, and DWH models as tables. Adjust this to fit your needs.
 - **Add entities:** Define new source, DWH entities or mappings as `.cm` files, then re-run code generation to produce the corresponding dbt models.
-- **Templates:** The Nunjucks templates in `CrossGenerate/templates/` can be modified to change the generated SQL patterns.
+- **Templates:** The Nunjucks templates in `BrightGreen/Generation/Templates/dbt/` can be modified to change the generated SQL patterns.
