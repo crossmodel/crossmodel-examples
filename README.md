@@ -26,3 +26,12 @@ Includes are resolved by Nunjucks relative to the main template's directory.
 5. Set output filename pattern to `{{datamodel.id}}.md`.
 6. Set output directory, e.g. `Generation/Output/Documentation`.
 7. Generate — the resulting markdown includes a table of contents and sections for entities, relationships and mappings.
+
+## Documentation
+
+This example is written up in the CrossModel knowledge base, with the background and
+context that does not belong in a README:
+
+  **[Generating documentation](https://www.crossmodel.io/knowledgebase/examples/generating-documentation/)**
+
+See [Examples](https://www.crossmodel.io/knowledgebase/examples/) for the other ready-made workspaces.
