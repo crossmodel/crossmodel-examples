@@ -1,6 +1,6 @@
-# BrightGreen — Configure and use the AI Assistants (finished result)
+# BrightGreen — Use the AI Assistants (finished result)
 
-This branch is the **finished result** of the [Configure and use the AI Assistants](https://www.crossmodel.io/knowledgebase/tutorials/configure-and-use-the-ai-assistants/) tutorial.
+This branch is the **finished result** of the [Use the AI Assistants](https://www.crossmodel.io/knowledgebase/tutorials/use-the-ai-assistants/) tutorial.
 Clone it to see what the tutorial produces, or to compare against your own work.
 
 > If you want to *do* the tutorial rather than read the answer, start from
@@ -8,13 +8,13 @@ Clone it to see what the tutorial produces, or to compare against your own work.
 
 ## Follow the tutorial
 
-  **https://www.crossmodel.io/knowledgebase/tutorials/configure-and-use-the-ai-assistants/**
+  **https://www.crossmodel.io/knowledgebase/tutorials/use-the-ai-assistants/**
 
 ## Getting this workspace
 
 In CrossModel, open the welcome page and use **Tutorials & Examples**:
 
-    examples  →  ai-assistants  →  configure-and-use
+    examples  →  ai-assistants  →  use
 
 Then press **Clone** and pick your `workspace` folder.
 
