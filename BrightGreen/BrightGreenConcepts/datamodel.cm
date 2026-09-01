@@ -1,0 +1,9 @@
+datamodel:
+    id: BrightGreen_Concepts
+    name: "BrightGreen Concepts"
+    description: "The shared business vocabulary: what BrightGreen means by a customer and an order, before anything is decided about storage"
+    type: conceptual
+    version: 1.0.0
+    crossmodel:
+        edition: professional
+        version: 1

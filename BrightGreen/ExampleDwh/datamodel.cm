@@ -13,6 +13,8 @@ datamodel:
         version: 1.0.0
       - datamodel: dwh-definitions
         version: 1.0.0
+      - datamodel: BrightGreen_Concepts
+        version: 1.0.0
     crossmodel:
         edition: professional
         version: 1

@@ -1,0 +1,10 @@
+relationship:
+    id: Customer_to_Order
+    name: "Customer to Order"
+    description: "A customer places orders"
+    parent: Customer
+    parentRole: "places"
+    parentCardinality: 1..1
+    child: Order
+    childRole: "is placed by"
+    childCardinality: 0..N

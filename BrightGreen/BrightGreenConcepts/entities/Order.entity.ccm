@@ -1,0 +1,8 @@
+entity:
+    id: Order
+    name: "Order"
+    description: "Something a customer asked BrightGreen to supply"
+    attributes:
+      - id: OrderReference
+        name: "Order Reference"
+        description: "How the customer and BrightGreen refer to this order"

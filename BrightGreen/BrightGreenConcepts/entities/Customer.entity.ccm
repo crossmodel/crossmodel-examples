@@ -1,0 +1,11 @@
+entity:
+    id: Customer
+    name: "Customer"
+    description: "Someone who has bought from BrightGreen, in any channel"
+    attributes:
+      - id: CustomerName
+        name: "Customer Name"
+        description: "The name the customer is known by"
+      - id: ContactDetails
+        name: "Contact Details"
+        description: "How BrightGreen reaches the customer"

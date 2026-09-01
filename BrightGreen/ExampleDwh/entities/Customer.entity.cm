@@ -3,6 +3,7 @@ entity:
     name: "Customer"
     description: "Represents a customer in the data warehouse"
     type: dwh-definitions.Formal_entity
+    realizes: BrightGreen_Concepts.Customer
     attributes:
       - id: ^id
         name: "Id"
@@ -12,6 +13,7 @@ entity:
       - id: Name
         name: "Name"
         description: "Customer name"
+        realizes: BrightGreen_Concepts.Customer.CustomerName
         datatype: "Text"
         length: 100
         mandatory: true
