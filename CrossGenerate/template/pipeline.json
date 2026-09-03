@@ -1,0 +1,303 @@
+{#-
+   ============================================================================
+   Microsoft Fabric Data Pipeline (pipeline.json) generator.
+
+   Model scope : DataModel (the root of the context is the datamodel itself,
+                 i.e. the structure of model.json in this folder).
+                 When rendering against an unscoped model, use the model scope
+                 '$.datamodel'.
+   Engine      : nunjucks
+
+   For every distinct source entity used by the mappings of this data model the
+   template generates two Copy activities:
+
+     1. staging_<entity>  seed CSV file (lakehouse)   -> staging.<entity>
+     2. load_<entity>     staging.<entity> (typed)    -> <target schema>.<Entity>
+
+   All connection / environment specific information is defined as variables in
+   the CONNECTION SETTINGS block below.
+   ============================================================================
+-#}
+{#- ========================= CONNECTION SETTINGS ========================== -#}
+{#- Fabric workspace that hosts both the lakehouse and the SQL database -------#}
+{%- set workspaceId              = "4beef1d5-1894-43e7-a711-f9aaeb82596a" -%}
+{#- Source lakehouse holding the seed files ---------------------------------#}
+{%- set lakehouseGuid			 = "3333faa3-c704-45e0-b62a-de4415af73dc" -%}
+{%- set seedsParameterName       = "seeds" -%}
+{%- set seedsLinkedServiceName   = "seeds" -%}
+{%- set seedsRootFolder          = "Files" -%}
+{%- set seedsFolderPath          = "seeds" -%}
+{%- set seedsFilePrefix          = "seed_" -%}
+{%- set seedsFileExtension       = ".csv" -%}
+{%- set seedsColumnDelimiter     = "," -%}
+{#- Target Fabric SQL database ---------------------------------------------#}
+{%- set sqlParameterName         = "xmodel" -%}
+{%- set sqlConnectionName        = "xmodel" -%}
+{%- set sqlDatasetGuid			 = "352fe98c-9f3f-432b-88e6-d8f9c9d50934" -%}
+{%- set sqlExternalConnectionId  = "97b2f45e-4940-40dd-82fd-b15e20a6f0ff" -%}
+{%- set stagingSchema            = "staging" -%}
+{%- set targetSchema             = "SourceVault" -%}
+{#- Pipeline / activity settings -------------------------------------------#}
+{%- set pipelineName             = "Pipeline" -%}
+{%- set pipelineGuid			 = "5b734306-b391-46d2-90aa-90187aa89f4b" -%}
+{%- set activityTimeout          = "0.12:00:00" -%}
+{%- set activityRetryCount       = 0 -%}
+{%- set activityRetryInterval    = 30 -%}
+{%- set queryTimeout             = "02:00:00" -%}
+{%- set lastModifiedByObjectId   = "a0a4d987-4842-4d7e-940d-f0ea8e00e70e" -%}
+{%- set lastPublishTime          = "2026-07-17T16:32:27Z" -%}
+{#- ========================== TYPE CONVERSION ============================= -#}
+{#- CrossModel datatype -> SQL physical type --------------------------------#}
+{%- set sqlTypeMap = {
+      "Text": "varchar",
+      "Boolean": "bit",
+      "Integer": "int",
+      "Decimal": "decimal",
+      "Date": "date",
+      "Time": "time",
+      "DateTime": "datetime2",
+      "Guid": "uniqueidentifier",
+      "Binary": "varbinary",
+      "Location": "varchar"
+   } -%}
+{#- CrossModel datatype -> Data Factory logical type ------------------------#}
+{%- set adfTypeMap = {
+      "Text": "String",
+      "Boolean": "Boolean",
+      "Integer": "Int32",
+      "Decimal": "Decimal",
+      "Date": "DateTime",
+      "Time": "DateTime",
+      "DateTime": "DateTime",
+      "Guid": "Guid",
+      "Binary": "ByteArray",
+      "Location": "String"
+   } -%}
+{%- set defaultTextLength        = 100 -%}
+{%- set defaultDecimalPrecision  = 18 -%}
+{%- set defaultDecimalScale      = 2 -%}
+{#- ======================== COLLECT SOURCE ENTITIES ======================= -#}
+{#- Every entity that is used as a source object in one of the mappings.     -#}
+{%- set sourceEntities = [] -%}
+{%- set seenEntities = [] -%}
+{%- for mapping in datamodel.mappings -%}
+   {%- for source in mapping.sources -%}
+      {%- set entity = source.entity -%}
+      {%- if entity and (entity._globalId or entity.id) not in seenEntities -%}
+         {%- set ignore = seenEntities.push(entity._globalId or entity.id) -%}
+         {%- set ignore = sourceEntities.push(entity) -%}
+      {%- endif -%}
+   {%- endfor -%}
+{%- endfor -%}
+{#- ============================== MACROS ================================== -#}
+{#- Physical type properties of an attribute, e.g. "physicalType":"varchar","length":"100" -#}
+{%- macro physicalType(attribute) -%}
+"physicalType":"{{ sqlTypeMap[attribute.datatype] or "varchar" }}"
+{%- if attribute.datatype == "Text" or attribute.datatype == "Binary" or attribute.datatype == "Location" -%}
+,"length":"{{ attribute.length or defaultTextLength }}"
+{%- elif attribute.datatype == "Decimal" -%}
+,"precision":{{ attribute.precision or defaultDecimalPrecision }},"scale":{{ attribute.scale or defaultDecimalScale }}
+{%- endif -%}
+{%- endmacro -%}
+{#- SQL type incl. length/precision, used for CAST expressions --------------#}
+{%- macro sqlType(attribute) -%}
+{{ sqlTypeMap[attribute.datatype] or "varchar" }}
+{%- if attribute.datatype == "Text" or attribute.datatype == "Binary" or attribute.datatype == "Location" -%}
+({{ attribute.length or defaultTextLength }})
+{%- elif attribute.datatype == "Decimal" -%}
+({{ attribute.precision or defaultDecimalPrecision }},{{ attribute.scale or defaultDecimalScale }})
+{%- endif -%}
+{%- endmacro -%}
+{#- Lakehouse dataset holding the seed files (source of the staging activity) -#}
+{%- macro seedDataset(entity) -%}
+{
+   "annotations":[],
+   "linkedService":{
+      "name":"{{ seedsLinkedServiceName }}",
+      "properties":{
+         "annotations":[],
+         "type":"Lakehouse",
+         "typeProperties":{
+            "workspaceId":"{{ workspaceId }}",
+            "artifactId": "{{ lakehouseGuid }}",
+            "rootFolder":"{{ seedsRootFolder }}"
+         }
+      }
+   },
+   "type":"DelimitedText",
+   "typeProperties":{
+      "location":{
+         "type":"LakehouseLocation",
+         "fileName":"{{ seedsFilePrefix }}{{ entity.id | lower }}{{ seedsFileExtension }}",
+         "folderPath":"{{ seedsFolderPath }}"
+      },
+      "columnDelimiter":"{{ seedsColumnDelimiter }}",
+      "escapeChar":"\\",
+      "firstRowAsHeader":true,
+      "quoteChar":"\""
+   },
+   "schema":[]
+}
+{%- endmacro -%}
+{#- Fabric SQL database dataset for the given schema / table ----------------#}
+{%- macro sqlDataset(schema, table) -%}
+{
+   "annotations":[],
+   "connectionSettings":{
+      "name":"{{ sqlConnectionName }}",
+      "properties":{
+         "annotations":[],
+         "type":"FabricSqlDatabase",
+         "typeProperties":{
+            "workspaceId":"{{ workspaceId }}",
+            "artifactId":"{{ sqlDatasetGuid }}"
+         },
+         "externalReferences":{
+            "connection":"{{ sqlExternalConnectionId }}"
+         }
+      }
+   },
+   "type":"FabricSqlDatabaseTable",
+   "schema":[],
+   "typeProperties":{
+      "schema":"{{ schema }}",
+      "table":"{{ table }}"
+   }
+}
+{%- endmacro -%}
+{#- Activity execution policy ----------------------------------------------#}
+{%- macro activityPolicy() -%}
+{
+   "timeout":"{{ activityTimeout }}",
+   "retry":{{ activityRetryCount }},
+   "retryIntervalInSeconds":{{ activityRetryInterval }},
+   "secureOutput":false,
+   "secureInput":false
+}
+{%- endmacro -%}
+{#- Tabular translator type conversion settings -----------------------------#}
+{%- macro typeConversionSettings() -%}
+"typeConversion":true,
+"typeConversionSettings":{
+   "allowDataTruncation":true,
+   "treatBooleanAsNumber":false
+}
+{%- endmacro -%}
+{#- ============================== TEMPLATE ================================ -#}
+{
+	 "name":"{{ pipelineName }}",
+	 "objectId": "{{ pipelineGuid }}",
+	 "properties":{
+		"activities":[
+		{%- for entity in sourceEntities %}
+		{%- set stagingTable = entity.id | lower %}
+		   {
+			  "name":"staging_{{ stagingTable }}",
+			  "type":"Copy",
+			  "description":"Load {{ entity.name }} seed file into the staging area",
+			  "dependsOn":[],
+			  "policy":{{ activityPolicy() | indent(18) }},
+			  "typeProperties":{
+				 "source":{
+					"type":"DelimitedTextSource",
+					"storeSettings":{
+					   "type":"AzureBlobStorageReadSettings",
+					   "recursive":true,
+					   "enablePartitionDiscovery":false
+					},
+					"formatSettings":{
+					   "type":"DelimitedTextReadSettings"
+					},
+					"datasetSettings":{{ seedDataset(entity) | indent(24) }}
+				 },
+				 "sink":{
+					"type":"FabricSqlDatabaseSink",
+					"preCopyScript":"IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[{{ stagingSchema }}].[{{ stagingTable }}]') AND type in (N'U'))\nDROP TABLE [{{ stagingSchema }}].[{{ stagingTable }}]",
+					"writeBehavior":"insert",
+					"sqlWriterUseTableLock":false,
+					"tableOption":"autoCreate",
+					"datasetSettings":{{ sqlDataset(stagingSchema, stagingTable) | indent(24) }}
+				 },
+				 "enableStaging":false,
+				 "translator":{
+					"type":"TabularTranslator",
+					"mappings":[
+					{%- for attribute in entity.attributes %}
+					   {
+						  "source":{
+							 "name":"{{ attribute.id }}",
+							 "type":"String",
+							 "physicalType":"String"
+						  },
+						  "sink":{
+							 "name":"{{ attribute.id }}",
+							 {{ physicalType(attribute) }}
+						  }
+					   }{% if not loop.last %},{% endif %}
+					{%- endfor %}
+					],
+					{{ typeConversionSettings() | indent(24) }}
+				 }
+			  }
+		   },
+		   {
+			  "name":"load_{{ stagingTable }}",
+			  "type":"Copy",
+			  "description":"Load {{ entity.name }} from the staging area into {{ targetSchema }}",
+			  "dependsOn":[
+				 {
+					"activity":"staging_{{ stagingTable }}",
+					"dependencyConditions":[
+					   "Succeeded"
+					]
+				 }
+			  ],
+			  "policy":{{ activityPolicy() | indent(18) }},
+			  "typeProperties":{
+				 "source":{
+					"type":"FabricSqlDatabaseSource",
+					"sqlReaderQuery":"SELECT
+					{%- for attribute in entity.attributes -%}
+					   {%- if attribute.datatype == "Text" %}\n    {{ attribute.id }}
+					   {%- else %}\n    CAST({{ attribute.id }} as {{ sqlType(attribute) | upper }}) AS {{ attribute.id }}
+					   {%- endif %}{% if not loop.last %},{% endif %}
+					{%- endfor %}\nFROM {{ stagingSchema }}.{{ stagingTable }}",
+					"queryTimeout":"{{ queryTimeout }}",
+					"partitionOption":"None",
+					"datasetSettings":{{ sqlDataset(stagingSchema, stagingTable) | indent(24) }}
+				 },
+				 "sink":{
+					"type":"FabricSqlDatabaseSink",
+					"writeBehavior":"insert",
+					"sqlWriterUseTableLock":false,
+					"datasetSettings":{{ sqlDataset(targetSchema, entity.id) | indent(24) }}
+				 },
+				 "enableStaging":false,
+				 "translator":{
+					"type":"TabularTranslator",
+					"mappings":[
+					{%- for attribute in entity.attributes %}
+					   {
+						  "source":{
+							 "name":"{{ attribute.id }}",
+							 "type":"{{ adfTypeMap[attribute.datatype] or "String" }}",
+							 {{ physicalType(attribute) }}
+						  },
+						  "sink":{
+							 "name":"{{ attribute.id }}",
+							 {{ physicalType(attribute) }}
+						  }
+					   }{% if not loop.last %},{% endif %}
+					{%- endfor %}
+					],
+					{{ typeConversionSettings() | indent(24) }}
+				 }
+			  }
+		   }{% if not loop.last %},{% endif %}
+		{%- endfor %}
+		],
+		"lastModifiedByObjectId":"{{ lastModifiedByObjectId }}",
+		"lastPublishTime":"{{ lastPublishTime }}"
+	 },
+	 "dependsOn":[]
+  }

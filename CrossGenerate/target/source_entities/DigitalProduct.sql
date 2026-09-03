@@ -1,9 +1,9 @@
 CREATE TABLE SourceVault.DigitalProduct (
     ProductID INT,
-    EANCode VARCHAR,
-    Description VARCHAR,
-    ItemPrice DECIMAL,
-    ActivationURL VARCHAR,
+    EANCode VARCHAR(MAX),
+    Description VARCHAR(MAX),
+    ItemPrice DECIMAL(, ),
+    ActivationURL VARCHAR(MAX),
     ExpirationPeriodInDays INT
 );
 GO

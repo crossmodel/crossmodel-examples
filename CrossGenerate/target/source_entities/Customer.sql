@@ -1,9 +1,9 @@
 CREATE TABLE SourceVault.Customer (
     CustomerID INT NOT NULL,
-    FirstName VARCHAR,
-    LastName VARCHAR,
+    FirstName VARCHAR(MAX),
+    LastName VARCHAR(MAX),
     DateOfBirth DATE,
-    EmailAddress VARCHAR,
+    EmailAddress VARCHAR(MAX),
         CONSTRAINT pk_Customer PRIMARY KEY (CustomerID)
 );
 GO

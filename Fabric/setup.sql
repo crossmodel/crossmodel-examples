@@ -1,5 +1,8 @@
 CREATE SCHEMA SourceVault
 GO;
 
+CREATE SCHEMA staging
+GO;
+
 CREATE SCHEMA dwh
 GO;
