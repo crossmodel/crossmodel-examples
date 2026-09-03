@@ -123,6 +123,6 @@ You should see the full customer names as defined in the sample data.
 This example is written up in the CrossModel knowledge base, with the background and
 context that does not belong in a README:
 
-  **[Generating Snowflake SQL](https://www.crossmodel.io/knowledgebase/examples/generating-snowflake-sql/)**
+  **[Generating Snowflake SQL](https://help.crossmodel.io/examples/generating-snowflake-sql/)**
 
-See [Examples](https://www.crossmodel.io/knowledgebase/examples/) for the other ready-made workspaces.
+See [Examples](https://help.crossmodel.io/examples/) for the other ready-made workspaces.
