@@ -33,18 +33,18 @@ diagram:
             borderColor: "#7CCF35"
           - id: DigitalProduct
             entity: DigitalProduct
-            x: -70
-            y: 570
-            width: 221.1290864944458
-            height: 154.09090423583984
+            x: -100
+            y: 580
+            width: 236.91476583480835
+            height: 172.27272415161133
             backgroundColor: "#D8F999"
             borderColor: "#7CCF35"
           - id: PhysicalProduct
             entity: PhysicalProduct
-            x: 220
+            x: 250
             y: 570
             width: 175
-            height: 194.40223026275635
+            height: 215.36363220214844
             backgroundColor: "#D8F999"
             borderColor: "#7CCF35"
     edges:
@@ -61,3 +61,10 @@ diagram:
             relationship: Product_SalesOrderLine
             sourceNode: Product
             targetNode: SalesOrderLine
+        inheritanceEdges:
+          - id: PhysicalProductInheritanceEdge
+            baseNode: PhysicalProduct
+            superNode: Product
+          - id: DigitalProductInheritanceEdge
+            baseNode: DigitalProduct
+            superNode: Product

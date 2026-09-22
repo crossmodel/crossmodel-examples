@@ -1,0 +1,78 @@
+{# 
+  Nunjucks template for generating JSON Schema for an entity.
+  Input: entity object with attributes and relationships.
+  Output: Valid JSON Schema with properties and child references.
+#}
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "{{ entity.name }}",
+  "type": "object",
+  "properties": {
+    {%- for attribute in entity.attributes %}
+    "{{ attribute.id | lower }}": {
+      {%- if attribute.datatype == "Text" %}
+      "type": "string"
+      {%- elif attribute.datatype == "Integer" %}
+      "type": "integer"
+      {%- elif attribute.datatype in ["Decimal", "Float"] %}
+      "type": "number"
+      {%- elif attribute.datatype == "Boolean" %}
+      "type": "boolean"
+      {%- elif attribute.datatype == "Date" %}
+      "type": "string",
+      "format": "date"
+      {%- elif attribute.datatype == "DateTime" %}
+      "type": "string",
+      "format": "date-time"
+      {%- elif attribute.datatype == "Time" %}
+      "type": "string",
+      "format": "time"
+      {%- elif attribute.datatype == "UUID" %}
+      "type": "string",
+      "format": "uuid"
+      {%- elif attribute.datatype == "Binary" %}
+      "type": "string",
+      "contentEncoding": "base64"
+      {%- elif attribute.datatype == "Duration" %}
+      "type": "string",
+      "format": "duration"
+      {%- else %}
+      "type": "string"
+      {%- endif %}
+      {%- if attribute.description %},
+      "description": "{{ attribute.description | replace('"', '\\"') }}"
+      {%- endif %}
+    },
+    {%- endfor %}
+    {%- for relationship in entity.$parent.relationships %}
+      {%- if relationship.parent.id == entity.id %}
+    {{ "," if loop.first and entity.attributes | length > 0 else "" }}"{{ relationship.child.id | lower }}s": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/{{ relationship.child.id }}"
+      }
+      {%- if relationship.description %},
+      "description": "{{ relationship.description | replace('"', '\\"') }}"
+      {%- endif %}
+    }{{ "," if not loop.last else "" }}
+      {%- endif %}
+    {%- endfor %}
+  }
+  {%- set mandatory_count = 0 %}
+  {%- for attribute in entity.attributes %}
+    {%- if attribute.mandatory %}
+      {%- set mandatory_count = mandatory_count + 1 %}
+    {%- endif %}
+  {%- endfor %}
+  {%- if mandatory_count > 0 %}
+  , "required": [
+    {%- set mandatory_index = 0 %}
+    {%- for attribute in entity.attributes %}
+      {%- if attribute.mandatory %}
+        {%- set mandatory_index = mandatory_index + 1 %}
+    "{{ attribute.id | lower }}"{{ "," if mandatory_index < mandatory_count else "" }}
+      {%- endif %}
+    {%- endfor %}
+  ]
+  {%- endif %}
+}

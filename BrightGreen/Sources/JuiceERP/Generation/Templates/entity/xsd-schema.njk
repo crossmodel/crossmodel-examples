@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  {# Define the complex type for the entity #}
+  <xs:complexType name="{{ entity.name }}Type">
+    <xs:sequence>
+      {# Include child entities as elements #}
+      {%- for relationship in entity.$parent.relationships -%}
+        {%- if relationship.parent.id == entity.id -%}
+          {# Pluralize the child entity name #}
+          {%- set childName = relationship.child.name -%}
+          {%- if childName.endsWith('s') or childName.endsWith('x') or childName.endsWith('z') or childName.endsWith('ch') or childName.endsWith('sh') -%}
+            {%- set pluralChildName = childName + 'es' %}
+          {%- else -%}
+            {%- set pluralChildName = childName + 's' %}
+          {%- endif -%}
+          <xs:element name="{{ pluralChildName }}" type="{{ relationship.child.name }}Type" minOccurs="0" maxOccurs="unbounded" />
+        {%- endif -%}
+      {%- endfor %}
+    </xs:sequence>
+    {# Include attributes #}
+    {%- for attribute in entity.attributes %}
+      <xs:attribute name="{{ attribute.id }}" type="{% if attribute.datatype == 'Text' %}xs:string{% elif attribute.datatype == 'Integer' %}xs:integer{% elif attribute.datatype == 'Decimal' %}xs:decimal{% elif attribute.datatype == 'Float' %}xs:float{% elif attribute.datatype == 'Date' %}xs:date{% elif attribute.datatype == 'DateTime' %}xs:dateTime{% elif attribute.datatype == 'Boolean' %}xs:boolean{% elif attribute.datatype == 'Binary' %}xs:base64Binary{% elif attribute.datatype == 'UUID' %}xs:string{% endif %}"{%- if attribute.mandatory %} use="required"{% else %} use="optional"{% endif %} />
+    {%- endfor %}
+  </xs:complexType>
+  {# Define the root element for the entity #}
+  <xs:element name="{{ entity.name }}" type="{{ entity.name }}Type" />
+</xs:schema>
