@@ -1,0 +1,31 @@
+conceptualDiagram:
+    id: BrightGreen_Concepts
+    nodes:
+        conceptualEntityNodes:
+          - id: CustomerNode
+            entity: Customer
+            x: 40
+            y: 60
+            width: 143
+            height: 85
+          - id: OrderNode
+            entity: Order
+            x: 380
+            y: 70
+            width: 144
+            height: 64
+        noteNodes:
+          - id: NoteNode
+            text: |
+                Every order belongs to exactly one customer.
+                Agreed with Sales and Finance.
+            x: 200
+            y: 200
+            width: 220
+            height: 90
+    edges:
+        conceptualRelationshipEdges:
+          - id: ConceptualRelationshipEdge_CustomerNode_OrderNode
+            relationship: BrightGreen_Concepts.Customer_to_Order
+            sourceNode: CustomerNode
+            targetNode: OrderNode
