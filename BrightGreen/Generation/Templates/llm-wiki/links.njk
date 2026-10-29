@@ -1,0 +1,18 @@
+{#-
+  links.njk
+  =========
+  Macros shared by the LLM Wiki templates. Import with:
+    {% import "links.njk" as wiki %}
+
+  Links are path-qualified ([[<datamodel>/entities/<entity>|label]]) because
+  entity ids repeat across data models (Warehouse exists in WMS, OptimalERP
+  and the DWH). Generate every data model into the same wiki root so the
+  paths resolve.
+-#}
+
+{#- Link to an entity page. `dmId` is the owning data model id; for a
+    cross-referenced entity that is `ent.$parent.id`. Set `inTable` inside a
+    markdown table, where the alias pipe must be escaped. -#}
+{%- macro entity(ent, dmId, label, inTable) -%}
+[[{{ dmId }}/entities/{{ ent.id }}{{ "\\|" if inTable else "|" }}{{ label or ent.name }}]]
+{%- endmacro -%}

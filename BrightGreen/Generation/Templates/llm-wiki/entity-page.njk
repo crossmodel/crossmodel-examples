@@ -1,0 +1,120 @@
+{#-
+  entity-page.njk
+  ===============
+  Renders one LLM Wiki page for a single logical entity: frontmatter for the
+  agent to filter on, the definition, an attribute table with definitions,
+  relationships as [[wiki links]] and lineage from mappings.
+
+  Usage:
+    Engine:      Nunjucks
+    Model type:  Logical Entity            (root variable: entity)
+    Output file: {{entity.id}}.md
+    Output dir:  Generation/Output/llm-wiki/<data model id>/entities
+
+  Model -> wiki mapping:
+    entity              -> one page
+    attributes[]        -> table with definitions
+    relationships       -> links between pages
+    customProperties    -> frontmatter
+    mappings            -> lineage section
+
+  Relationships and mappings live on the data model, not on the entity. The
+  page reaches them through `entity.$parent` (the owning data model). If that
+  is not available, both sections are left out and the rest of the page still
+  renders.
+
+  Nunjucks scopes `set` to the loop body, so matches are collected with
+  `array.push()` (which mutates the outer array) before anything is rendered.
+-#}
+{%- import "links.njk" as wiki -%}
+{%- set dm = entity.$parent -%}
+
+{%- set pk = [] -%}
+{%- for identifier in entity.identifiers -%}
+  {%- if identifier.primary -%}
+    {%- for attr in identifier.attributes -%}{%- if pk.push(attr.name) -%}{%- endif -%}{%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- set rels = [] -%}
+{%- set loads = [] -%}
+{%- if dm -%}
+  {%- for rel in dm.relationships -%}
+    {%- if rel.parent.id == entity.id or rel.child.id == entity.id -%}{%- if rels.push(rel) -%}{%- endif -%}{%- endif -%}
+  {%- endfor -%}
+  {%- for mapping in dm.mappings -%}
+    {%- if mapping.target.entity.id == entity.id -%}{%- if loads.push(mapping) -%}{%- endif -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+---
+type: entity
+id: {{ entity.id }}
+name: "{{ entity.name }}"
+{%- if dm and dm.id %}
+datamodel: {{ dm.id }}
+{%- if dm.name %}
+datamodel_name: "{{ dm.name }}"
+{%- endif %}
+{%- if dm.version %}
+version: {{ dm.version }}
+{%- endif %}
+{%- endif %}
+{%- if pk | length %}
+primary_key: [{{ pk | join(", ") }}]
+{%- endif %}
+{%- for parent in entity.inherits %}
+{%- if loop.first %}
+inherits:
+{%- endif %}
+  - "{{ wiki.entity(parent, parent.$parent.id) }}"
+{%- endfor %}
+{%- for key, value in entity.customProperties %}
+{%- if key != "$allowedValues" %}
+{{ key }}: "{{ value }}"
+{%- endif %}
+{%- endfor %}
+source: crossmodel
+---
+
+# {{ entity.name }}
+
+{% if entity.description -%}
+{{ entity.description }}
+{%- else -%}
+_No definition yet. Ask a domain expert before relying on this entity._
+{%- endif %}
+
+## Attributes
+
+| Attribute | Type | Required | Key | Definition |
+|:----------|:-----|:--------:|:---:|:-----------|
+{%- for attr in entity.attributes %}
+| {{ attr.name }} | {{ attr.datatype }}{% if attr.length %}({{ attr.length }}){% elif attr.precision %}({{ attr.precision }}{% if attr.scale %},{{ attr.scale }}{% endif %}){% endif %} | {% if attr.mandatory %}yes{% else %}no{% endif %} | {% if attr._isPrimaryIdentifier %}PK{% endif %} | {{ attr.description | default("_undefined_", true) }} |
+{%- endfor %}
+{%- if rels | length %}
+
+## Relationships
+{% for rel in rels %}
+{% if rel.parent.id == entity.id -%}
+- **{{ rel.childCardinality }}** {{ wiki.entity(rel.child, dm.id, rel.childRole) }} per {{ entity.name }} ({{ rel.name }}){% if rel.description %}: {{ rel.description }}{% endif %}
+{%- else -%}
+- **{{ rel.parentCardinality }}** {{ wiki.entity(rel.parent, dm.id, rel.parentRole) }} per {{ entity.name }} ({{ rel.name }}){% if rel.description %}: {{ rel.description }}{% endif %}
+{%- endif %}
+{%- for pair in rel.attributes %}
+  - join: `{{ rel.child.name }}.{{ pair.child.name }}` = `{{ rel.parent.name }}.{{ pair.parent.name }}`
+{%- endfor %}
+{%- endfor %}
+{%- endif %}
+{%- if loads | length %}
+
+## Lineage
+{% for mapping in loads %}
+- Loaded by mapping `{{ mapping.id }}` from {% for src in mapping.sources %}{{ wiki.entity(src.entity, src.entity.$parent.id, src.entity._globalId) }} as `{{ src.id }}`{% if not loop.last %}, {% endif %}{% endfor %}
+{%- for am in mapping.target.mappings %}
+  - {{ am.attribute.value.name }} ← {% if am.expressions | length %}{% for expr in am.expressions %}`{{ expr.expression }}`{% endfor %}{% else %}{% for src in am.sources %}`{{ src.value.$refText | replace("^", "") }}`{% if not loop.last %}, {% endif %}{% endfor %}{% endif %}
+{%- endfor %}
+{%- endfor %}
+{%- endif %}
+
+---
+_Generated from CrossModel{% if dm and dm.id %} model `{{ dm.id }}`{% endif %}. Do not edit this page by hand: change the model and regenerate._

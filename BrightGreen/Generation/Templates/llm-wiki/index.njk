@@ -1,0 +1,61 @@
+{#-
+  index.njk
+  =========
+  Renders the wiki's index.md: the entry point an agent reads first. One line
+  per entity page with its definition, then the relationships as a compact map.
+
+  Usage:
+    Engine:      Nunjucks
+    Model type:  Data Model                (root variable: datamodel)
+    Output file: index.md
+    Output dir:  Generation/Output/llm-wiki/<data model id>
+-#}
+{%- import "links.njk" as wiki -%}
+---
+type: index
+datamodel: {{ datamodel.id }}
+name: "{{ datamodel.name }}"
+{%- if datamodel.version %}
+version: {{ datamodel.version }}
+{%- endif %}
+{%- for key, value in datamodel.customProperties %}
+{%- if key != "$allowedValues" %}
+{{ key }}: "{{ value }}"
+{%- endif %}
+{%- endfor %}
+entities: {{ datamodel.entities | length }}
+relationships: {{ datamodel.relationships | length }}
+source: crossmodel
+---
+
+# {{ datamodel.name }}
+
+{% if datamodel.description %}{{ datamodel.description }}
+
+{% endif -%}
+Read `schema.md` first for how to use this wiki. Each entity has its own page under `entities/`.
+
+## Entities
+
+{% for entity in datamodel.entities -%}
+- {{ wiki.entity(entity, datamodel.id) }}{% if entity.description %}: {{ entity.description }}{% endif %}
+{% endfor %}
+{%- for rel in datamodel.relationships %}
+{%- if loop.first %}
+## Relationships
+
+| From | Cardinality | To | Relationship |
+|:-----|:-----------:|:---|:-------------|
+{%- endif %}
+| {{ wiki.entity(rel.parent, datamodel.id, null, true) }} | {{ rel.parentCardinality }} : {{ rel.childCardinality }} | {{ wiki.entity(rel.child, datamodel.id, null, true) }} | {{ rel.name }} |
+{%- endfor %}
+{%- for dep in datamodel.dependencies %}
+{%- if loop.first %}
+
+## Depends on
+{% endif %}
+- [[{{ dep.datamodel.id }}/index|{{ dep.datamodel.name or dep.datamodel.id }}]]{% if dep.version %} ({{ dep.version }}){% endif %}
+{%- endfor %}
+
+---
+_Generated from CrossModel model `{{ datamodel.id }}`. Do not edit this page by hand: change the model and regenerate._
