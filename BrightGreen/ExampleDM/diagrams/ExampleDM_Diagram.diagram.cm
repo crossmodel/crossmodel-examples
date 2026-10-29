@@ -1,46 +1,51 @@
-diagram:
-    id: ExampleDM_Diagram
-    nodes:
-      entityNodes:
+logicalDiagram:
+  id: ExampleDM_Diagram
+  nodes:
+    logicalEntityNodes:
       - id: SalesNode
         entity: Sales
         x: 234.83333587646484
         y: 190.5
         width: 172.83333587646484
         height: 190
-        backgroundColor: "#d274ec"
-        borderWeight: 0
+        style:
+          backgroundColor: "#d274ec"
+          borderWeight: 0
       - id: CustomerNode
         entity: Customer
         x: 450
         y: 50
         width: 165.6666717529297
         height: 85
-        backgroundColor: "#fec35d"
+        style:
+          backgroundColor: "#fec35d"
       - id: ProductNode
         entity: Product
         x: 10
         y: 370
         width: 159.1666717529297
         height: 127
-        backgroundColor: "#fec35d"
+        style:
+          backgroundColor: "#fec35d"
       - id: DateNode
         entity: Date
         x: 510
         y: 370
         width: 139.66666793823242
         height: 148
-        backgroundColor: "#fec35d"
+        style:
+          backgroundColor: "#fec35d"
       - id: WarehouseNode
         entity: Warehouse
         x: 12
         y: 12
         width: 172.83333587646484
         height: 106
-        backgroundColor: "#fec35d"
-        borderWeight: 0
-    edges:
-      relationshipEdges:
+        style:
+          backgroundColor: "#fec35d"
+          borderWeight: 0
+  edges:
+    logicalRelationshipEdges:
       - id: SalesCustomerEdge
         relationship: SalesCustomer
         sourceNode: CustomerNode
