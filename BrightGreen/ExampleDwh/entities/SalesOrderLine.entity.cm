@@ -26,16 +26,12 @@ entity:
   - id: UnitPrice
     name: "Unit Price"
     description: "Price per unit of the product at the time of the order"
-    datatype: "Decimal"
-    precision: 10
-    scale: 2
+    type: dwh-definitions.Amount
     mandatory: true
   - id: LineTotal
     name: "Line Total"
     description: "Total amount for this order line"
-    datatype: "Decimal"
-    precision: 10
-    scale: 2
+    type: dwh-definitions.Amount
     mandatory: true
   identifiers:
   - id: SalesOrderLinePrimaryKey

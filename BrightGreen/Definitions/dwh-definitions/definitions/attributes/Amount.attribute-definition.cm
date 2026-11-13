@@ -1,0 +1,7 @@
+attributeDefinition:
+    id: Amount
+    name: "Amount"
+    description: "A monetary amount, standardised across the data warehouse"
+    datatype: "Decimal"
+    precision: 10
+    scale: 2

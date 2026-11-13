@@ -53,9 +53,7 @@ entity:
       - id: CreditLimit
         name: "Credit Limit"
         description: "Customer credit limit"
-        datatype: "Decimal"
-        precision: 10
-        scale: 2
+        type: dwh-definitions.Amount
     identifiers:
       - id: CustomerPrimaryKey
         name: "Customer Primary Key"

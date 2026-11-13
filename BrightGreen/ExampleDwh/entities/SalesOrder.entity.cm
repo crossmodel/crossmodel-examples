@@ -17,9 +17,7 @@ entity:
       - id: TotalAmount
         name: "Total Amount"
         description: "Total amount of the sales order"
-        datatype: "Decimal"
-        precision: 10
-        scale: 2
+        type: dwh-definitions.Amount
         mandatory: true
       - id: CustomerId
         name: "Customer Id"

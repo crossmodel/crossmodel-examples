@@ -23,9 +23,7 @@ entity:
       - id: UnitPrice
         name: "Unit Price"
         description: "Unit price of the product"
-        datatype: "Decimal"
-        precision: 10
-        scale: 2
+        type: dwh-definitions.Amount
         mandatory: true
       - id: Category
         name: "Category"
