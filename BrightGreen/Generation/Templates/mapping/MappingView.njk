@@ -8,11 +8,14 @@ SELECT
 		{%- for expr in attributemapping.expressions %}
 	{{expr.expression | replace("{{","") | replace("}}","")}}
 		{%- endfor -%}
-	{%- else -%}
-		{#- If no expression is defined, output the source column(s) #}
+	{%- elif attributemapping.sources | length -%}
+		{#- If no expression is defined but sources are, output the source column(s) #}
 		{%- for src in attributemapping.sources %}
 	{{src.$refText}}
 		{%- endfor -%}
+	{%- else -%}
+		{#- Unmapped attribute: no expression and no sources, so output NULL #}
+	NULL
 	{%- endif %} AS {{attributemapping.attribute.id}}{% if not loop.last %},{% endif %}
 {%- endfor %}
 {#- Construct the FROM clause using the source objects defined in the mapping #}
